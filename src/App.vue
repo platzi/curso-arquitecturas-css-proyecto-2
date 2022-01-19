@@ -1,15 +1,23 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <hero-section/>
+  <my-portfolio />
+  <about-me />
+  <contact-section />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HeroSection from './components/index/HeroSection.vue'
+import MyPortfolio from './components/index/MyPortfolio.vue'
+import AboutMe from './components/index/AboutMe.vue'
+import ContactSection from './components/index/ContactSection.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HeroSection,
+    MyPortfolio,
+    AboutMe,
+    ContactSection
   }
 }
 </script>

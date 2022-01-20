@@ -29,24 +29,30 @@ export default {
     yPosition: 0,
   }),
   mounted() {
-    document.addEventListener('mousemove', this.getCursor)
+    document.addEventListener("mousemove", this.getCursor);
   },
   methods: {
     getCursor(event) {
-      console.log(event.clientX)
-      console.log(event.clientY)
-      return this.xPosition = event.clientX, this.yPosition = event.clientY
-    }
+      return (this.xPosition = event.clientX), (this.yPosition = event.clientY);
+    },
   },
   unmounted() {
-    document.removeEventListener('mousemove', this.getCursor)
-  }
+    document.removeEventListener("mousemove", this.getCursor);
+  },
 };
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
 #app {
   scroll-behavior: smooth;
+}
+.wrap {
+  padding: 0.75rem;
+  background: #3e5cb6;
+  background: -webkit-linear-gradient(bottom right, #3e5cb6, #d445e8);
+  background: -moz-linear-gradient(bottom right, #3e5cb6, #d445e8);
+  background: linear-gradient(to top left, #3e5cb6, #d445e8);
 }
 .section {
   width: 100%;

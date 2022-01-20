@@ -7,7 +7,7 @@
 
 <style scoped>
 .aboutMeSection {
-  background: violet;
+  /* background: violet; */
 }
 </style>
 

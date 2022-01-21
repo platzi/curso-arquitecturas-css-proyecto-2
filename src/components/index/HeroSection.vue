@@ -1,20 +1,52 @@
 <template>
   <div class="heroSection">
     <div class="title-container">
-      <h1 class="title">
-        Hi, I'm <span class="name">Luis</span>
-        Web
-        <span>Developer</span>
-      </h1>
+      <transition appear tag="title" @before-enter="beforeEnter" @enter="enter">
+        <h1 class="title">
+          Hi, I'm
+          <div class="name-container">
+            <transition-group tag="myName" class="myName">
+              <p v-for="(letter, index) in myName" :key="index">{{ letter }}</p>
+            </transition-group>
+            <p class="empty">:)</p>
+            <transition-group tag="myName" class="myLastname">
+              <p v-for="(letter, index) in myLastname" :key="index">
+                {{ letter }}
+              </p>
+            </transition-group>
+          </div>
+          Web
+          <span>Developer</span>
+        </h1>
+      </transition>
     </div>
   </div>
 </template>
 
 <script>
+import { ref } from "vue";
+import gsap from "gsap";
 export default {
   name: "HeroSection",
-  props: {
-    msg: String,
+  setup() {
+    const myName = ref(["L", "u", "i", "s"]);
+    const myLastname = ref(["R", "e", "y", "e", "s"]);
+
+    const beforeEnter = (el) => {
+      el.style.opacity = 0;
+      el.style.transform = "translateY(100px)";
+    };
+
+    const enter = (el, done) => {
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        onComplete: done,
+      });
+    };
+
+    return { myName, myLastname, beforeEnter, enter };
   },
 };
 </script>
@@ -35,16 +67,22 @@ export default {
   margin: 1.5rem;
   font-family: "Nunito", sans-serif;
 }
-.title .name {
-  display: block;
-  font-family: "Nunito", sans-serif;
-
-  white-space: nowrap;
-  border-right: 4px solid;
-  width: 4ch;
-
-  animation: typing 2s steps(4), blink 0.5s infinite step-end alternate;
-  overflow: hidden;
+.name-container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.myName,
+.myLastname {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.title p {
+  margin: 0;
+}
+.empty {
+  color: transparent
 }
 
 @keyframes typing {

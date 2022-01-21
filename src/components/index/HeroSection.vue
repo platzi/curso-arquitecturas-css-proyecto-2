@@ -54,7 +54,9 @@
         >
           <p>I'm enthusiastic Frontend Developer,
             <br>
-
+            Vuejs promoter in spanish,
+            <br>
+            and a project lover.
           </p>
         </transition>
       </div>
@@ -71,6 +73,10 @@ export default {
     const myName = ref(["L", "u", "i", "s"]);
     const myLastname = ref(["R", "e", "y", "e", "s"]);
 
+
+    //Se toma el titulo de la seccion
+    //animacion para aparecer al cargar la pagina
+    // de abajo hacia arriba
     const beforeEnter = (el) => {
       el.style.opacity = 0;
       el.style.transform = "translateY(100px)";
@@ -86,6 +92,9 @@ export default {
       });
     };
 
+
+    //animacion tanto del nombre como del apellido
+    // de derecha a izquierda
     const beforeNameIntro = (el) => {
       el.style.transform = "translateX(40vw)";
       el.style.opacity = 0
@@ -119,7 +128,7 @@ export default {
       });
     };
 
-
+    // aqui esta la animacion de mi presentacion inicial
     const beforeContentIntro = (el) => {
       el.style.opacity = 0;
       el.style.transform = "translateX(-164px)";

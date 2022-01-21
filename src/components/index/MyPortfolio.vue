@@ -6,7 +6,7 @@
 
 
 <style scoped>
-.portfolioSection {
+/* .portfolioSection {
   background: wheat;
-}
+} */
 </style>

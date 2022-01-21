@@ -6,7 +6,7 @@
 
 
 <style scoped>
-.contactSection {
+/* .contactSection {
   background: yellow;
-}
+} */
 </style>

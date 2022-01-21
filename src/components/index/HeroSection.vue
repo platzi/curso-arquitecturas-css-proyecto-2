@@ -52,10 +52,11 @@
           @enter="beforeContentIntro"
           @after-enter="contentIntro"
         >
-          <p>I'm enthusiastic Frontend Developer,
-            <br>
+          <p>
+            I'm enthusiastic Frontend Developer,
+            <br />
             Vuejs promoter in spanish,
-            <br>
+            <br />
             and a project lover.
           </p>
         </transition>
@@ -72,7 +73,6 @@ export default {
   setup() {
     const myName = ref(["L", "u", "i", "s"]);
     const myLastname = ref(["R", "e", "y", "e", "s"]);
-
 
     //Se toma el titulo de la seccion
     //animacion para aparecer al cargar la pagina
@@ -92,12 +92,11 @@ export default {
       });
     };
 
-
     //animacion tanto del nombre como del apellido
     // de derecha a izquierda
     const beforeNameIntro = (el) => {
       el.style.transform = "translateX(40vw)";
-      el.style.opacity = 0
+      el.style.opacity = 0;
     };
 
     const nameIntro = (el, done) => {
@@ -108,13 +107,13 @@ export default {
         opacity: 1,
         onComplete: done,
         delay: el.dataset.index * 0.1 + 0.3,
-        ease: "power1.out"
+        ease: "power1.out",
       });
     };
 
     const beforeLastnameIntro = (el) => {
       el.style.transform = "translateX(40vw)";
-      el.style.opacity = 0
+      el.style.opacity = 0;
     };
 
     const lastnameIntro = (el, done) => {
@@ -124,7 +123,7 @@ export default {
         onComplete: done,
         opacity: 1,
         delay: el.dataset.index * 0.2 + 0.6,
-        ease: "power1.out"
+        ease: "power1.out",
       });
     };
 

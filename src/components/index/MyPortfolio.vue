@@ -7,6 +7,6 @@
 
 <style scoped>
 .portfolioSection {
-  /* background: wheat; */
+  background: wheat;
 }
 </style>

@@ -48,11 +48,8 @@ export default {
   scroll-behavior: smooth;
 }
 .wrap {
-  padding: 0.75rem;
-  background: #3e5cb6;
-  background: -webkit-linear-gradient(bottom right, #3e5cb6, #d445e8);
-  background: -moz-linear-gradient(bottom right, #3e5cb6, #d445e8);
-  background: linear-gradient(to top left, #3e5cb6, #d445e8);
+  background: #8f032a;
+  background: linear-gradient(to top left, #8f032a, #b69d36);
 }
 .section {
   width: 100%;

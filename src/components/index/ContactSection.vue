@@ -7,6 +7,6 @@
 
 <style scoped>
 .contactSection {
-  /* background: yellow; */
+  background: yellow;
 }
 </style>

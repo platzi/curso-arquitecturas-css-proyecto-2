@@ -4,7 +4,7 @@
       <h2 class="portfolioTitle">My freelance portfolio</h2>
       <p>
         Let me show some of my freelance projects and how i have worked with
-        vuejs and nuxtjs, some of these projects are created with collaboration
+        vuejs and nuxtjs. Some of these projects are created with collaboration
         of amazing people and using incredible tools as Firebase or Storyblok
       </p>
     </div>

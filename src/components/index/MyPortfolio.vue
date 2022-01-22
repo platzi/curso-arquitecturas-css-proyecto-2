@@ -17,8 +17,8 @@
 }
 .portfolioContent {
   display: flex;
-  justify-content: end;
-  align-items: end;
+  justify-content: flex-end;
+  align-items: flex-end;
   flex-direction: column;
   padding: 2rem 2.25rem;
 }

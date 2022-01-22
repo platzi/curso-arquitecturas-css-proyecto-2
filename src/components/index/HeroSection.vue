@@ -169,7 +169,7 @@ export default {
 .content-container {
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
   flex-direction: column;
   padding: 2rem 2.25rem;
   padding-left: 5rem;
@@ -185,7 +185,7 @@ export default {
 }
 .name-container {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 }
 .myName,

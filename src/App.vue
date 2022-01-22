@@ -3,7 +3,7 @@
     <div class="general-container">
       <the-cursor :xCursorPosition="xPosition" :yCursorPosition="yPosition" />
       <hero-section class="section" />
-      <my-portfolio class="section" />
+      <my-portfolio />
       <about-me class="section" />
       <contact-section class="section" />
     </div>

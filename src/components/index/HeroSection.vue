@@ -180,7 +180,7 @@ export default {
 .title {
   font-size: 8rem;
   margin: auto;
-  color: #f5e6d7;
+  color: #d2dabf;
   font-family: "Nunito", sans-serif;
 }
 .name-container {
@@ -204,7 +204,7 @@ export default {
   font-family: "Nunito", sans-serif;
   padding: 0 0.75rem;
   font-size: 2rem;
-  color: #f5e6d7;
+  color: #a2a59f;
 }
 .empty {
   color: transparent;
@@ -218,6 +218,40 @@ export default {
 @keyframes blink {
   50% {
     border-color: transparent;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .content-container {
+    padding: 1.25rem 1rem;
+  }
+  .title {
+    font-size: 6rem;
+  }
+  .copywrite-container p {
+    font-size: 1.125rem;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .content-container {
+    padding: 1.25rem 1rem;
+  }
+  .title {
+    font-size: 4rem;
+  }
+  .copywrite-container p {
+    font-size: 1rem;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .content-container {
+    padding: 1rem 0.50rem;
+  }
+  .title {
+    font-size: 3.25rem;
+  }
+  .copywrite-container p {
+    font-size: 1rem;
   }
 }
 </style>

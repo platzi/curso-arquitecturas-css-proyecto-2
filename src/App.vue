@@ -1,10 +1,12 @@
 <template>
   <div class="wrap">
-    <the-cursor :xCursorPosition="xPosition" :yCursorPosition="yPosition" />
-    <hero-section class="section" />
-    <my-portfolio class="section" />
-    <about-me class="section" />
-    <contact-section class="section" />
+    <div class="general-container">
+      <the-cursor :xCursorPosition="xPosition" :yCursorPosition="yPosition" />
+      <hero-section class="section" />
+      <my-portfolio class="section" />
+      <about-me class="section" />
+      <contact-section class="section" />
+    </div>
   </div>
 </template>
 
@@ -58,6 +60,11 @@ export default {
     rgba(228, 199, 95, 1) 80%,
     rgba(183, 157, 54, 1) 100%
   ); */
+}
+.general-container {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1440px;
 }
 .section {
   width: 100%;

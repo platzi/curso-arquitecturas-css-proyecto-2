@@ -48,8 +48,8 @@ export default {
   scroll-behavior: smooth;
 }
 .wrap {
-  background: rgb(228, 199, 95);
-  background: linear-gradient(
+  background: rgb(70, 77, 52);
+  /* background: linear-gradient(
     180deg,
     rgba(228, 199, 95, 1) 0%,
     rgba(143, 3, 42, 1) 20%,
@@ -57,7 +57,7 @@ export default {
     rgba(95, 116, 41, 1) 60%,
     rgba(228, 199, 95, 1) 80%,
     rgba(183, 157, 54, 1) 100%
-  );
+  ); */
 }
 .section {
   width: 100%;

@@ -233,9 +233,6 @@ export default {
   }
 }
 @media only screen and (max-width: 540px) {
-  .content-container {
-    padding: 1.25rem 1rem;
-  }
   .title {
     font-size: 4rem;
   }

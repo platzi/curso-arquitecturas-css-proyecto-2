@@ -40,6 +40,7 @@
   font-size: 1.75rem;
   width: 60%;
   color: #a2a59f;
+  text-align: right;
 }
 
 @media only screen and (max-width: 1024px) {

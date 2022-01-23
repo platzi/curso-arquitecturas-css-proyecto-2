@@ -5,6 +5,7 @@
       <hero-section class="section" />
       <my-portfolio />
       <my-stack class="" />
+      <about-me class="section" />
       <contact-section class="section" />
     </div>
   </div>
@@ -16,6 +17,7 @@ import MyPortfolio from "./components/index/MyPortfolio.vue";
 import MyStack from "./components/index/MyStack.vue";
 import ContactSection from "./components/index/ContactSection.vue";
 import TheCursor from "./components/global/TheCursor.vue";
+import AboutMe from "./components/index/AboutMe.vue";
 
 export default {
   name: "App",
@@ -25,6 +27,7 @@ export default {
     MyStack,
     ContactSection,
     TheCursor,
+    AboutMe,
   },
   data: () => ({
     xPosition: 0,
@@ -49,6 +52,10 @@ export default {
 #app {
   overflow: hidden;
 }
+#app h2 {
+  color: #f5e6d7;
+}
+
 .wrap {
   background: rgb(70, 77, 52);
   /* background: linear-gradient(
@@ -69,5 +76,18 @@ export default {
 .section {
   width: 100%;
   height: 100vh;
+  padding: 2rem 2.25rem;
+}
+
+@media only screen and (max-width: 1024px) {
+  .section {
+    padding: 1.25rem 1rem;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .section {
+    padding: 1rem 0.5rem;
+  }
 }
 </style>

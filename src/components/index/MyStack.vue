@@ -16,8 +16,8 @@
           </li>
         </ul>
         <p>
-          I am glad to let you know i consider myself an eternal student,
-          for that reason, now i am currently learning about these:
+          I am glad to let you know i consider myself an eternal student, for
+          that reason, now i am currently learning about these:
         </p>
         <ul>
           <li v-for="(element, index) in elementalStack" :key="index">
@@ -90,7 +90,7 @@ export default {
 
 .myStackSection--container p {
   color: #a2a59f;
-  font-size: 1.50rem;
+  font-size: 1.5rem;
 }
 .myStackSection--container ul {
   margin-bottom: 1.5rem;
@@ -100,15 +100,33 @@ export default {
 }
 
 @media only screen and (max-width: 1024px) {
+  .myStackSection--container h2 {
+    font-size: 4rem;
+  }
+  .myStackSection--container p {
+    font-size: 1.5rem;
+  }
 }
 @media only screen and (max-width: 540px) {
   .myStackSection--container {
     padding: 1rem 0.75rem;
   }
+  .myStackSection--container h2 {
+    font-size: 3rem;
+  }
+  .myStackSection--container p {
+    font-size: 1rem;
+  }
 }
 @media only screen and (max-width: 375px) {
   .myStackSection--container {
     padding: 1rem 0.5rem;
+  }
+  .myStackSection--container h2 {
+    font-size: 2rem;
+  }
+  .myStackSection--container p {
+    font-size: 0.75rem;
   }
 }
 </style>

@@ -202,7 +202,7 @@ export default {
   margin: 0;
   font-weight: 600;
   font-family: "Nunito", sans-serif;
-  padding: 0 0.75rem;
+  padding: 0 0.5rem;
   font-size: 2rem;
   color: #a2a59f;
 }

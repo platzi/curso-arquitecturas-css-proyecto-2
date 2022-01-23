@@ -1,0 +1,60 @@
+<template>
+  <div class="aboutMeSection">
+    <div class="aboutMeSection--container">
+      <div class="aboutMeSection--container__content">
+        <h2>About Me</h2>
+        <p>
+          I have participated around the world for social-profit projects in
+          university contest and i had been part of and multidisciplinary groups
+          for academic researches.
+        </p>
+        <br />
+        <p>
+          Thanks fot those experiences i love llokinf for better ways to improve
+          myself and help people to find their hiden potential.
+        </p>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.aboutMeSection--container {
+  width: 75%;
+}
+.aboutMeSection--container h2,
+.aboutMeSection--container p {
+  font-family: "Nunito";
+}
+.aboutMeSection--container h2 {
+  font-size: 6rem;
+}
+.aboutMeSection--container p {
+  font-size: 1.75rem;
+}
+
+@media only screen and (max-width: 1024px) {
+  .aboutMeSection--container h2 {
+    font-size: 4rem;
+  }
+  .aboutMeSection--container p {
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .aboutMeSection--container h2 {
+    font-size: 4rem;
+  }
+  .aboutMeSection--container p {
+    font-size: 1rem;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .aboutMeSection--container h2 {
+    font-size: 4rem;
+  }
+  .aboutMeSection--container p {
+    font-size: 0.75rem;
+  }
+}
+</style>

@@ -4,7 +4,7 @@
       <the-cursor :xCursorPosition="xPosition" :yCursorPosition="yPosition" />
       <hero-section class="section" />
       <my-portfolio />
-      <about-me class="" />
+      <my-stack class="" />
       <contact-section class="section" />
     </div>
   </div>
@@ -13,7 +13,7 @@
 <script>
 import HeroSection from "./components/index/HeroSection.vue";
 import MyPortfolio from "./components/index/MyPortfolio.vue";
-import AboutMe from "./components/index/AboutMe.vue";
+import MyStack from "./components/index/MyStack.vue";
 import ContactSection from "./components/index/ContactSection.vue";
 import TheCursor from "./components/global/TheCursor.vue";
 
@@ -22,7 +22,7 @@ export default {
   components: {
     HeroSection,
     MyPortfolio,
-    AboutMe,
+    MyStack,
     ContactSection,
     TheCursor,
   },

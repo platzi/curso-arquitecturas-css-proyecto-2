@@ -1,8 +1,8 @@
 <template>
-  <div class="aboutMeSection">
-    <div class="aboutMeSection--container">
+  <div class="myStackSection">
+    <div class="myStackSection--container">
       <h2>Me and my techies Skills</h2>
-      <div class="aboutMeSection--container__content">
+      <div class="myStackSection--container__content">
         <p>My personal preferred techonolgies are:</p>
         <ul>
           <li v-for="(technology, index) in technologies" :key="index">
@@ -64,50 +64,50 @@ export default {
 </script>
 
 <style scoped>
-.aboutMeSection {
+.myStackSection {
   margin: 3rem 0;
 }
-.aboutMeSection--container {
+.myStackSection--container {
   padding: 2rem 2.25rem;
 }
 
-.aboutMeSection--container__content {
+.myStackSection--container__content {
   width: 60%;
 }
 
-.aboutMeSection--container h2,
-.aboutMeSection--container p,
-.aboutMeSection--container li {
+.myStackSection--container h2,
+.myStackSection--container p,
+.myStackSection--container li {
   font-family: "Nunito";
   width: 60%;
 }
 
-.aboutMeSection--container h2 {
+.myStackSection--container h2 {
   color: #f5e6d7;
   font-size: 6rem;
   width: 75%;
 }
 
-.aboutMeSection--container p {
+.myStackSection--container p {
   color: #a2a59f;
   font-size: 1.50rem;
 }
-.aboutMeSection--container ul {
+.myStackSection--container ul {
   margin-bottom: 1.5rem;
 }
-.aboutMeSection--container li {
+.myStackSection--container li {
   margin-bottom: 0.75rem;
 }
 
 @media only screen and (max-width: 1024px) {
 }
 @media only screen and (max-width: 540px) {
-  .aboutMeSection--container {
+  .myStackSection--container {
     padding: 1rem 0.75rem;
   }
 }
 @media only screen and (max-width: 375px) {
-  .aboutMeSection--container {
+  .myStackSection--container {
     padding: 1rem 0.5rem;
   }
 }

@@ -4,7 +4,7 @@
       <the-cursor :xCursorPosition="xPosition" :yCursorPosition="yPosition" />
       <hero-section class="section" />
       <my-portfolio />
-      <about-me class="section" />
+      <about-me class="" />
       <contact-section class="section" />
     </div>
   </div>

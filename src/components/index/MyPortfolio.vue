@@ -32,15 +32,15 @@
   color: #f5e6d7;
   font-size: 6rem;
   margin: 0;
-  text-align: right;
-  width: 75%;
+  text-align: left;
+  width: 60%;
 }
 
 .portfolioContent p {
   font-size: 1.75rem;
   width: 60%;
   color: #a2a59f;
-  text-align: right;
+  text-align: left;
 }
 
 @media only screen and (max-width: 1024px) {

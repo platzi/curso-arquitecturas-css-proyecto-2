@@ -52,7 +52,7 @@
 }
 @media only screen and (max-width: 375px) {
   .aboutMeSection--container h2 {
-    font-size: 4rem;
+    font-size: 3rem;
   }
   .aboutMeSection--container p {
     font-size: 0.75rem;

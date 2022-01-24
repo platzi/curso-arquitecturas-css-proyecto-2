@@ -6,7 +6,7 @@
       <my-portfolio />
       <my-stack class="" />
       <about-me class="section" />
-      <contact-section class="section" />
+      <contact-section class="" />
     </div>
   </div>
 </template>
@@ -76,7 +76,7 @@ export default {
 .section {
   width: 100%;
   height: 100vh;
-  padding: 2rem 2.25rem;
+  padding: 2rem 2.125rem;
 }
 
 @media only screen and (max-width: 1024px) {

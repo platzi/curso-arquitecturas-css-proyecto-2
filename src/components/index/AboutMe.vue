@@ -10,7 +10,7 @@
         </p>
         <br />
         <p>
-          Thanks fot those experiences i love llokinf for better ways to improve
+          Thanks fot those experiences i love looking for better ways to improve
           myself and help people to find their hiden potential.
         </p>
       </div>
@@ -31,6 +31,7 @@
 }
 .aboutMeSection--container p {
   font-size: 1.75rem;
+  color: #a2a59f;
 }
 
 @media only screen and (max-width: 1024px) {

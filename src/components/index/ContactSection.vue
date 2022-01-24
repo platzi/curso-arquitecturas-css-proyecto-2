@@ -10,26 +10,45 @@
           </div>
           <div class="inputContainer">
             <label for="">Lastname</label>
-            <input type="text" name="lastname" />
+            <input type="text" name="lastname" placeholder="Doe" />
           </div>
         </div>
         <div class="form--emailContainer">
           <div class="inputContainer">
             <label for="">Email</label>
-            <input type="email" />
+            <input type="email" placeholder="johnDoe@cmail.com" />
           </div>
         </div>
         <div class="messageContainer">
           <div class="inputContainer">
             <label for="">Message</label>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
+            <textarea
+              name=""
+              id=""
+              cols="30"
+              rows="10"
+              placeholder="Let me know your amazing message and let's work together"
+            ></textarea>
           </div>
         </div>
-        <button class="formButton">Send</button>
+        <button class="formButton" @click.prevent="probando">Send</button>
       </form>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  setup() {
+    function probando() {
+      console.log('Estamos vivos')
+    }
+    return {
+      probando
+    }
+  }
+}
+</script>
 
 <style scoped>
 .contactSection {
@@ -38,6 +57,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 3rem 0 6rem 0;
 }
 .contactSection--container {
   background: rgba(95, 116, 41, 1);
@@ -106,11 +126,35 @@
   width: 100%;
   border: none;
   border-bottom: olivedrab 2px solid;
+  font-family: "Nunito";
+  font-size: 1.25rem;
+  color: #f5e6d7;
+}
+.form textarea::placeholder {
+  color: #a2a59f;
 }
 .form textarea:focus {
   border: none;
   border-bottom: rgba(228, 199, 95, 1) 2px solid;
   outline: none;
+  font-size: 1.25rem;
+}
+.form button {
+  width: 100%;
+  color: #f5e6d7;
+  background: rgba(183, 157, 54, 1);
+  border-radius: 1rem;
+  padding: 1rem 0;
+  border: none;
+  font-family: "Nunito";
+  font-size: 1.5rem;
+  box-shadow: -6px 14px 18px -9px rgba(0, 0, 0, 0.64);
+  -webkit-box-shadow: -6px 14px 18px -9px rgba(0, 0, 0, 0.64);
+  -moz-box-shadow: -6px 14px 18px -9px rgba(0, 0, 0, 0.64);
+}
+.form button:active {
+  outline: none;
+  background: rgb(131, 114, 54);
 }
 @media only screen and (max-width: 1024px) {
 }

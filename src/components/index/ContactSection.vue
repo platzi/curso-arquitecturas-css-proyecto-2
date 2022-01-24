@@ -59,6 +59,10 @@ export default {
   align-items: center;
   padding: 3rem 0 6rem 0;
 }
+.contactSection h2 {
+  font-family: "Nunito";
+  font-size: 6rem;
+}
 .contactSection--container {
   background: rgba(95, 116, 41, 1);
   width: 80%;
@@ -157,12 +161,21 @@ export default {
   background: rgb(131, 114, 54);
 }
 @media only screen and (max-width: 1024px) {
+  .contactSection h2{
+    font-size: 4rem;
+  }
 }
 @media only screen and (max-width: 540px) {
+  .contactSection h2{
+    font-size: 3rem;
+  }
   .form--namesContainer {
     flex-wrap: wrap;
   }
 }
 @media only screen and (max-width: 375px) {
+  .contactSection h2{
+    font-size: 2rem;
+  }
 }
 </style>

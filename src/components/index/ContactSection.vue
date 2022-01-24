@@ -26,7 +26,7 @@
               name=""
               id=""
               cols="30"
-              rows="10"
+              rows="5"
               placeholder="Let me know your amazing message and let's work together"
             ></textarea>
           </div>

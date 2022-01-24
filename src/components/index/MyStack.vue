@@ -1,7 +1,7 @@
 <template>
   <div class="myStackSection">
     <div class="myStackSection--container">
-      <h2>Me and my techies Skills</h2>
+      <h2>My stack and Skills</h2>
       <div class="myStackSection--container__content">
         <p>My personal preferred techonolgies are:</p>
         <ul>

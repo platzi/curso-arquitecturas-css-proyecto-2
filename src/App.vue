@@ -1,6 +1,7 @@
 <template>
   <div class="wrap">
     <div class="general-container">
+      <the-header />
       <the-cursor :xCursorPosition="xPosition" :yCursorPosition="yPosition" />
       <hero-section class="section" />
       <my-portfolio />
@@ -18,6 +19,7 @@ import MyStack from "./components/index/MyStack.vue";
 import ContactSection from "./components/index/ContactSection.vue";
 import TheCursor from "./components/global/TheCursor.vue";
 import AboutMe from "./components/index/AboutMe.vue";
+import TheHeader from "../src/components/TheHeader.vue";
 
 export default {
   name: "App",
@@ -28,6 +30,7 @@ export default {
     ContactSection,
     TheCursor,
     AboutMe,
+    TheHeader,
   },
   data: () => ({
     xPosition: 0,
@@ -50,7 +53,7 @@ export default {
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300&display=swap");
 #app {
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 #app h2 {
   color: #f5e6d7;
@@ -72,6 +75,7 @@ export default {
   width: 100%;
   margin: 0 auto;
   max-width: 1440px;
+  position: relative;
 }
 .section {
   width: 100%;

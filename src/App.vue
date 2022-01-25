@@ -1,7 +1,7 @@
 <template>
   <div class="wrap">
+    <the-header />
     <div class="general-container">
-      <the-header />
       <the-cursor :xCursorPosition="xPosition" :yCursorPosition="yPosition" />
       <hero-section class="section" />
       <my-portfolio />

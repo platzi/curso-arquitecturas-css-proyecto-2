@@ -69,7 +69,8 @@ export default {
 }
 .header--container ul {
   display: flex;
-  width: 60%;
+  width: 45%;
+  max-width: 650px;
   padding: 0 1rem 0 0;
   justify-content: space-evenly;
   align-items: center;
@@ -112,13 +113,14 @@ export default {
 @media only screen and (max-width: 1440px) and (min-width: 1024px) {
   .header--container ul {
     width: 50%;
+    min-width: 560px;
   }
   .header--container ul li {
     font-size: 1rem;
     margin: 0 0;
   }
   .header--container .link span {
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
 }
 @media only screen and (max-width: 1024px) {
@@ -172,6 +174,9 @@ export default {
   .header--container {
     padding: 0 0 2rem 0;
   }
+  .header--container ul {
+    min-width: 180px;
+  }
   .header--container ul li {
     margin: 0.5rem 0 2rem 0.75rem;
     width: 100%;
@@ -180,7 +185,7 @@ export default {
     font-size: 1.125rem;
   }
   .header--container .link span {
-    font-size: 1.rem;
+    font-size: 1rem;
   }
 }
 </style>

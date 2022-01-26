@@ -21,6 +21,10 @@ export default {
   justify-content: center;
   align-items: center;
 }
+.button:active {
+  border: #f5e6d7 1px solid;
+  border-radius: 100%;
+}
 @media only screen and (max-width: 1024px) {
   .button {
     display: flex;

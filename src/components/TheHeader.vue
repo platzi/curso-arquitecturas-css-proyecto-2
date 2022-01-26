@@ -6,7 +6,7 @@
     }"
   >
     <div class="buttonContainer">
-      <burger-button @click="probando" />
+      <burger-button @click="getMenu" />
     </div>
     <nav class="header--container">
       <ul>
@@ -30,7 +30,7 @@ export default {
   setup() {
 
     const store = useStore()
-    const getMenu = computed(() => store.getters['config_drawer/getMenu']);
+    const isMenuOpen = computed(() => store.getters['config_drawer/getDrawer']);
 
     const menu = [
       { name: "home", link: "#" },
@@ -38,14 +38,20 @@ export default {
       { name: "aboutMe", link: "#" },
       { name: "contactMe", link: "#" },
     ];
-    function probando() {
-      console.log("Estamos vivos");
+    function getMenu() {
+      if(isMenuOpen.value) {
+        console.log('falso')
+        store.dispatch('config_drawer/activeDrawer', false)
+      } else {
+        console.log('verdad')
+        store.dispatch('config_drawer/activeDrawer', true)
+      }
     }
 
     return {
       menu,
-      probando,
-      getMenu
+      getMenu,
+      isMenuOpen
     };
   },
 };

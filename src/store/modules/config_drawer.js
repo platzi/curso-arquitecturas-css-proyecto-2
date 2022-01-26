@@ -1,35 +1,32 @@
 // the local state of the drawer
 
 const state = () => ({
-  isOpen: false,
+  drawerIsOpen: false,
 });
 
 const getters = {
   getDrawer(state) {
-    return state.isOpen;
+    return state.drawerIsOpen;
   },
 };
 
 const mutations = {
   // we are changing the drawer state according to the payload
   SHOW_DRAWER(state, Boolean) {
-    state.isOpen = Boolean;
-    console.log(Boolean);
+    state.drawerIsOpen = Boolean;
   },
 };
 
 const actions = {
   activeDrawer({ commit }, payload) {
-    console.log("estamo sne actions " + payload);
     commit("SHOW_DRAWER", payload);
   },
 };
-
 
 export default {
   namespaced: true,
   state,
   getters,
   mutations,
-  actions
-}
+  actions,
+};

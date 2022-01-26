@@ -6,7 +6,7 @@
     <nav class="header--container">
       <ul>
         <li v-for="(item, index) in menu" :key="index">
-          <router-link :to="item.link">
+          <router-link :to="item.link" class="link" >
             :to= "<span>{{ item.name }}</span
             >"
           </router-link>
@@ -75,7 +75,7 @@ export default {
   align-items: center;
 }
 
-.header--container ul li {
+.header--container .link {
   list-style-type: none;
   font-family: "Nunito";
   font-size: 1rem;
@@ -85,7 +85,7 @@ export default {
   color: rgba(183, 157, 54, 1);
 }
 
-.header--container ul li span {
+.header--container .link span {
   color: #f5e6d7;
   text-decoration: underline;
   font-size: 1rem;
@@ -96,11 +96,11 @@ export default {
 }
 
 @media only screen and (min-width: 1440px) {
-  .header--container ul li {
+  .header--container .link {
     font-size: 1.125rem;
     margin: 0.06rem;
   }
-  .header--container ul li span {
+  .header--container .link span {
     font-size: 1.25rem;
   }
 }
@@ -108,11 +108,11 @@ export default {
   .header--container ul {
     width: 50%;
   }
-  .header--container ul li {
+  .header--container .link {
     font-size: 1rem;
     margin: 0 0;
   }
-  .header--container ul li span {
+  .header--container .link span {
     font-size: 1.125rem;
   }
 }
@@ -148,20 +148,20 @@ export default {
     flex-direction: column;
     margin: 0;
   }
-  .header--container ul li {
+  .header--container .link {
     margin: 2rem 0 2rem 3rem;
     display: flex;
     justify-content: flex-start;
     width: 100%;
     font-size: 1.125rem;
   }
-  .header--container ul li span {
+  .header--container .link span {
     font-size: 1.5rem;
   }
 }
 
 @media only screen and (max-width: 540px) {
-  .header--container ul li {
+  .header--container .link {
     margin: 1.25rem 0 1.25rem 2rem;
   }
 }

@@ -1,5 +1,10 @@
 <template>
-  <header class="header">
+  <header
+    class="header"
+    :class="{
+      active: getMenu,
+    }"
+  >
     <div class="buttonContainer">
       <burger-button @click="probando" />
     </div>
@@ -17,10 +22,16 @@
 </template>
 
 <script>
+import { useStore } from "vuex";
+import { computed } from "vue";
 import BurgerButton from "./global/BurgerButton.vue";
 export default {
   components: { BurgerButton },
   setup() {
+
+    const store = useStore()
+    const getMenu = computed(() => store.getters['config_drawer/getMenu']);
+
     const menu = [
       { name: "home", link: "#" },
       { name: "portfolio", link: "#" },
@@ -34,6 +45,7 @@ export default {
     return {
       menu,
       probando,
+      getMenu
     };
   },
 };
@@ -142,6 +154,10 @@ export default {
       rgba(88, 0, 41, 1) 15%,
       rgba(77, 87, 49, 0.34217436974789917) 100%
     );
+    transition: all ease-in 300ms;
+  }
+  .isOpen {
+    left: right;
   }
   .buttonContainer {
     display: flex;

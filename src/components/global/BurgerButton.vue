@@ -1,5 +1,5 @@
 <template>
-  <button class="button">
+  <button class="button" @click="$emit('click', $event)">
     <div class="burgerButton">
       <div class="first" />
       <div class="second" />
@@ -11,8 +11,8 @@
 
 <script>
 export default {
-  name: 'BurgerButton'
-}
+  name: "BurgerButton",
+};
 </script>
 
 <style scoped>

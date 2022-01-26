@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="buttonContainer">
-      <burger-button/>
+      <burger-button @click="probando" />
     </div>
     <nav class="header--container">
       <ul>
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import BurgerButton from './global/BurgerButton.vue';
+import BurgerButton from "./global/BurgerButton.vue";
 export default {
   components: { BurgerButton },
   setup() {
@@ -27,9 +27,13 @@ export default {
       { name: "aboutMe", link: "#" },
       { name: "contactMe", link: "#" },
     ];
+    function probando() {
+      console.log("Estamos vivos");
+    }
 
     return {
       menu,
+      probando,
     };
   },
 };

@@ -1,5 +1,15 @@
 <template>
   <header class="header">
+    <div class="buttonContainer">
+      <button class="button">
+        <div class="burgerButton">
+          <div class="first" />
+          <div class="second" />
+          <div class="second--div" />
+          <div class="third" />
+        </div>
+      </button>
+    </div>
     <nav class="header--container">
       <ul>
         <li v-for="(item, index) in menu" :key="index">
@@ -19,8 +29,8 @@ export default {
     const menu = [
       { name: "home", link: "#" },
       { name: "portfolio", link: "#" },
-      { name: "about Me", link: "#" },
-      { name: "contact", link: "#" },
+      { name: "aboutMe", link: "#" },
+      { name: "contactMe", link: "#" },
     ];
 
     return {
@@ -42,6 +52,19 @@ export default {
   -webkit-box-shadow: 0px 56px 62px 17px rgba(70, 77, 52, 0.79);
   -moz-box-shadow: 0px 56px 62px 17px rgba(70, 77, 52, 0.79);
   border: none;
+}
+.buttonContainer {
+  width: 100%;
+  height: 5rem;
+  display: none;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1.5rem;
+}
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .header--container {
   display: flex;
@@ -88,7 +111,7 @@ export default {
 }
 @media only screen and (max-width: 1440px) and (min-width: 1024px) {
   .header--container ul {
-    width: 50%
+    width: 50%;
   }
   .header--container ul li {
     font-size: 1rem;
@@ -99,11 +122,166 @@ export default {
   }
 }
 @media only screen and (max-width: 1024px) {
-  .header--container ul li {
-    font-size: 0.875rem;
+  .header {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    background: rgb(88, 0, 41);
+    background: linear-gradient(
+      45deg,
+      rgba(88, 0, 41, 1) 15%,
+      rgba(77, 87, 49, 0.34217436974789917) 100%
+    );
   }
-  .header--continer ul li span {
-    font-size: 1rem;
+  .buttonContainer {
+    display: flex;
+  }
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .button:focus {
+    outline: none;
+  }
+  .burgerButton {
+    display: grid;
+    padding: 0.125rem;
+    border-radius: 100%;
+    width: 2.5rem;
+    height: 2.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+  .first,
+  .second,
+  .second--div,
+  .third {
+    height: 2px;
+    border-radius: 0.125rem;
+    align-self: center;
+    background: #f5e6d7;
+  }
+  .first {
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-start: 1;
+    grid-row-end: span 1;
+    animation-name: disappear, moveLeft;
+    animation-delay: 100ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+    animation-duration: 300ms;
+  }
+  .second {
+    grid-column-start: 1;
+    grid-column-end: span 3;
+    grid-row-start: 2;
+    grid-row-end: span 1;
+    align-self: center;
+    animation-name: rotateLeft;
+    animation-delay: 100ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+    animation-duration: 300ms;
+  }
+  .second--div {
+    grid-column-start: 1;
+    grid-column-end: span 3;
+    grid-row-start: 2;
+    grid-row-end: span 1;
+    align-self: center;
+    animation-name: disappear, rotateRight;
+    animation-delay: 100ms;
+    animation-fill-mode: forwards;
+    animation-direction: reverse;
+    animation-timing-function: ease-in;
+    animation-duration: 300ms;
+  }
+  .third {
+    grid-column-start: 2;
+    grid-column-end: span 2;
+    grid-row-start: 3;
+    grid-row-end: span 1;
+    animation-name: disappear, moveRight;
+    animation-delay: 100ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+    animation-duration: 300ms;
+  }
+  .header--container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+  }
+  .header--container ul {
+    flex-direction: column;
+    margin: 0;
+  }
+  .header--container ul li {
+    margin: 2rem 0 2rem 3rem;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    font-size: 1.125rem;
+  }
+  .header--container ul li span {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .header--container ul li {
+    margin: 1.25rem 0 1.25rem 2rem;
+  }
+}
+
+@keyframes disappear {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes moveRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(12px);
+  }
+}
+@keyframes moveLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-12px);
+  }
+}
+@keyframes rotateLeft {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(-45deg);
+  }
+}
+@keyframes rotateRight {
+  0% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(0);
   }
 }
 </style>

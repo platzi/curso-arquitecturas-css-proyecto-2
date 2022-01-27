@@ -1,17 +1,39 @@
 <template>
   <button class="button">
     <div class="burgerButton">
-      <div class="first" />
-      <div class="second" />
-      <div class="second--div" />
-      <div class="third" />
+      <transition name="first">
+        <div class="first" v-if="!isMenuOpen" />
+      </transition>
+      <transition name="second" >
+        <div class="second" v-if="!isMenuOpen" />
+      </transition>
+      <transition name="second--comp" >
+        <div class="second--comp" v-if="isMenuOpen" />
+      </transition>
+      <transition name="secondDiv">
+        <div class="second--div" v-if="isMenuOpen" />
+      </transition>
+      <transition name="third">
+        <div class="third" v-if="!isMenuOpen" />
+      </transition>
     </div>
   </button>
 </template>
 
 <script>
+import { useStore } from "vuex";
+import { computed } from "vue";
 export default {
   name: "BurgerButton",
+  setup() {
+    const store = useStore();
+
+    const isMenuOpen = computed(() => store.getters["config_drawer/getDrawer"]);
+
+    return {
+      isMenuOpen,
+    };
+  },
 };
 </script>
 
@@ -45,6 +67,7 @@ export default {
   }
   .first,
   .second,
+  .second--comp,
   .second--div,
   .third {
     height: 2px;
@@ -57,11 +80,6 @@ export default {
     grid-column-end: span 2;
     grid-row-start: 1;
     grid-row-end: span 1;
-    animation-name: disappear, moveLeft;
-    animation-delay: 100ms;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-in;
-    animation-duration: 300ms;
   }
   .second {
     grid-column-start: 1;
@@ -69,11 +87,14 @@ export default {
     grid-row-start: 2;
     grid-row-end: span 1;
     align-self: center;
-    animation-name: rotateLeft;
-    animation-delay: 100ms;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-in;
-    animation-duration: 300ms;
+  }
+  .second--comp {
+    grid-column-start: 1;
+    grid-column-end: span 3;
+    grid-row-start: 2;
+    grid-row-end: span 1;
+    align-self: center;
+    transform: rotate(-45deg);
   }
   .second--div {
     grid-column-start: 1;
@@ -81,63 +102,103 @@ export default {
     grid-row-start: 2;
     grid-row-end: span 1;
     align-self: center;
-    animation-name: disappear, rotateRight;
-    animation-delay: 100ms;
-    animation-fill-mode: forwards;
-    animation-direction: reverse;
-    animation-timing-function: ease-in;
-    animation-duration: 300ms;
+    transform: rotate(45deg);
   }
   .third {
     grid-column-start: 2;
     grid-column-end: span 2;
     grid-row-start: 3;
     grid-row-end: span 1;
-    animation-name: disappear, moveRight;
-    animation-delay: 100ms;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-in;
-    animation-duration: 300ms;
   }
 }
-@keyframes disappear {
+
+/* ------------- */
+
+/* THIS SECTION MANIPULATE THE ANIMATIONS */
+.first-enter-active {
+  animation: moveFirst ease-in 0.3s forwards;
+}
+.first-leave-active {
+  animation: moveFirst ease-in 0.3s forwards reverse;
+}
+
+
+.second-enter-active {
+  animation: moveSecond ease-in 0.3s forwards reverse;
+}
+.second-leave-active {
+  animation: moveSecond ease-in 0.3s forwards;
+}
+
+
+.second--comp-enter-active {
+  animation: moveSecond ease-in 0.3s forwards;
+}
+.second--comp-leave-active {
+  animation: moveSecond ease-in 0.3s forwards reverse;
+}
+
+
+.secondDiv-enter-active {
+  animation: moveSecondDiv ease-in 0.3s forwards;
+}
+.secondDiv-leave-active {
+  animation: moveSecondDiv ease-in 0.3s forwards reverse;
+}
+
+
+.third-enter-active {
+  animation: moveThird ease-in 0.3s forwards;
+}
+.third-leave-active {
+  animation: moveThird ease-in 0.3s forwards reverse;
+}
+
+/* --------------------- */
+
+/* HERE ARE MY ANIMATIONS */
+
+@keyframes moveFirst {
   0% {
+    transform: translateX(-12px);
     opacity: 1;
   }
   100% {
+    transform: translateX(0);
     opacity: 0;
   }
 }
-@keyframes moveRight {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(12px);
-  }
-}
-@keyframes moveLeft {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-12px);
-  }
-}
-@keyframes rotateLeft {
+
+@keyframes moveSecond {
   0% {
     transform: rotate(0);
+    opacity: 0;
   }
   100% {
     transform: rotate(-45deg);
+    opacity: 1;
   }
 }
-@keyframes rotateRight {
+
+@keyframes moveSecondDiv {
   0% {
-    transform: rotate(45deg);
+    transform: rotate(0);
+    opacity: 0;
   }
   100% {
-    transform: rotate(0);
+    transform: rotate(45deg);
+    opacity: 1;
+  }
+}
+
+@keyframes moveThird {
+  0% {
+    transform: translateX(12px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 0;
   }
 }
 </style>

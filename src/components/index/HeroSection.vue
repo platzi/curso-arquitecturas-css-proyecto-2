@@ -240,7 +240,7 @@ export default {
     font-size: 1rem;
   }
 }
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 380px) {
   .content-container {
     padding: 1rem 0.50rem;
   }

@@ -1,38 +1,104 @@
 <template>
   <div class="card">
     <div class="card--contentContainer">
-      <div class="wrapper">Este es el contenido</div>
+      <div class="wrapper">
+        <div class="img" :style="{ backgroundImage: 'url(' + bgImage + ')' }" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  setup() {
+    const bgImage = require("@/static/images/cepolAcademy-min.png")
+
+    return {
+      bgImage
+    }
+  }
+};
 </script>
 
 <style scoped>
 .card {
   padding: 1rem;
-}
-.card--contentContainer {
-  background: #8f032a;
-  border-radius: 1rem;
-  box-shadow: 0px 32px 82px 4px rgba(143, 3, 42, 0.4);
-  -webkit-box-shadow: 0px 32px 82px 4px rgba(143, 3, 42, 0.4);
-  -moz-box-shadow: 0px 32px 82px 4px rgba(143, 3, 42, 0.4);
-  padding: 0.15rem;
-  width: 100%;
-  min-width: 254px;
-  height: 320px;
-}
-
-.wrapper {
   width: 100%;
   height: 100%;
-  background: white;
-  border-radius: 1rem;
+  min-width: 254px;
+  min-height: 320px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.card--contentContainer {
+  background: #8f032a;
+  border-radius: 0.125rem;
+  padding: 0.15rem;
+  /* width: 100%;
+  height: 100%; */
+}
+
+.card--contentContainer:hover {
+  box-shadow: 0px 32px 82px 4px rgba(143, 3, 42, 0.4);
+  -webkit-box-shadow: 0px 32px 82px 4px rgba(143, 3, 42, 0.4);
+  -moz-box-shadow: 0px 32px 82px 4px rgba(143, 3, 42, 0.4);
+}
+
+.wrapper {
+  /* width: 100%;
+  height: 100%; */
+  background: white;
+  border-radius: 0.125rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper .img {
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  width: 480px;
+  height: 560px;
+}
+
+
+
+
+@media only screen and (min-width: 1441px) {
+  .wrapper .img {
+    width: 600px;
+  }
+}
+@media only screen and (min-width: 1025px) and (max-width: 1440px) {
+  .wrapper .img {
+    width: 420px;
+  }
+}
+
+@media only screen and (min-width: 767px) and (max-width: 1024px) {
+  .wrapper .img {
+    width: 300px;
+  }
+}
+
+
+@media only screen and (max-width: 540px) {
+  .wrapper .img {
+    width: 420px;
+  }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 420px)  {
+  .wrapper .img {
+    width: 320px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .wrapper .img {
+    width: 300px;
+  }
 }
 </style>

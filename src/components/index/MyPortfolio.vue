@@ -18,22 +18,25 @@
 </template>
 
 <script>
-import ProjectCard from "../cards/ProjectCard.vue"
+import ProjectCard from "../cards/ProjectCard.vue";
 export default {
   components: {
-    ProjectCard
-  }
-}
+    ProjectCard,
+  },
+};
 </script>
 
 <style scoped>
 .portfolioSection {
   margin: 3rem 0;
+  padding: 0 0.5rem;
   display: grid;
   gap: 3rem 2rem;
+  justify-content: center;
   place-items: center;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(320px, 600px));
+  grid-template-rows: repeat(auto-fill, minmax(150px, 300px));
+  grid-auto-flow: row;
   grid-template-areas:
     "first-card content"
     "first-card content"
@@ -71,10 +74,14 @@ export default {
 
 .firstProject {
   grid-area: first-card;
+  width: 100%;
+  height: 100%;
 }
 
 .secondProject {
   grid-area: second-card;
+  width: 100%;
+  height: 100%;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -86,6 +93,17 @@ export default {
   }
   .portfolioContent p {
     font-size: 1.5rem;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .portfolioSection {
+    grid-template-columns: repeat(autofill, 1fr);
+    grid-template-areas:
+      "content"
+      "first-card"
+      "first-card"
+      "second-card"
+      "second-card";
   }
 }
 @media only screen and (max-width: 540px) {

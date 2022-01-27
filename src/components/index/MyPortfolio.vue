@@ -8,10 +8,23 @@
         of amazing people and using incredible tools.
       </p>
     </div>
-    <div class="firstProject">Este es el primer proyecto</div>
-    <div class="secondProject">Este es el segundo proyecto</div>
+    <div class="firstProject">
+      <project-card />
+    </div>
+    <div class="secondProject">
+      <project-card />
+    </div>
   </div>
 </template>
+
+<script>
+import ProjectCard from "../cards/ProjectCard.vue"
+export default {
+  components: {
+    ProjectCard
+  }
+}
+</script>
 
 <style scoped>
 .portfolioSection {
@@ -24,7 +37,6 @@
   grid-template-areas:
     "first-card content"
     "first-card content"
-    ". ."
     ". second-card"
     ". second-card";
 }

@@ -5,20 +5,34 @@
       <p>
         Let me show some of my freelance projects and how i have worked with
         vuejs and nuxtjs. Some of these projects are created with collaboration
-        of amazing people and using incredible tools as Firebase or Storyblok
+        of amazing people and using incredible tools.
       </p>
     </div>
+    <div class="firstProject">Este es el primer proyecto</div>
+    <div class="secondProject">Este es el segundo proyecto</div>
   </div>
 </template>
 
 <style scoped>
 .portfolioSection {
   margin: 3rem 0;
+  display: grid;
+  gap: 3rem 2rem;
+  place-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    "first-card content"
+    "first-card content"
+    ". ."
+    ". second-card"
+    ". second-card";
 }
 .portfolioContent {
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+  grid-area: content;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   padding: 2rem 2.25rem;
 }
@@ -33,14 +47,22 @@
   font-size: 6rem;
   margin: 0;
   text-align: left;
-  width: 60%;
+  width: 100%;
 }
 
 .portfolioContent p {
   font-size: 1.75rem;
-  width: 60%;
+  width: 100%;
   color: #a2a59f;
   text-align: left;
+}
+
+.firstProject {
+  grid-area: first-card;
+}
+
+.secondProject {
+  grid-area: second-card;
 }
 
 @media only screen and (max-width: 1024px) {

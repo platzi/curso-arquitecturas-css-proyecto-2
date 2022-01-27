@@ -1,14 +1,14 @@
 <template>
-  <header
-    class="header"
-    :class="{
-      active: getMenu,
-    }"
-  >
+  <header class="header">
     <div class="buttonContainer">
       <burger-button @click="getMenu" />
     </div>
-    <nav class="header--container">
+    <nav
+      class="header--container"
+      :class="{
+        isOpen: isMenuOpen,
+      }"
+    >
       <ul>
         <li v-for="(item, index) in menu" :key="index">
           <router-link :to="item.link" class="link">
@@ -28,9 +28,8 @@ import BurgerButton from "./global/BurgerButton.vue";
 export default {
   components: { BurgerButton },
   setup() {
-
-    const store = useStore()
-    const isMenuOpen = computed(() => store.getters['config_drawer/getDrawer']);
+    const store = useStore();
+    const isMenuOpen = computed(() => store.getters["config_drawer/getDrawer"]);
 
     const menu = [
       { name: "home", link: "#" },
@@ -39,19 +38,19 @@ export default {
       { name: "contactMe", link: "#" },
     ];
     function getMenu() {
-      if(isMenuOpen.value) {
-        console.log('falso')
-        store.dispatch('config_drawer/activeDrawer', false)
+      if (isMenuOpen.value) {
+        console.log("falso");
+        store.dispatch("config_drawer/activeDrawer", false);
       } else {
-        console.log('verdad')
-        store.dispatch('config_drawer/activeDrawer', true)
+        console.log("verdad");
+        store.dispatch("config_drawer/activeDrawer", true);
       }
     }
 
     return {
       menu,
       getMenu,
-      isMenuOpen
+      isMenuOpen,
     };
   },
 };
@@ -77,6 +76,7 @@ export default {
   justify-content: flex-end;
   align-items: center;
   padding: 1.5rem;
+  position: relative;
 }
 
 .header--container {
@@ -141,12 +141,14 @@ export default {
     font-size: 1rem;
   }
 }
+
+/* from this section we are working
+with tablets and phones */
 @media only screen and (max-width: 1024px) {
-  .header {
+  .header--container {
     position: fixed;
     top: 0%;
-    left: 0%;
-    right: 0%;
+    right: 100%;
     bottom: 0%;
     width: 100%;
     height: 100vh;
@@ -163,15 +165,18 @@ export default {
     transition: all ease-in 300ms;
   }
   .isOpen {
-    left: right;
+    right: 0%;
   }
   .buttonContainer {
     display: flex;
+    position: relative;
+    z-index: 150;
   }
   .header--container {
     width: 100%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
+    flex-direction: row;
   }
   .header--container ul {
     flex-direction: column;

@@ -39,10 +39,8 @@ export default {
     ];
     function getMenu() {
       if (isMenuOpen.value) {
-        console.log("falso");
         store.dispatch("config_drawer/activeDrawer", false);
       } else {
-        console.log("verdad");
         store.dispatch("config_drawer/activeDrawer", true);
       }
     }

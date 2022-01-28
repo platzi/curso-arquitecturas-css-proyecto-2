@@ -2,7 +2,7 @@
   <div class="general-container">
     <the-cursor :xCursorPosition="xPosition" :yCursorPosition="yPosition" />
     <hero-section class="section" />
-    <my-portfolio />
+    <my-portfolio :projects="projects" />
     <my-stack class="" />
     <about-me class="section" />
     <contact-section class="" />
@@ -16,7 +16,8 @@ import MyStack from "../components/index/MyStack.vue";
 import ContactSection from "../components/index/ContactSection.vue";
 import TheCursor from "../components/global/TheCursor.vue";
 import AboutMe from "../components/index/AboutMe.vue";
-
+import { ref, computed, onMounted, onUnmounted } from "vue";
+import { useStore } from "vuex";
 export default {
   name: "Home",
   components: {
@@ -27,20 +28,29 @@ export default {
     TheCursor,
     AboutMe,
   },
-  data: () => ({
-    xPosition: 0,
-    yPosition: 0,
-  }),
-  mounted() {
-    document.addEventListener("mousemove", this.getCursor);
-  },
-  methods: {
-    getCursor(event) {
-      return (this.xPosition = event.clientX), (this.yPosition = event.clientY);
-    },
-  },
-  unmounted() {
-    document.removeEventListener("mousemove", this.getCursor);
+  setup() {
+    const xPosition = ref(0);
+    const yPosition = ref(0);
+    const store = useStore();
+
+    const projects = computed(() => store.getters["projects/getProjects"]);
+
+    onMounted(() => {
+      document.addEventListener("mousemove", getCursor);
+    });
+    function getCursor(event) {
+      return (xPosition.value = event.clientX), (yPosition.value = event.clientY);
+    }
+    onUnmounted(() => {
+      document.removeEventListener("mousemove", getCursor);
+    })
+
+    return {
+      xPosition,
+      yPosition,
+      projects,
+      getCursor
+    };
   },
 };
 </script>

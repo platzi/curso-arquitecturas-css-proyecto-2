@@ -23,14 +23,23 @@ export default {
   components: {
     ProjectCard,
   },
-  setup() {
-    const project = {
-      image: require('@/static/images/cepolAcademy-min.png'),
-      name: 'Cepol Academy'
+  props: {
+    projects: {
+      type: Array,
+      required: true
     }
+  },
+  setup(props) {
+
+    const project = {
+      image: props.projects[0].image,
+      name: props.projects[0].name,
+    }
+
+
     const project2 = {
-      image: require('@/static/images/jhnur-min.png'),
-      name: 'Jhxur Artist'
+      image: props.projects[1].image,
+      name: props.projects[1].name,
     }
 
     return {

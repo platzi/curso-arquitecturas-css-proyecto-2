@@ -1,22 +1,34 @@
 <template>
-  <div class="card">
+  <button class="card" @click="getProject">
     <div class="card--contentContainer">
       <div class="wrapper">
         <div class="img" :style="{ backgroundImage: 'url(' + bgImage + ')' }" />
       </div>
     </div>
-  </div>
+  </button>
 </template>
 
 <script>
 export default {
-  setup() {
-    const bgImage = require("@/static/images/cepolAcademy-min.png")
+  props: {
+    bgImage: {
+      type: String,
+      required: true,
+    },
+    projectName: {
+      type: String,
+      required: true,
+    },
+  },
+  setup(props) {
+    function getProject() {
+      console.log(props.projectName);
+    }
 
     return {
-      bgImage
-    }
-  }
+      getProject,
+    };
+  },
 };
 </script>
 
@@ -35,8 +47,6 @@ export default {
   background: #8f032a;
   border-radius: 0.125rem;
   padding: 0.15rem;
-  /* width: 100%;
-  height: 100%; */
 }
 
 .card--contentContainer:hover {
@@ -46,8 +56,6 @@ export default {
 }
 
 .wrapper {
-  /* width: 100%;
-  height: 100%; */
   background: white;
   border-radius: 0.125rem;
   display: flex;
@@ -62,9 +70,6 @@ export default {
   width: 480px;
   height: 560px;
 }
-
-
-
 
 @media only screen and (min-width: 1441px) {
   .wrapper .img {
@@ -83,14 +88,13 @@ export default {
   }
 }
 
-
 @media only screen and (max-width: 540px) {
   .wrapper .img {
     width: 420px;
   }
 }
 
-@media only screen and (min-width: 321px) and (max-width: 420px)  {
+@media only screen and (min-width: 321px) and (max-width: 420px) {
   .wrapper .img {
     width: 320px;
   }

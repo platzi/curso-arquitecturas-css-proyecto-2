@@ -9,10 +9,10 @@
       </p>
     </div>
     <div class="firstProject">
-      <project-card />
+      <project-card :bgImage="project.image" :projectName="project.name" />
     </div>
     <div class="secondProject">
-      <project-card />
+      <project-card :bgImage="project2.image" :projectName="project2.name" />
     </div>
   </div>
 </template>
@@ -23,6 +23,21 @@ export default {
   components: {
     ProjectCard,
   },
+  setup() {
+    const project = {
+      image: require('@/static/images/cepolAcademy-min.png'),
+      name: 'Cepol Academy'
+    }
+    const project2 = {
+      image: require('@/static/images/jhnur-min.png'),
+      name: 'Jhxur Artist'
+    }
+
+    return {
+      project,
+      project2
+    }
+  }
 };
 </script>
 

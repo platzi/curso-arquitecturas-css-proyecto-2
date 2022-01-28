@@ -24,6 +24,7 @@ export default {
   color: #f5e6d7;
 }
 
+
 .wrap {
   background: rgb(70, 77, 52);
   /* background: linear-gradient(

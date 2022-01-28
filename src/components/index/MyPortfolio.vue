@@ -9,10 +9,10 @@
       </p>
     </div>
     <div class="firstProject">
-      <project-card :bgImage="project.image" :projectName="project.name" />
+      <project-card :bgImage="projects[0].image" :projectName="projects[0].name" />
     </div>
     <div class="secondProject">
-      <project-card :bgImage="project2.image" :projectName="project2.name" />
+      <project-card :bgImage="projects[1].image" :projectName="projects[1].name" />
     </div>
   </div>
 </template>
@@ -24,29 +24,8 @@ export default {
     ProjectCard,
   },
   props: {
-    projects: {
-      type: Array,
-      required: true
-    }
+    projects: Array
   },
-  setup(props) {
-
-    const project = {
-      image: props.projects[0].image,
-      name: props.projects[0].name,
-    }
-
-
-    const project2 = {
-      image: props.projects[1].image,
-      name: props.projects[1].name,
-    }
-
-    return {
-      project,
-      project2
-    }
-  }
 };
 </script>
 

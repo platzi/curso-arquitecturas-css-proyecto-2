@@ -9,20 +9,15 @@
 </template>
 
 <script>
+
 export default {
   props: {
-    bgImage: {
-      type: String,
-      required: true,
-    },
-    projectName: {
-      type: String,
-      required: true,
-    },
+    bgImage: String,
+    projectName: String,
   },
   setup(props) {
     function getProject() {
-      console.log(props.projectName);
+      console.log(props.projectName, props.bgImage);
     }
 
     return {

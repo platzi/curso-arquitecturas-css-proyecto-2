@@ -1,7 +1,7 @@
 // modal store for projects details
 
 const state = () => ({
-  isOpen: true
+  isOpen: false
 })
 
 const getters = {

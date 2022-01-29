@@ -6,14 +6,21 @@
           <the-icons name="close" />
         </button>
       </div>
-      <div class="projectModal--projectContent"></div>
+      <div v-if="project.selectedProject.name.length" class="projectModal--projectContent">
+        <figure class="w-1/2 flex justify-center items-center">
+          <img
+            :src="project.selectedProject.image"
+            :alt="project.selectedProject.name"
+          />
+        </figure>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import { useStore } from "vuex";
-import { computed } from "vue";
+import { reactive, computed } from "vue";
 import TheIcons from "./TheIcons.vue";
 export default {
   components: {
@@ -21,6 +28,12 @@ export default {
   },
   setup() {
     const store = useStore();
+
+    const project = reactive({
+      selectedProject: computed(() => {
+        return store.getters["projects/getSelectedProject"];
+      }),
+    });
 
     const isModalOpen = computed(() => {
       return store.getters["modal/getModal"];
@@ -32,7 +45,8 @@ export default {
 
     return {
       closeModal,
-      isModalOpen
+      isModalOpen,
+      project,
     };
   },
 };
@@ -80,5 +94,14 @@ export default {
   border-radius: 100%;
   width: 2rem;
   height: 2rem;
+}
+.projectModal--projectContent {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.projectModal--projectContent img {
+  width: 45%;
 }
 </style>

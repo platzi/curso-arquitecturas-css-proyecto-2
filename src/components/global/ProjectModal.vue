@@ -1,10 +1,43 @@
 <template>
-  <div class="modalContainer">
+  <div class="modalContainer" v-if="isModalOpen">
     <div class="projectModal">
-      Hola soy un modal
+      <div class="buttonContainer">
+        <button class="modalButton" @click="closeModal">
+          <the-icons name="close" />
+        </button>
+      </div>
+      <div class="projectModal--projectContent"></div>
     </div>
   </div>
 </template>
+
+<script>
+import { useStore } from "vuex";
+import { computed } from "vue";
+import TheIcons from "./TheIcons.vue";
+export default {
+  components: {
+    TheIcons,
+  },
+  setup() {
+    const store = useStore();
+
+    const isModalOpen = computed(() => {
+      return store.getters["modal/getModal"];
+    });
+
+    function closeModal() {
+      console.log('Estamos por cerrar el modal desde el componente')
+      store.dispatch("modal/activeModal", false);
+    }
+
+    return {
+      closeModal,
+      isModalOpen
+    };
+  },
+};
+</script>
 
 <style scoped>
 .modalContainer {
@@ -25,14 +58,28 @@
 .projectModal {
   width: 50%;
   height: 70%;
+  position: relative;
+  z-index: 310;
   border-radius: 2rem;
   box-shadow: 0px 10px 32px -4px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0px 10px 32px -4px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 10px 32px -4px rgba(0, 0, 0, 0.75);
   display: flex;
   justify-content: center;
   align-items: center;
   opacity: 1;
-  background: #d1b7be;
+  padding: 0.75rem 1rem;
+  background: rgb(247, 237, 240);
+}
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0.25rem;
+}
+.modalButton {
+  border: #330411 1px solid;
+  border-radius: 100%;
+  width: 2rem;
+  height: 2rem;
 }
 </style>

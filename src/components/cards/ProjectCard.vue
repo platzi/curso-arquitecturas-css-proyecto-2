@@ -28,7 +28,7 @@ export default {
         store.dispatch("modal/activeModal", false);
       } else {
         store.dispatch("modal/activeModal", true);
-        console.log(props.projectName);
+        store.dispatch('projects/getSelectedProject', props.projectName)
       }
     }
 

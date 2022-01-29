@@ -37,6 +37,7 @@ const state = () => ({
       repo: "https://github.com/CeoNabux/platzi-music",
     },
   ],
+  selectedProjectDetail: {}
 });
 
 const getters = {
@@ -45,8 +46,26 @@ const getters = {
   },
 };
 
+
+const mutations = {
+  SELECTED_PROJECT(state, String) {
+    const projectId = state.projects.findIndex((project) => project.name === String )
+    state.selectedProjectDetail = state.projects[projectId]
+  }
+}
+
+const actions = {
+  getSelectedProject({ commit }, payload) {
+    commit('SELECTED_PROJECT', payload)
+  }
+}
+
+
+
 export default {
   namespaced: true,
   state,
   getters,
+  mutations,
+  actions
 };

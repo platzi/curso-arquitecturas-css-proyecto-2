@@ -9,15 +9,27 @@
 </template>
 
 <script>
-
+import { useStore } from "vuex";
+import { computed } from "vue";
 export default {
   props: {
     bgImage: String,
     projectName: String,
   },
   setup(props) {
+    const store = useStore();
+
+    const modalIsOpen = computed(() => {
+      return store.getters["modal/getModal"];
+    });
+
     function getProject() {
-      console.log(props.projectName, props.bgImage);
+      if (modalIsOpen.value) {
+        store.dispatch("modal/activeModal", false);
+      } else {
+        store.dispatch("modal/activeModal", true);
+        console.log(props.projectName);
+      }
     }
 
     return {

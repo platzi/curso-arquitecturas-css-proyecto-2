@@ -27,7 +27,6 @@ export default {
     });
 
     function closeModal() {
-      console.log('Estamos por cerrar el modal desde el componente')
       store.dispatch("modal/activeModal", false);
     }
 

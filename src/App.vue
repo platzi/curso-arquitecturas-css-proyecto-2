@@ -1,5 +1,6 @@
 <template>
   <div class="wrap">
+    <project-modal />
     <the-header />
     <router-view />
   </div>
@@ -7,10 +8,12 @@
 
 <script>
 import TheHeader from "../src/components/TheHeader.vue";
+import ProjectModal from "../src/components/global/ProjectModal.vue"
 export default {
   name: "App",
   components: {
     TheHeader,
+    ProjectModal
   },
 };
 </script>

@@ -76,6 +76,7 @@ export default {
   border-radius: 2rem;
   box-shadow: 0px 10px 32px -4px rgba(0, 0, 0, 0.75);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   opacity: 1;

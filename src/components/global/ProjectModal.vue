@@ -143,6 +143,7 @@ export default {
   border-radius: 100%;
   width: 2rem;
   height: 2rem;
+  cursor: pointer;
 }
 .modalButton--icon {
   color: #8f032a;

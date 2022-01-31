@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div class="wrap" :class="{static: isModalOpen }">
     <project-modal />
     <background />
     <the-header />
@@ -11,6 +11,8 @@
 import TheHeader from "../src/components/TheHeader.vue";
 import ProjectModal from "../src/components/global/ProjectModal.vue"
 import Background from './components/global/Background.vue';
+import { useStore } from 'vuex'
+import { computed } from 'vue'
 export default {
   name: "App",
   components: {
@@ -18,14 +20,24 @@ export default {
     ProjectModal,
     Background
   },
+  setup() {
+    const store = useStore()
+
+    const isModalOpen = computed(() => {
+      return store.getters['modal/getModal']
+    })
+
+    return {
+      isModalOpen
+    }
+  }
 };
 </script>
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300&display=swap");
-#app {
-  /* overflow: hidden; */
-}
+
+
 #app h2 {
   color: #f5e6d7;
 }

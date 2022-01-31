@@ -1,5 +1,6 @@
-import { mdiCloseThick } from '@mdi/js'
+import { mdiCloseThick, mdiGithub } from '@mdi/js'
 
 export default {
-  close: mdiCloseThick
+  close: mdiCloseThick,
+  github: mdiGithub
 }

@@ -5,6 +5,14 @@ const state = () => ({
       name: "Jnxur Artist website",
       url: "https://www.jhxnur.art/",
       image: require("@/static/images/jhnur-min.png"),
+      tools: [
+        { name: "Vuejs", img: require("@/static/images/logos/vuejs.png") },
+        {
+          name: "Storyblok",
+          img: require("@/static/images/logos/storyblok.png"),
+        },
+        { name: "Bulma", img: require("@/static/images/logos/bulma.png") },
+      ],
       description:
         "Website for an ecuadorian urban artist for express his creations",
       isPrivate: true,
@@ -14,6 +22,17 @@ const state = () => ({
       name: "Cepol Academy Webapp",
       url: "https://www.cepolacademy.org/",
       image: require("@/static/images/cepolAcademy-min.png"),
+      tools: [
+        { name: "Nuxt", img: require("@/static/images/logos/nuxt.png") },
+        {
+          name: "Tailwind",
+          img: require("@/static/images/logos/tailwind.png"),
+        },
+        {
+          name: "Firebase",
+          img: require("@/static/images/logos/firebase.png"),
+        },
+      ],
       description: "WebApp for an academy to test their students",
       isPrivate: false,
       repo: "https://github.com/CeoNabux/Cepol",
@@ -22,6 +41,19 @@ const state = () => ({
       name: "Procorex",
       url: "https://procorex.ec/",
       image: require("@/static/images/procorex.png"),
+      tools: [
+        {
+          name: "Storyblok",
+          img: require("@/static/images/logos/storyblok.png"),
+        },
+
+        {
+          name: "Tailwind",
+          img: require("@/static/images/logos/tailwind.png"),
+        },
+
+        { name: "Nuxt", img: require("@/static/images/logos/nuxt.png") },
+      ],
       description:
         "Website created to show their tools for industry and send messages of products via Whatsapp",
       isPrivate: false,
@@ -31,7 +63,27 @@ const state = () => ({
       name: "Refreezer",
       url: "https://www.refreezerec.com/",
       image: require("@/static/images/refreezerCapture-min.png"),
-      description: "Website for an aircoditioning services and maintainace for industry market",
+      tools: [
+        {
+          name: "Storyblok",
+          img: require("@/static/images/logos/storyblok.png"),
+        },
+        { name: "Bulma", img: require("@/static/images/logos/bulma.png") },
+        {
+          name: "Tailwind",
+          img: require("@/static/images/logos/tailwind.png"),
+        },
+        { name: "Vuejs", img: require("@/static/images/logos/vuejs.png") },
+        { name: "Nuxt", img: require("@/static/images/logos/nuxt.png") },
+        {
+          name: "Firebase",
+          img: require("@/static/images/logos/firebase.png"),
+        },
+        { name: "Nodejs", img: require("@/static/images/logos/nodejs.png") },
+        { name: "MongoDB", img: require("@/static/images/logos/mongodb.png") },
+      ],
+      description:
+        "Website for an aircoditioning services and maintainace for industry market",
       isPrivate: true,
       repo: "https://github.com/CeoNabux/Refreezer",
     },
@@ -39,6 +91,9 @@ const state = () => ({
       name: "Plazti Music",
       url: "Not in Production",
       image: require("@/static/images/platzi-music.png"),
+      tools: [
+        { name: "Vuejs", img: require("@/static/images/logos/vuejs.png") },
+      ],
       description:
         "Side project for creating a stream platform using spotify catalogue",
       isPrivate: true,

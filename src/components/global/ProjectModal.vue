@@ -94,11 +94,11 @@ export default {
 }
 .projectModal--imageContainer {
   width: 100%;
-  height: 100%;
+  height: 90%;
   overflow: scroll;
   overflow-x: hidden;
   margin: 0;
-  border-radius: 2rem;
+  border-radius: 2rem 2rem 0 0;
 }
 
 ::-webkit-scrollbar {
@@ -119,16 +119,11 @@ export default {
 }
 .projectModal--projectContent {
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: absolute;
-  z-index: 310;
-  top: 0;
-  left: 0;
-  right: 0;
   padding-right: 8px;
+  user-select: none;
 }
 .buttonContainer {
   width: 100%;
@@ -137,6 +132,11 @@ export default {
   justify-content: flex-end;
   align-items: center;
   padding: 0 1rem;
+  position: absolute;
+  z-index: 310;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 .modalButton {
   border: #8f032a 1px solid;
@@ -149,7 +149,7 @@ export default {
 }
 .projectDetails {
   width: 100%;
-  height: 15%;
+  height: 5rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -165,29 +165,35 @@ export default {
   font-size: 1.5rem;
   user-select: none;
 }
-.projectTools {
-  width: 20%;
-  display: flex;
-  align-items: center;
-}
 .projectLinks {
-  width: 30%;
+  width: 15%;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .projectLinks a {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
   color: #f5e6d7;
   margin-right: 0.5rem;
 }
 .projectTools {
+  width: 35%;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .projectTools--figure {
-  margin-right: 0.5rem;
-  width: 1.25rem;
-  height: 1.5rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  margin: 0;
+  margin-right: 0.25rem;
+  justify-content: center;
+  align-items: center;
+}
+.projectTools--figure img {
+  width:100%;
+  height: 100%;
 }
 </style>

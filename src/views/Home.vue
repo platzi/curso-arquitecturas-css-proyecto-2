@@ -3,7 +3,7 @@
     <the-cursor :xCursorPosition="xPosition" :yCursorPosition="yPosition" />
     <hero-section class="section" />
     <my-portfolio :projects="projects" />
-    <my-stack class="" />
+    <stack class="" />
     <about-me class="section" />
     <contact-section class="" />
   </div>
@@ -12,7 +12,7 @@
 <script>
 import HeroSection from "../components/index/HeroSection.vue";
 import MyPortfolio from "../components/index/MyPortfolio.vue";
-import MyStack from "../components/index/MyStack.vue";
+import Stack from "../components/index/Stack.vue";
 import ContactSection from "../components/index/ContactSection.vue";
 import TheCursor from "../components/global/TheCursor.vue";
 import AboutMe from "../components/index/AboutMe.vue";
@@ -23,7 +23,7 @@ export default {
   components: {
     HeroSection,
     MyPortfolio,
-    MyStack,
+    Stack,
     ContactSection,
     TheCursor,
     AboutMe,
@@ -39,17 +39,19 @@ export default {
       document.addEventListener("mousemove", getCursor);
     });
     function getCursor(event) {
-      return (xPosition.value = event.clientX), (yPosition.value = event.clientY);
+      return (
+        (xPosition.value = event.clientX), (yPosition.value = event.clientY)
+      );
     }
     onUnmounted(() => {
       document.removeEventListener("mousemove", getCursor);
-    })
+    });
 
     return {
       xPosition,
       yPosition,
       projects,
-      getCursor
+      getCursor,
     };
   },
 };

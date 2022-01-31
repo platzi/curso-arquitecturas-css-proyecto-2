@@ -3,27 +3,14 @@
     <div class="myStackSection--container">
       <h2>My stack and Skills</h2>
       <div class="myStackSection--container__content">
-        <p>My personal preferred techonolgies are:</p>
-        <ul>
-          <li v-for="(technology, index) in technologies" :key="index">
-            {{ technology.name }}
-          </li>
-        </ul>
-        <p>But i am proficient and super comfortable using techonologies as:</p>
-        <ul>
-          <li v-for="(el, index) in stack" :key="index">
-            {{ el.name }}
-          </li>
-        </ul>
-        <p>
-          I am glad to let you know i consider myself an eternal student, for
-          that reason, now i am currently learning about these:
-        </p>
-        <ul>
-          <li v-for="(element, index) in elementalStack" :key="index">
-            {{ element.name }}
-          </li>
-        </ul>
+        <nav>
+          <ul>
+            <router-link v-for="(tech, index) in techies" :key="index" :to="tech.link" class="myStack--link" >
+              {{ tech.name }}
+            </router-link>
+          </ul>
+        </nav>
+        <router-view />
       </div>
     </div>
   </div>
@@ -32,6 +19,11 @@
 <script>
 export default {
   setup() {
+    const techies = [
+      { name: 'My personal preferred techonolgies are', link: 'personal-stack'},
+      { name: 'Proficient and super comfortable using techonologies', link: 'my-stack'},
+      { name: 'Building Skills', link: 'building'},
+    ]
     const technologies = [
       { name: "Nuxtjs" },
       { name: "tailwind" },
@@ -58,6 +50,7 @@ export default {
       technologies,
       stack,
       elementalStack,
+      techies
     };
   },
 };
@@ -76,8 +69,7 @@ export default {
 }
 
 .myStackSection--container h2,
-.myStackSection--container p,
-.myStackSection--container li {
+.myStackSection--container p {
   font-family: "Nunito";
   width: 60%;
 }
@@ -88,15 +80,13 @@ export default {
   width: 75%;
 }
 
-.myStackSection--container p {
-  color: #a2a59f;
-  font-size: 1.5rem;
-}
 .myStackSection--container ul {
   margin-bottom: 1.5rem;
 }
-.myStackSection--container li {
+.myStack--link {
   margin-bottom: 0.75rem;
+  color: white;
+  font-size: 2rem;
 }
 
 @media only screen and (max-width: 1024px) {

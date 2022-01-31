@@ -1,46 +1,45 @@
 <template>
   <div class="projectModal" v-if="isModalOpen">
     <figure class="projectModal--imageContainer">
-        <img :src="project.selectedProject.image" :alt="project.selectedProject.name">
+      <img
+        :src="project.selectedProject.image"
+        :alt="project.selectedProject.name"
+      />
     </figure>
-    <div class="buttonContainer">
-      <button class="modalButton" @click="closeModal">
-        <the-icons name="close" />
-      </button>
-    </div>
-    <!-- <div
-      v-if="project.selectedProject.name.length"
-      class="projectModal--projectContent"
-    >
-      <figure>
-        <img
-          :src="project.selectedProject.image"
-          :alt="project.selectedProject.name"
-        />
-      </figure>
-      <div class="projectModal--projectContent__content">
+    <div class="projectModal--projectContent">
+      <div class="buttonContainer">
+        <button class="modalButton" @click="closeModal">
+          <the-icons name="close" class="modalButton--icon" />
+        </button>
+      </div>
+      <div class="projectDetails">
         <p class="projectTitle">
           {{ project.selectedProject.name }}
         </p>
-        <p class="projectDescription">
-          {{ project.selectedProject.description }}
-        </p>
-        <a
-          :href="project.selectedProject.url"
-          target="_blank"
-          class="projectLink"
-        >{{ project.selectedProject.url }}</a>
-        <div class="projectGithub" v-if="project.selectedProject.isPrivate">
+        <div class="projectLinks">
           <a
+            :href="project.selectedProject.url"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <the-icons name="link" />
+          </a>
+          <a
+            v-if="project.selectedProject.isPrivate"
             :href="project.selectedProject.repo"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <the-icons name="github" class="githubIcon" />
+            <the-icons name="github" />
           </a>
         </div>
+        <div class="projectTools">
+          <figure v-for="(tool, index) in project.selectedProject.tools" :key="index" class="projectTools--figure">
+            <img :src="tool.img" :alt="tool.name">
+          </figure>
+        </div>
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 
@@ -118,72 +117,77 @@ export default {
   width: 100%;
   height: auto;
 }
-.buttonContainer {
+.projectModal--projectContent {
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  z-index: 310;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-right: 8px;
+}
+.buttonContainer {
+  width: 100%;
+  height: 20%;
+  display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 0.25rem;
+  padding: 0 1rem;
 }
 .modalButton {
-  border: #330411 1px solid;
+  border: #8f032a 1px solid;
   border-radius: 100%;
   width: 2rem;
   height: 2rem;
 }
-.projectModal--projectContent {
+.modalButton--icon {
+  color: #8f032a;
+}
+.projectDetails {
   width: 100%;
-  height: 90%;
+  height: 15%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  background: #b79d36;
+  border-radius: 0 0 2rem 2rem;
+  padding: 0 1rem;
 }
-.projectModal--projectContent figure {
-  width: 50%;
-  height: 100%;
-  padding: 0 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.projectModal--projectContent img {
-  width: 80%;
-  height: 100%;
-  object-fit: contain;
-  position: relative;
-  top: 0%;
-}
-.projectModal--projectContent__content {
-  font-family: "Nunito";
-  display: flex;
-  width: 40%;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding-bottom: 1rem;
-}
-
 .projectTitle {
+  width: 45%;
+  background: transparent;
+  color: #f5e6d7;
+  font-family: "Nunito";
   font-size: 1.5rem;
+  user-select: none;
 }
-
-.projectDescription {
-  font-size: 1.125rem;
-  margin: 0;
+.projectTools {
+  width: 20%;
+  display: flex;
+  align-items: center;
 }
-
-.projectModal--projectContent__content a {
-  font-size: 0.8785rem;
-  color: #5f7429;
-  margin: 1rem 0;
+.projectLinks {
+  width: 30%;
+  display: flex;
+  align-items: center;
 }
-
-.projectGithub {
-  width: 2rem;
-  height: 2rem;
+.projectLinks a {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #f5e6d7;
+  margin-right: 0.5rem;
 }
-.githubIcon {
-  color: #5f7429;
+.projectTools {
+  display: flex;
+  align-items: center;
+}
+.projectTools--figure {
+  margin-right: 0.5rem;
+  width: 1.25rem;
+  height: 1.5rem;
 }
 </style>

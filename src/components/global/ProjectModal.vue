@@ -122,7 +122,6 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-right: 8px;
   user-select: none;
 }
 .buttonContainer {
@@ -196,5 +195,40 @@ export default {
 .projectTools--figure img {
   width:100%;
   height: 100%;
+}
+
+@media only screen and (min-width: 321px) and (max-width: 768px) {
+  .projectModal {
+    width: 80%;
+    left: 10%;
+    height: 80%;
+  }
+  .projectModal--imageContainer {
+    height: 75%;
+  }
+  .projectModal--projectContent {
+    height: 25%;
+  }
+  .projectDetails {
+    flex-direction: column;
+    padding: 0.125rem;
+    height: 100%;
+  }
+  .projectTitle {
+    font-size: 1rem;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
+  .projectLinks {
+    width: 100%;
+  }
+  .projectLinks a {
+    width: 2rem;
+    height: 2rem;
+  }
+  .projectTools {
+    width: 100%
+  }
 }
 </style>

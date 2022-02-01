@@ -5,11 +5,11 @@
         <Scene background="#464d34">
           <PointLight :position="{ y: 50, z: 50 }" />
           <AmbientLight />
-          <Sphere ref="sphere" :rotation="{ y: Math.PI / 4, z: Math.PI / 4 }">
+          <Box ref="box" :rotation="{ y: Math.PI / 4, z: Math.PI / 4 }">
             <BasicMaterial>
               <Texture :src="image" />
             </BasicMaterial>
-          </Sphere>
+          </Box>
         </Scene>
       </Camera>
     </Renderer>
@@ -19,7 +19,7 @@
 <script>
 import { ref, onMounted } from "vue";
 import {
-  Sphere,
+  Box,
   Camera,
   PointLight,
   BasicMaterial,
@@ -30,7 +30,7 @@ import {
 } from "troisjs";
 export default {
   components: {
-    Sphere,
+    Box,
     Camera,
     BasicMaterial,
     Renderer,
@@ -41,19 +41,19 @@ export default {
   },
   setup() {
     const renderer = ref(null);
-    const sphere = ref(null);
+    const box = ref(null);
 
-    const image = require("@/static/images/logos/nuxt.png")
+    const image = require("@/static/images/stacks/stack1.png")
 
     onMounted(() => {
       renderer?.value?.onBeforeRender(() => {
-        sphere.value.mesh.rotation.x += 0.01;
+        box.value.mesh.rotation.x += 0.01;
       });
     });
 
     return {
       renderer,
-      sphere,
+      box,
       image
     };
   },

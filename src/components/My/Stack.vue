@@ -63,6 +63,6 @@ export default {
 <style scoped>
 .myFavouriteStack {
   width: 100%;
-  height: 100vh;
+  height: 500px;
 }
 </style>

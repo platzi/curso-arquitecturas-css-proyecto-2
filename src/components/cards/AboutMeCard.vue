@@ -38,6 +38,7 @@ export default {
 .aboutMeCard {
   width: 100%;
   height: 256px;
+  min-width: 264px;
   border-radius: 1rem;
   display: flex;
   flex-wrap: wrap;
@@ -73,18 +74,50 @@ export default {
 .aboutMeCard--contentContainer__title {
   font-size: 1.5rem;
   font-weight: bold;
+  color: #47522d;
 }
 .aboutMeCard--contentContainer__description {
   font-size: 1rem;
+  color: #4b4b4a;
 }
 .aboutMeCard--contentContainer__details {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   width: 100%;
+  color: #5c4024;
 }
 .aboutMeCard--date,
 .aboutMeCard--position {
   width: 40%;
+}
+@media only screen and (max-width: 768px) and (min-width: 320px) {
+  .aboutMeCard--figureContainer {
+    width: 100%;
+    height: 70%;
+    border-radius: 1rem 1rem 0 0;
+  }
+  .aboutMeCard--figureContainer img {
+    border-radius: 1rem 1rem 0 0;
+  }
+  .aboutMeCard--contentContainer {
+    width: 100%;
+    height: 30%;
+  }
+  .aboutMeCard--contentContainer__description,
+  .aboutMeCard--contentContainer__details {
+    display: none;
+  }
+  .aboutMeCard:hover > .aboutMeCard--contentContainer {
+    height: 70%;
+  }
+  .aboutMeCard:hover > .aboutMeCard--figureContainer {
+    height: 30%;
+  }
+  .aboutMecard:hover > .aboutMeCard--contentContainer__description ,
+  .aboutMecard:hover > .aboutMeCard--contentContainer__details {
+    display: flex;
+  }
+
 }
 </style>

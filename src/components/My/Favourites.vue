@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <Renderer ref="renderer" resize="window" orbit-ctrl>
-      <Camera :position="{ z: 10 }">
+  <div class="myFavouriteStack">
+    <Renderer ref="renderer" resize="true" orbit-ctrl>
+      <Camera :position="{ z: 3 }">
         <Scene background="#464d34">
           <PointLight :position="{ y: 50, z: 50 }" />
           <AmbientLight />
@@ -23,6 +23,7 @@ import {
   LambertMaterial,
   Renderer,
   Scene,
+  AmbientLight
 } from "troisjs";
 export default {
   components: {
@@ -32,6 +33,7 @@ export default {
     Renderer,
     Scene,
     PointLight,
+    AmbientLight
   },
   setup() {
     const renderer = ref(null);
@@ -50,3 +52,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.myFavouriteStack {
+  width: 100%;
+  height: 100vh;
+}
+</style>

@@ -25,36 +25,11 @@
 export default {
   setup() {
     const techies = [
-      { name: "Frontend Skill", link: "personal-stack" },
-      { name: "Fundamentals Skills", link: "my-stack" },
-      { name: "Building Skills", link: "building" },
+      { name: "Frontend Stack", link: "personal-stack" },
+      { name: "Fundamental Stack", link: "my-stack" },
+      { name: "Building Stack", link: "building" },
     ];
-    const technologies = [
-      { name: "Nuxtjs" },
-      { name: "tailwind" },
-      { name: "firebase" },
-    ];
-    const stack = [
-      { name: "Vue2" },
-      { name: "Storyblok" },
-      { name: "Vue3" },
-      { name: "Javascript" },
-      { name: "Boostrap" },
-      { name: "Bulma" },
-      { name: "Git" },
-      { name: "Github" },
-      { name: "CSS" },
-    ];
-    const elementalStack = [
-      { name: "Nodejs" },
-      { name: "Expressjs" },
-      { name: "Python" },
-    ];
-
     return {
-      technologies,
-      stack,
-      elementalStack,
       techies,
     };
   },

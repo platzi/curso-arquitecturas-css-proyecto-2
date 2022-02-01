@@ -43,7 +43,7 @@ export default {
     const renderer = ref(null);
     const box = ref(null);
 
-    const image = require("@/static/images/stacks/stack2.png")
+    const image = require("@/static/images/stacks/stack1.png")
 
     onMounted(() => {
       renderer?.value?.onBeforeRender(() => {

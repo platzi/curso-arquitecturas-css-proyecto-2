@@ -44,7 +44,7 @@ export default {
 
 
 .wrap {
-  background: rgb(70, 77, 52);
+  background: #464d34;
   /* background: linear-gradient(
     180deg,
     rgba(228, 199, 95, 1) 0%,

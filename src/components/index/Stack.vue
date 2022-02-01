@@ -15,7 +15,7 @@
             </router-link>
           </ul>
         </nav>
-        <router-view class="myStackSection--container__views" />
+        <router-view  class="myStackSection--container__views" />
       </div>
     </div>
   </div>
@@ -25,7 +25,7 @@
 export default {
   setup() {
     const techies = [
-      { name: "Frontend Stack", link: "personal-stack" },
+      { name: "Frontend Stack", link: "/" },
       { name: "Fundamental Stack", link: "my-stack" },
       { name: "Building Stack", link: "building" },
     ];

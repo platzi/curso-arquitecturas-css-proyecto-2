@@ -5,12 +5,11 @@
         <h2>About Me</h2>
         <p>
           I have participated around the world for social-profit projects in
-          university contest and i had been part of and multidisciplinary groups
-          for academic researches.
+          university contests and i had been part of multidisciplinary groups.
         </p>
         <br />
         <p>
-          Thanks fot those experiences i love looking for better ways to improve
+          Thanks those experiences i love looking for better ways to improve
           myself and help people to find their hiden potential.
         </p>
       </div>

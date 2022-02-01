@@ -11,7 +11,7 @@ const routes = [
     component: Home,
     children: [
       {
-        path: 'personal-stack',
+        path: '/',
         component: MyFavourites
       },
       {

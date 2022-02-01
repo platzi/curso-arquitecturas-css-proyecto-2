@@ -6,7 +6,9 @@
           <PointLight :position="{ y: 50, z: 50 }" />
           <AmbientLight />
           <Box ref="box" :rotation="{ y: Math.PI / 4, z: Math.PI / 4 }">
-            <LambertMaterial />
+            <BasicMaterial>
+              <Texture :src="image" />
+            </BasicMaterial>
           </Box>
         </Scene>
       </Camera>
@@ -20,24 +22,28 @@ import {
   Box,
   Camera,
   PointLight,
-  LambertMaterial,
+  BasicMaterial,
   Renderer,
   Scene,
-  AmbientLight
+  AmbientLight,
+  Texture
 } from "troisjs";
 export default {
   components: {
     Box,
     Camera,
-    LambertMaterial,
+    BasicMaterial,
     Renderer,
     Scene,
     PointLight,
+    Texture,
     AmbientLight
   },
   setup() {
     const renderer = ref(null);
     const box = ref(null);
+
+    const image = require("@/static/images/logos/nuxt.png")
 
     onMounted(() => {
       renderer?.value?.onBeforeRender(() => {
@@ -48,6 +54,7 @@ export default {
     return {
       renderer,
       box,
+      image
     };
   },
 };

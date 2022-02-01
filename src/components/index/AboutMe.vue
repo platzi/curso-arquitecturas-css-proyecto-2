@@ -13,9 +13,21 @@
           myself and help people to find their hiden potential.
         </p>
       </div>
+      <div class="aboutMeSection--container__cards">
+        <about-me-card />
+      </div>
     </div>
   </div>
 </template>
+
+<script>
+import AboutMeCard from '../cards/AboutMeCard.vue'
+export default {
+  components: {
+    AboutMeCard
+  }
+}
+</script>
 
 <style scoped>
 .aboutMeSection--container {
@@ -31,6 +43,11 @@
 .aboutMeSection--container p {
   font-size: 1.75rem;
   color: #a2a59f;
+}
+
+.aboutMeSection--container__cards {
+  width: 100%;
+  margin: 1rem 0;
 }
 
 @media only screen and (max-width: 1024px) {

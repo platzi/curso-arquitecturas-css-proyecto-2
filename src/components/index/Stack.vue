@@ -10,7 +10,7 @@
             </router-link>
           </ul>
         </nav>
-        <router-view />
+        <router-view class="myStackSection--container__views" />
       </div>
     </div>
   </div>
@@ -20,8 +20,8 @@
 export default {
   setup() {
     const techies = [
-      { name: 'My personal preferred techonolgies are', link: 'personal-stack'},
-      { name: 'Proficient and super comfortable using techonologies', link: 'my-stack'},
+      { name: 'My favourite', link: 'personal-stack'},
+      { name: 'Proficient using techonologies', link: 'my-stack'},
       { name: 'Building Skills', link: 'building'},
     ]
     const technologies = [
@@ -81,12 +81,25 @@ export default {
 }
 
 .myStackSection--container ul {
-  margin-bottom: 1.5rem;
+  margin: 2rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
 }
 .myStack--link {
   margin-bottom: 0.75rem;
   color: white;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  font-family: "Nunito";
+}
+
+.myStackSection--container__views {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media only screen and (max-width: 1024px) {

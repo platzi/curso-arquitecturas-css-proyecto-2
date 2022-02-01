@@ -7887,6 +7887,11 @@ thread-loader@^2.1.3:
     loader-utils "^1.1.0"
     neo-async "^2.6.0"
 
+three@0.134:
+  version "0.134.0"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.134.0.tgz#d7ad4d85d050da0861bf39749b06ddfb5f17157f"
+  integrity sha512-LbBerg7GaSPjYtTOnu41AMp7tV6efUNR3p4Wk5NzkSsNTBuA5mDGOfwwZL1jhhVMLx9V20HolIUo0+U3AXehbg==
+
 through2@^2.0.0:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/through2/-/through2-2.0.5.tgz#01c1e39eb31d07cb7d03a96a70823260b23132cd"
@@ -7983,6 +7988,11 @@ tough-cookie@~2.5.0:
   dependencies:
     psl "^1.1.28"
     punycode "^2.1.1"
+
+troisjs@^0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/troisjs/-/troisjs-0.3.3.tgz#cf499f33aee9e0996e8ba14d1b84c47b4c52bbd9"
+  integrity sha512-b4AaoqKlA1Fsm4Fzspc135ZwZMrvzK1nwrQ7/towH7OsEnlAmf4lpSAEhLBbxuo669fWOJ7ZNd9+jSLz8hfE8g==
 
 tryer@^1.0.1:
   version "1.0.1"

@@ -5,15 +5,18 @@
         <h2>About Me</h2>
         <p>
           I have participated around the world for social-profit projects in
-          university contests and i had been part of multidisciplinary groups.
+          university contests and I had been part of multidisciplinary groups.
         </p>
         <br />
         <p>
-          Thanks those experiences i love looking for better ways to improve
+          Thanks those experiences I love looking for better ways to improve
           myself and help people to find their hiden potential.
         </p>
       </div>
       <div class="aboutMeSection--container__cards">
+        <about-me-card />
+        <about-me-card />
+        <about-me-card />
         <about-me-card />
       </div>
     </div>
@@ -48,6 +51,9 @@ export default {
 .aboutMeSection--container__cards {
   width: 100%;
   margin: 1rem 0;
+  padding: 2rem 0;
+  display: flex;
+  overflow-x: scroll;
 }
 
 @media only screen and (max-width: 1024px) {

@@ -158,7 +158,8 @@ export default {
     margin: 0.75rem
   }
   .myStackSection--container__views {
-    width: 70%;
+    width: 50%;
+    height: 300px;
   }
 }
 </style>

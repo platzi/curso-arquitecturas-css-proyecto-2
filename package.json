@@ -8,9 +8,9 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.4.0",
     "@mdi/js": "^6.5.95",
     "core-js": "^3.6.5",
-    "emailjs-com": "^3.2.0",
     "gsap": "^3.9.1",
     "three": "0.134",
     "troisjs": "^0.3.3",

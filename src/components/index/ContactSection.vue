@@ -46,7 +46,7 @@
             ></textarea>
           </div>
         </div>
-        <button class="formButton" @click.prevent="probando">Send</button>
+        <button class="formButton" @click.prevent="sendEmail">Send</button>
       </form>
     </div>
   </div>
@@ -54,25 +54,46 @@
 
 <script>
 import { reactive, toRefs } from "vue";
+import emailjs from '@emailjs/browser'
+import { init } from '@emailjs/browser'
 export default {
   setup() {
+    init(process.env.VUE_APP_USER)
+
     const mail = reactive({
       userName: "",
       userLastname: "",
       userEmail: "",
       userMessage: "",
     });
-    function probando() {
-      console.log(
-        mail.userName,
-        mail.userLastname,
-        mail.userEmail,
-        mail.userMessage
-      );
+    function sendEmail() {
+      const params = {
+        to_name: 'Luis',
+        from_name: mail.userName,
+        from_lastname: mail.userLastname,
+        rely_to: mail.userEmail,
+        message: mail.userMessage,
+      }
+      try {
+        emailjs.send(
+          process.env.VUE_APP_SERVICE,
+          process.env.VUE_APP_TEMPLATE,
+          params,
+          process.env.VUE_APP_USER,
+        );
+        alert('Mensaje Enviado')
+      } catch (error) {
+        console.error(error);
+      }
+      console.log("estamos abajo");
+      mail.userName = "";
+      mail.userLastname = "";
+      mail.userEmail = "";
+      mail.userMessage = "";
     }
     return {
-      probando,
-      ...toRefs(mail)
+      sendEmail,
+      ...toRefs(mail),
     };
   },
 };

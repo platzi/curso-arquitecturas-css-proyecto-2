@@ -71,11 +71,12 @@ export default {
 
 <style scoped>
 .aboutMeSection--container {
-  width: 75%;
+  width: 100%;
 }
 .aboutMeSection--container h2,
 .aboutMeSection--container p {
   font-family: "Nunito";
+  width: 75%;
 }
 .aboutMeSection--container h2 {
   font-size: 6rem;

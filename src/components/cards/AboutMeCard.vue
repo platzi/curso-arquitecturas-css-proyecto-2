@@ -88,6 +88,27 @@ export default {
   font-family: "Nunito";
   font-size: 2rem;
   margin: 1rem 0;
+  color: #f5e6d7;
+  font-weight: bold;
+}
+
+.aboutMeCard--contentContainer__description {
+  font-family: "Nunito";
+  font-size: 1.125rem;
+  color: #f5e6d7;
+  font-weight: 600;
+}
+
+.aboutMeCard--contentContainer__details {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #f5e6d7;
+  font-weight: 300;
+}
+
+.aboutMeCard--date {
+  margin-right: 1.5rem;
 }
 
 .aboutMeCard:hover .aboutMeCard--contentContainer {

@@ -1,11 +1,11 @@
 <template>
   <div class="general-container">
     <the-cursor :xCursorPosition="xPosition" :yCursorPosition="yPosition" />
-    <hero-section class="section" />
-    <my-portfolio :projects="projects" />
-    <stack class="" />
-    <about-me class="section" />
-    <contact-section class="" />
+    <hero-section class="section" id="indexhero" />
+    <my-portfolio :projects="projects" id="indexportfolio" />
+    <stack class="" id="indexstack" />
+    <about-me class="section" id="indexabout" />
+    <contact-section class="" id="indexcontact" />
   </div>
 </template>
 

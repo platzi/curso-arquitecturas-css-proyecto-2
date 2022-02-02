@@ -11,10 +11,10 @@
     >
       <ul>
         <li v-for="(item, index) in menu" :key="index">
-          <router-link :to="item.link" class="link">
+          <a :href="item.link" class="link">
             :to= "<span>{{ item.name }}</span
             >"
-          </router-link>
+          </a>
         </li>
       </ul>
     </nav>
@@ -32,10 +32,10 @@ export default {
     const isMenuOpen = computed(() => store.getters["config_drawer/getDrawer"]);
 
     const menu = [
-      { name: "home", link: "#" },
-      { name: "portfolio", link: "#" },
-      { name: "aboutMe", link: "#" },
-      { name: "contactMe", link: "#" },
+      { name: "home", link: "#indexhero" },
+      { name: "portfolio", link: "#indexportfolio" },
+      { name: "aboutMe", link: "#indexstack" },
+      { name: "contactMe", link: "#indexcontact" },
     ];
     function getMenu() {
       if (isMenuOpen.value) {

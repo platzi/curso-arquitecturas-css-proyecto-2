@@ -21,34 +21,34 @@ export default {
   props: {
     title: {
       type: String,
-      required: true
+      required: true,
     },
     image: {
       type: String,
-      required: true
+      required: true,
     },
     description: {
       type: String,
-      required: true
+      required: true,
     },
     date: {
       type: String,
-      required: true
+      required: true,
     },
     position: {
       type: String,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 };
 </script>
 
 <style scoped>
 .aboutMeCard {
-  min-height: 296px;
-  min-width: 288px;
+  min-height: 400px;
+  min-width: 500px;
   border-radius: 1rem;
-  margin-right: 2rem;
+  margin: 2rem 2rem 2rem 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -94,8 +94,8 @@ export default {
 
 .aboutMeCard--contentContainer__title {
   font-family: "Nunito";
-  font-size: 1.125rem;
-  margin: 1.5rem 0;
+  font-size: 1.5rem;
+  margin: 1.75rem 0;
   color: #f5e6d7;
   font-weight: bold;
 }
@@ -124,4 +124,28 @@ export default {
   height: 80%;
 }
 
+
+@media only screen and (max-width: 1440px) and (min-width: 769px) {
+  .aboutMeCard {
+    min-width: 306px;
+    min-height: 360px;
+  }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 321px) {
+  .aboutMeCard {
+    min-width: 256px;
+    min-height: 280px;
+  }
+  .aboutMeCard--contentContainer__title {
+    font-size: 1rem;
+    margin: 1.25rem 0;
+  }
+  .aboutMeCard--contentContainer__description {
+    font-size: 0.875rem;
+  }
+  .aboutMeCard--date, .aboutMeCard--position {
+    font-size: 0.75rem;
+  }
+}
 </style>

@@ -91,8 +91,12 @@ export default {
   margin: 1rem 0;
   padding: 2rem 0;
   display: flex;
-  overflow-x: scroll;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
 }
+
+
 
 @media only screen and (max-width: 1024px) {
   .aboutMeSection--container h2 {
@@ -102,6 +106,15 @@ export default {
     font-size: 1.5rem;
   }
 }
+
+
+@media only screen and (max-width: 768px) {
+  .aboutMeSection--container__cards {
+    overflow-x: scroll;
+    flex-wrap: nowrap;
+  }
+}
+
 @media only screen and (max-width: 540px) {
   .aboutMeSection--container h2 {
     font-size: 3rem;
@@ -113,6 +126,7 @@ export default {
 @media only screen and (max-width: 375px) {
   .aboutMeSection--container h2 {
     font-size: 2rem;
+    justify-content: flex-start;
   }
   .aboutMeSection--container p {
     font-size: 0.75rem;

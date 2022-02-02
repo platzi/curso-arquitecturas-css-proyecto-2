@@ -12,7 +12,7 @@ import TheHeader from "../src/components/TheHeader.vue";
 import ProjectModal from "../src/components/global/ProjectModal.vue"
 import Background from './components/global/Background.vue';
 import { useStore } from 'vuex'
-import { computed, watch } from 'vue'
+import { computed } from 'vue'
 export default {
   name: "App",
   components: {
@@ -27,13 +27,13 @@ export default {
       return store.getters['config_drawer/getDrawer']
     })
 
-    watch((isOpen) => {
-      if(isOpen) {
-        document.body.classList.add('static')
-      } else {
-        document.body.classList.remove('static')
-      }
-    })
+    // watch((isOpen) => {
+    //   if(isOpen) {
+    //     document.body.classList.add('static')
+    //   } else {
+    //     document.body.classList.remove('static')
+    //   }
+    // })
 
     return {
       isOpen

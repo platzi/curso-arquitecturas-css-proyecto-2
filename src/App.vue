@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap" :class="{static: isModalOpen }">
+  <div class="wrap">
     <project-modal />
     <background />
     <the-header />
@@ -12,7 +12,7 @@ import TheHeader from "../src/components/TheHeader.vue";
 import ProjectModal from "../src/components/global/ProjectModal.vue"
 import Background from './components/global/Background.vue';
 import { useStore } from 'vuex'
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 export default {
   name: "App",
   components: {
@@ -23,12 +23,20 @@ export default {
   setup() {
     const store = useStore()
 
-    const isModalOpen = computed(() => {
-      return store.getters['modal/getModal']
+    const isOpen = computed(() => {
+      return store.getters['config_drawer/getDrawer']
+    })
+
+    watch((isOpen) => {
+      if(isOpen) {
+        document.body.classList.add('static')
+      } else {
+        document.body.classList.remove('static')
+      }
     })
 
     return {
-      isModalOpen
+      isOpen
     }
   }
 };
@@ -42,6 +50,9 @@ export default {
   color: #f5e6d7;
 }
 
+.static {
+  overflow: hidden;
+}
 
 .wrap {
   background: #464d34;

@@ -143,6 +143,9 @@ export default {
 /* from this section we are working
 with tablets and phones */
 @media only screen and (max-width: 1024px) {
+  .header {
+    position: relative;
+  }
   .header--container {
     position: fixed;
     top: 0%;

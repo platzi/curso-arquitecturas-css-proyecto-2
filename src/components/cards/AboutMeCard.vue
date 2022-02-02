@@ -1,7 +1,7 @@
 <template>
   <div class="aboutMeCard">
     <figure class="aboutMeCard--figureContainer">
-      <img :src="image" :alt="name" />
+      <img :src="image" :alt="title" />
     </figure>
     <div class="aboutMeCard--contentContainer">
       <p class="aboutMeCard--contentContainer__title">{{ title }}</p>

@@ -6,23 +6,38 @@
         <div class="form--namesContainer">
           <div class="inputContainer">
             <label for="">Name</label>
-            <input type="text" name="name" placeholder="John" />
+            <input
+              v-model="userName"
+              type="text"
+              name="name"
+              placeholder="John"
+            />
           </div>
           <div class="inputContainer">
             <label for="">Lastname</label>
-            <input type="text" name="lastname" placeholder="Doe" />
+            <input
+              v-model="userLastname"
+              type="text"
+              name="lastname"
+              placeholder="Doe"
+            />
           </div>
         </div>
         <div class="form--emailContainer">
           <div class="inputContainer">
             <label for="">Email</label>
-            <input type="email" placeholder="johnDoe@cmail.com" />
+            <input
+              v-model="userEmail"
+              type="email"
+              placeholder="johnDoe@cmail.com"
+            />
           </div>
         </div>
         <div class="messageContainer">
           <div class="inputContainer">
             <label for="">Message</label>
             <textarea
+              v-model="userMessage"
               name=""
               id=""
               cols="30"
@@ -38,16 +53,29 @@
 </template>
 
 <script>
+import { reactive, toRefs } from "vue";
 export default {
   setup() {
+    const mail = reactive({
+      userName: "",
+      userLastname: "",
+      userEmail: "",
+      userMessage: "",
+    });
     function probando() {
-      console.log('Estamos vivos')
+      console.log(
+        mail.userName,
+        mail.userLastname,
+        mail.userEmail,
+        mail.userMessage
+      );
     }
     return {
-      probando
-    }
-  }
-}
+      probando,
+      ...toRefs(mail)
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -161,12 +189,12 @@ export default {
   background: rgb(131, 114, 54);
 }
 @media only screen and (max-width: 1024px) {
-  .contactSection h2{
+  .contactSection h2 {
     font-size: 4rem;
   }
 }
 @media only screen and (max-width: 540px) {
-  .contactSection h2{
+  .contactSection h2 {
     font-size: 3rem;
   }
   .form--namesContainer {
@@ -174,7 +202,7 @@ export default {
   }
 }
 @media only screen and (max-width: 375px) {
-  .contactSection h2{
+  .contactSection h2 {
     font-size: 2rem;
   }
 }

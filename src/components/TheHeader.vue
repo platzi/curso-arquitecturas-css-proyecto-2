@@ -10,7 +10,7 @@
       }"
     >
       <ul>
-        <li v-for="(item, index) in menu" :key="index">
+        <li v-for="(item, index) in menu" :key="index" @click="getMenu">
           <a :href="item.link" class="link">
             :to= "<span>{{ item.name }}</span
             >"

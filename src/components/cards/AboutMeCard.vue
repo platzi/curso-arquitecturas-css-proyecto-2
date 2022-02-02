@@ -18,21 +18,28 @@
 
 <script>
 export default {
-  setup() {
-    const title = "Titulo";
-    const description = "Esta es un descripcion";
-    const date = "3.05.12";
-    const position = "director";
-    const image = require("@/static/images/projects/egypt.jpg");
-
-    return {
-      title,
-      description,
-      date,
-      position,
-      image,
-    };
-  },
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    image: {
+      type: String,
+      required: true
+    },
+    description: {
+      type: String,
+      required: true
+    },
+    date: {
+      type: String,
+      required: true
+    },
+    position: {
+      type: String,
+      required: true
+    }
+  }
 };
 </script>
 

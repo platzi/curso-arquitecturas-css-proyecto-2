@@ -14,22 +14,56 @@
         </p>
       </div>
       <div class="aboutMeSection--container__cards">
-        <about-me-card />
-        <about-me-card />
-        <about-me-card />
-        <about-me-card />
+        <about-me-card
+          v-for="(project, index) in personalProjects"
+          :key="index"
+          :title="project.title"
+          :description="project.description"
+          :image="project.image"
+          :position="project.position"
+          :date="project.date"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import AboutMeCard from '../cards/AboutMeCard.vue'
+import AboutMeCard from "../cards/AboutMeCard.vue";
 export default {
   components: {
-    AboutMeCard
-  }
-}
+    AboutMeCard,
+  },
+  setup() {
+    const personalProjects = [
+      {
+        title: "Titulo",
+        description: "Esta es un descripcion",
+        date: "3.05.12",
+        position: "director",
+        image: require("@/static/images/projects/egypt.jpg"),
+      },
+      {
+        title: "Titulo",
+        description: "Esta es un descripcion",
+        date: "3.05.12",
+        position: "director",
+        image: require("@/static/images/projects/egypt.jpg"),
+      },
+      {
+        title: "Titulo",
+        description: "Esta es un descripcion",
+        date: "3.05.12",
+        position: "director",
+        image: require("@/static/images/projects/egypt.jpg"),
+      },
+    ];
+
+    return {
+      personalProjects,
+    };
+  },
+};
 </script>
 
 <style scoped>

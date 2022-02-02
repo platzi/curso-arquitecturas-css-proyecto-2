@@ -111,6 +111,7 @@ export default {
 .contactSection h2 {
   font-family: "Nunito";
   font-size: 6rem;
+  margin-bottom: 3rem;
 }
 .contactSection--container {
   background: rgba(95, 116, 41, 1);

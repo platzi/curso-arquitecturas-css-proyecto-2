@@ -54,13 +54,14 @@ export default {
   justify-content: center;
   align-items: center;
   position: relative;
+  overflow-y: hidden;
   /* background: #5f7429 60%,
     #e4c75f 80%,
     #b79d36; */
 }
 .aboutMeCard--figureContainer {
   width: 100%;
-  height: 80%;
+  height: 100%;
   border-radius: 1rem 1rem 0 0;
   display: flex;
   justify-content: center;
@@ -93,8 +94,8 @@ export default {
 
 .aboutMeCard--contentContainer__title {
   font-family: "Nunito";
-  font-size: 2rem;
-  margin: 1rem 0;
+  font-size: 1.125rem;
+  margin: 1.5rem 0;
   color: #f5e6d7;
   font-weight: bold;
 }
@@ -112,6 +113,7 @@ export default {
   align-items: center;
   color: #f5e6d7;
   font-weight: 300;
+  font-family: "Nunito";
 }
 
 .aboutMeCard--date {

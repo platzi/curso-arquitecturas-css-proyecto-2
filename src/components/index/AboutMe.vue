@@ -37,25 +37,28 @@ export default {
   setup() {
     const personalProjects = [
       {
-        title: "Titulo",
-        description: "Esta es un descripcion",
-        date: "3.05.12",
-        position: "director",
+        title: "2nd place in Cairo Hult Prize",
+        description:
+          "I was responsible for creating a business model canva based on the bottom of the Pyramid Strategy",
+        date: "03/17/2018",
+        position: "Project Director",
         image: require("@/static/images/projects/egypt.jpg"),
       },
       {
-        title: "Titulo",
-        description: "Esta es un descripcion",
-        date: "3.05.12",
-        position: "director",
-        image: require("@/static/images/projects/egypt.jpg"),
+        title: "Water filter Research",
+        description:
+          "I was responsible to design a low-cost water filter for the affected Manabi-Ecuador people after the eathquake",
+        date: "05/02/2016",
+        position: "Researcher",
+        image: require("@/static/images/projects/waterFilter.jpg"),
       },
       {
-        title: "Titulo",
-        description: "Esta es un descripcion",
-        date: "3.05.12",
-        position: "director",
-        image: require("@/static/images/projects/egypt.jpg"),
+        title: "First Startup - Edtech",
+        description:
+          "I was responsible of the dev team for develop Educasigma software until it was bought",
+        date: "01/10/2019-03/15/2020",
+        position: "CEO",
+        image: require("@/static/images/projects/educasigma.jpg"),
       },
     ];
 

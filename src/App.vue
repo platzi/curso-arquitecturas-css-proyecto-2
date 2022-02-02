@@ -27,14 +27,6 @@ export default {
       return store.getters['config_drawer/getDrawer']
     })
 
-    // watch((isOpen) => {
-    //   if(isOpen) {
-    //     document.body.classList.add('static')
-    //   } else {
-    //     document.body.classList.remove('static')
-    //   }
-    // })
-
     return {
       isOpen
     }
@@ -56,6 +48,7 @@ export default {
 
 .wrap {
   background: #464d34;
+  position: relative;
   /* background: linear-gradient(
     180deg,
     rgba(228, 199, 95, 1) 0%,

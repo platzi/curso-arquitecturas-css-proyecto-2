@@ -81,7 +81,7 @@ export default {
 .projectModal {
   width: 50%;
   height: 85%;
-  position: absolute;
+  position: fixed;
   top: 7.5%;
   left: 25%;
   z-index: 310;

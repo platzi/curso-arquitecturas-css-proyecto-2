@@ -34,7 +34,7 @@ const state = () => ({
         },
       ],
       description: "WebApp for an academy to test their students",
-      isPrivate: false,
+      isPrivate: true,
       repo: "https://github.com/CeoNabux/Cepol",
     },
     {
@@ -56,7 +56,7 @@ const state = () => ({
       ],
       description:
         "Website created to show their tools for industry and send messages of products via Whatsapp",
-      isPrivate: false,
+      isPrivate: true,
       repo: "https://github.com/CeoNabux/procorex",
     },
     {

@@ -2,7 +2,7 @@
   <div class="wrap">
     <project-modal />
     <background />
-    <the-header />
+    <the-header class="header-section" />
     <router-view />
   </div>
 </template>
@@ -50,5 +50,13 @@ export default {
 .wrap {
   background: var(--bglight-color);
   position: relative;
+  background-image: url("./static/images/noise.png");
+  background-position: center;
 }
+
+.header-section {
+  padding: 0 2.125rem;
+}
+
+
 </style>

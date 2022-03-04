@@ -121,4 +121,18 @@ export default {
   border: 1px solid var(--primary-color);
   border-radius: 100%;
 }
+
+@media only screen and (max-width: 768px) {
+  .projectTitle {
+    font-size: 4.5rem;
+  }
+}
+
+
+@media only screen and (max-width: 680px) {
+  .projectTitle {
+    font-size: 3rem;
+  }
+}
+
 </style>

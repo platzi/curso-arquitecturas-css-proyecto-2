@@ -33,7 +33,7 @@ export default {
     const yPosition = ref(0);
     const store = useStore();
 
-    const projects = computed(() => store.getters["projects/getProjects"]);
+    const projects = computed(() => store.getters["projects/getProjects"].slice(0, 4));
 
     onMounted(() => {
       document.addEventListener("mousemove", getCursor);

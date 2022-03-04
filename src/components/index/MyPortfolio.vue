@@ -10,16 +10,15 @@
         </p>
       </div>
     </div>
-    <div class="firstProject">
+    <div class="projects-container">
       <project-card
-        :bgImage="projects[0].image"
-        :projectName="projects[0].name"
-      />
-    </div>
-    <div class="secondProject">
-      <project-card
-        :bgImage="projects[1].image"
-        :projectName="projects[1].name"
+        v-for="(project, index) in projects"
+        :key="index"
+        :title="project.name"
+        :image="project.image"
+        :date="project.date"
+        :projectId="project.name"
+        :position="index"
       />
     </div>
   </div>
@@ -50,6 +49,7 @@ export default {
   flex-direction: column;
   padding: 2rem 2.25rem;
   width: 100%;
+  max-width: 1440px;
 }
 
 .portfolioTitle,
@@ -83,16 +83,9 @@ export default {
   letter-spacing: -4%;
 }
 
-.firstProject {
-  grid-area: first-card;
+.projects-container {
   width: 100%;
-  height: 100%;
-}
-
-.secondProject {
-  grid-area: second-card;
-  width: 100%;
-  height: 100%;
+  margin: 32px 0;
 }
 
 @media only screen and (max-width: 1024px) {

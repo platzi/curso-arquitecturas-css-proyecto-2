@@ -4,6 +4,7 @@ const state = () => ({
     {
       name: "Jnxur Artist website",
       url: "https://www.jhxnur.art/",
+      date: "2021",
       image: require("@/static/images/jhnur-min.png"),
       tools: [
         { name: "Vuejs", img: require("@/static/images/logos/vuejs.png") },
@@ -21,6 +22,7 @@ const state = () => ({
     {
       name: "Cepol Academy Webapp",
       url: "https://www.cepolacademy.org/",
+      date: "2021",
       image: require("@/static/images/cepolAcademy-min.png"),
       tools: [
         { name: "Nuxt", img: require("@/static/images/logos/nuxt.png") },
@@ -40,6 +42,7 @@ const state = () => ({
     {
       name: "Procorex",
       url: "https://procorex.ec/",
+      date: "2021",
       image: require("@/static/images/procorex.png"),
       tools: [
         {
@@ -62,6 +65,7 @@ const state = () => ({
     {
       name: "Refreezer",
       url: "https://www.refreezerec.com/",
+      date: "2020",
       image: require("@/static/images/refreezerCapture-min.png"),
       tools: [
         {
@@ -90,6 +94,7 @@ const state = () => ({
     {
       name: "Plazti Music",
       url: "Not in Production",
+      date: "2020",
       image: require("@/static/images/platzi-music.png"),
       tools: [
         { name: "Vuejs", img: require("@/static/images/logos/vuejs.png") },

@@ -77,6 +77,7 @@ export default {
   width: 100%;
   max-width: 1440px;
   padding: 0.25rem 0.5rem;
+  margin: 0 auto;
 }
 
 .header--logo-container {

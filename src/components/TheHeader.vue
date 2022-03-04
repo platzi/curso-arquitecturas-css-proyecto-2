@@ -32,8 +32,8 @@ export default {
     const isMenuOpen = computed(() => store.getters["config_drawer/getDrawer"]);
 
     const menu = [
-      { name: "HOME", link: "#indexhero" },
-      { name: "PORTFOLIO", link: "#indexportfolio" },
+      { name: "HOME", link: "/" },
+      { name: "PORTFOLIO", link: "/Work" },
     ];
     function getMenu() {
       if (isMenuOpen.value) {

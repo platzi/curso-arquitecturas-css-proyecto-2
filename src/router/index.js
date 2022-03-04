@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-import Work from '../views/Work.vue'
+import Works from '../views/Works.vue'
 import Project from '../views/Project.vue'
 import MyFavourites from '../components/My/Favourites.vue'
 import MyStack from '../components/My/Stack.vue'
@@ -27,9 +27,9 @@ const routes = [
     ]
   },
   {
-    path: '/work',
-    name: 'Work',
-    component: Work
+    path: '/works',
+    name: 'Works',
+    component: Works
   },
   {
     path: '/work/:id',

@@ -82,7 +82,7 @@ export default {
   align-items: center;
   padding: 0 1rem;
   margin: 0 auto;
-  margin-bottom: -5%;
+  margin-bottom: -2%;
 }
 
 .isLeft {

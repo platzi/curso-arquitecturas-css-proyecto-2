@@ -18,8 +18,13 @@
         :image="project.image"
         :date="project.date"
         :projectId="project.name"
-        :position="index"
+        :position="index+1"
       />
+    </div>
+    <div class="projects-link-container">
+      <router-link to="work" class="projects-link">
+        Take a look at my work
+      </router-link>
     </div>
   </div>
 </template>
@@ -88,48 +93,35 @@ export default {
   margin: 32px 0;
 }
 
-@media only screen and (max-width: 1024px) {
-  .portfolioTitle {
-    font-size: 4rem;
-  }
-  .portfolioContent {
-    padding: 1.25rem 1rem;
-  }
-  .portfolioContent p {
-    font-size: 1.5rem;
-  }
+.projects-link-container {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
-@media only screen and (max-width: 768px) {
-  .portfolioSection {
-    grid-template-columns: repeat(autofill, 1fr);
-    grid-template-areas:
-      "content"
-      "first-card"
-      "first-card"
-      "second-card"
-      "second-card";
-  }
+
+.projects-link {
+  color: var(--primary-color);
+  font-family: var(--font-family);
+  font-size: 1rem;
+  font-weight: 400;
+  width: 200px;
+  height: 200px;
+  text-decoration: none;
+  margin-top: -5%;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-@media only screen and (max-width: 540px) {
-  .portfolioTitle {
-    font-size: 3rem;
-  }
-  .portfolioContent {
-    padding: 1rem 0.75rem;
-  }
-  .portfolioContent p {
-    font-size: 1rem;
-  }
+
+.projects-link:hover {
+  border: 1px solid var(--primary-color);
+  border-radius: 100%;
 }
-@media only screen and (max-width: 375px) {
-  .portfolioContent {
-    padding: 1rem 0.5rem;
-  }
-  .portfolioTitle {
-    font-size: 2rem;
-  }
-  .portfolioContent p {
-    font-size: 0.75rem;
-  }
-}
+
+
+
 </style>

@@ -8,7 +8,7 @@
         {{ date }}
       </p>
       <figure class="project-image-container">
-        <img :src="image" :alt="title" class="project-image" />
+        <img loading="lazy" :src="image" :alt="title" class="project-image" />
       </figure>
       <div class="project-link-container">
         <router-link :to="`works/${projectId}`" class="project-link">

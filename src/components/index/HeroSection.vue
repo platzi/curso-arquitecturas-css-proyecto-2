@@ -2,49 +2,10 @@
   <div class="heroSection">
     <div class="content-container">
       <div class="title-container">
-        <transition
-          appear
-          tag="title"
-          @before-enter="beforeEnter"
-          @enter="enter"
-        >
-          <h1 class="title">
-            Hey, I'm
-            <div class="name-container">
-              <transition-group
-                tag="myName"
-                class="myName"
-                appear
-                @enter="beforeNameIntro"
-                @after-enter="nameIntro"
-              >
-                <p
-                  v-for="(letter, index) in myName"
-                  :key="index"
-                  :data-index="index"
-                >
-                  {{ letter }}
-                </p>
-              </transition-group>
-              <p class="empty">:)</p>
-              <transition-group
-                tag="myName"
-                class="myLastname"
-                appear
-                @enter="beforeLastnameIntro"
-                @after-enter="lastnameIntro"
-              >
-                <p
-                  v-for="(letter, index) in myLastname"
-                  :key="index"
-                  :data-index="index"
-                >
-                  {{ letter }}
-                </p>
-              </transition-group>
-            </div>
-          </h1>
-        </transition>
+        <h1 class="title">
+          <span>Hey, I'm</span>
+          LUIS REYES
+        </h1>
       </div>
       <div class="copywrite-container">
         <transition
@@ -53,13 +14,33 @@
           @after-enter="contentIntro"
         >
           <p>
-            I'm enthusiastic Frontend Developer,
+            <span class="first-line">I'm enthusiastic</span>
             <br />
-            Vuejs promoter in spanish,
+            <span class="middle-line"> FRONTEND DEVELOPER </span>
             <br />
-            and a project lover.
+            <span class="second-line">
+              Vuejs promoter, and a project lover
+            </span>
           </p>
         </transition>
+      </div>
+      <div class="gesture-container">
+        <div class="gesture-container__arrow-container">
+          <svg
+            width="8"
+            height="47"
+            viewBox="0 0 8 47"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M4.67157 46.3536L7.85355 43.1716C8.04882 42.9763 8.04882 42.6597 7.85355 42.4645C7.65829 42.2692 7.34171 42.2692 7.14645 42.4645L4.81802 44.7929L4.81802 3.93695C5.68056 3.71488 6.31787 2.93187 6.31787 2C6.31787 0.895431 5.42244 0 4.31787 0C3.2133 0 2.31787 0.895431 2.31787 2C2.31787 2.93197 2.95533 3.71506 3.81802 3.93703L3.81802 44.7929L1.48959 42.4645C1.29433 42.2692 0.977748 42.2692 0.782485 42.4645C0.587224 42.6597 0.587224 42.9763 0.782485 43.1716L3.96447 46.3536C4.15973 46.5488 4.47631 46.5488 4.67157 46.3536Z"
+              fill="#1E6F5C"
+            />
+          </svg>
+        </div>
       </div>
     </div>
   </div>
@@ -163,51 +144,104 @@ export default {
 <style scoped>
 .heroSection {
   width: 100%;
+  height: 100vh;
   display: flex;
   align-items: center;
 }
 .content-container {
   display: flex;
+  width: 100%;
+  height: 100%;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
   padding: 2rem 2.25rem;
   padding-left: 5rem;
 }
 .title-container {
-  width: 75%;
+  width: 100%;
+  /* height: 50%; */
+  display: flex;
+  justify-content: start;
+  align-items: center;
 }
+.title-container h1 {
+  color: var(--primary-color);
+  font-family: var(--font-family);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  font-size: 9rem;
+  font-weight: 500;
+}
+
 .title {
-  font-size: 8rem;
-  margin: auto;
-  color: #d2dabf;
-  font-family: "Nunito", sans-serif;
+  margin: 0;
 }
+
+.title-container h1 span {
+  font-size: 3rem;
+  font-weight: 400;
+}
+
 .name-container {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
-.myName,
-.myLastname {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 .title p {
   margin: 0;
 }
+
+.copywrite-container {
+  width: 100%;
+  /* height: 50%; */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 .copywrite-container p {
   font-size: 1.25rem;
   margin: 0;
-  font-weight: 600;
-  font-family: "Nunito", sans-serif;
+  font-family: var(--font-family);
   padding: 0 0.5rem;
-  font-size: 2rem;
-  color: #a2a59f;
+  color: var(--primary-color);
+  text-align: right;
 }
-.empty {
-  color: transparent;
+
+.copywrite-container p .first-line {
+  font-size: 3rem;
+  font-weight: 400;
+}
+
+.copywrite-container p .middle-line {
+  font-size: 4.5rem;
+  font-weight: 500;
+}
+
+.copywrite-container p .second-line {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.gesture-container{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.gesture-container__arrow-container {
+  border: 1px solid var(--primary-color);
+  border-radius: 100%;
+  width: 120px;
+  height:  120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @keyframes typing {
@@ -218,37 +252,6 @@ export default {
 @keyframes blink {
   50% {
     border-color: transparent;
-  }
-}
-
-@media only screen and (max-width: 1024px) {
-  .content-container {
-    padding: 1.25rem 1rem;
-  }
-  .title {
-    font-size: 6rem;
-  }
-  .copywrite-container p {
-    font-size: 1.125rem;
-  }
-}
-@media only screen and (max-width: 540px) {
-  .title {
-    font-size: 4rem;
-  }
-  .copywrite-container p {
-    font-size: 1rem;
-  }
-}
-@media only screen and (max-width: 380px) {
-  .content-container {
-    padding: 1rem 0.50rem;
-  }
-  .title {
-    font-size: 3.25rem;
-  }
-  .copywrite-container p {
-    font-size: 1rem;
   }
 }
 </style>

@@ -185,12 +185,6 @@ export default {
   font-weight: 400;
 }
 
-.name-container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
 .title p {
   margin: 0;
 }
@@ -227,7 +221,7 @@ export default {
   font-weight: 400;
 }
 
-.gesture-container{
+.gesture-container {
   width: 100%;
   display: flex;
   justify-content: flex-start;
@@ -238,10 +232,48 @@ export default {
   border: 1px solid var(--primary-color);
   border-radius: 100%;
   width: 120px;
-  height:  120px;
+  height: 120px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media only screen and (max-width: 640px) {
+  .content-container {
+    padding: 3rem 0.75rem;
+  }
+
+  .title-container {
+    margin-bottom: 2.25rem
+  }
+
+  .title-container h1 {
+    font-size: 4.5rem;
+  }
+
+  .title-container h1 span {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  .copywrite-container {
+    margin-bottom: 3.75rem;
+  }
+
+  .copywrite-container p .first-line {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  .copywrite-container p .middle-line {
+    font-size: 3rem;
+    font-weight: 500;
+  }
+
+  .copywrite-container p .second-line {
+    font-size: 0.75rem;
+    font-weight: 400;
+  }
 }
 
 @keyframes typing {

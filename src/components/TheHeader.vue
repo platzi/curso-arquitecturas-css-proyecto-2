@@ -32,8 +32,8 @@ export default {
     const isMenuOpen = computed(() => store.getters["config_drawer/getDrawer"]);
 
     const menu = [
-      { name: "home", link: "#indexhero" },
-      { name: "portfolio", link: "#indexportfolio" },
+      { name: "HOME", link: "#indexhero" },
+      { name: "PORTFOLIO", link: "#indexportfolio" },
     ];
     function getMenu() {
       if (isMenuOpen.value) {
@@ -109,7 +109,7 @@ export default {
   list-style-type: none;
   text-decoration: none;
   font-family: var(--font-family);
-  font-size: 1rem;
+  font-size: 1.5rem;
   margin: 0 auto;
   padding: 0;
   color: var(--primary-color);
@@ -134,7 +134,7 @@ export default {
 
 @media only screen and (min-width: 1441px) {
   .header--container .link {
-    font-size: 2rem;
+    /* font-size: 2rem; */
     margin: 0.06rem;
   }
   .header--container .link span {
@@ -147,7 +147,7 @@ export default {
 @media only screen and (max-width: 1440px) and (min-width: 1025px) {
   .header--container ul li,
   .header--container .link {
-    font-size: 2rem;
+    /* font-size: 2rem; */
     margin: 0 0;
   }
   .logo-text {
@@ -155,10 +155,10 @@ export default {
   }
 }
 @media only screen and (max-width: 1024px) {
-  .header--container ul li,
+  /* .header--container ul li,
   .header--container .link {
     font-size: 1.75rem;
-  }
+  } */
   .header--container .link {
     padding: 0.3125rem 0.625rem;
   }

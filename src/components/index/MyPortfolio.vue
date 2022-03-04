@@ -17,7 +17,7 @@
         :title="project.name"
         :image="project.image"
         :date="project.date"
-        :projectId="project.name"
+        :projectId="project.id"
         :position="index+1"
       />
     </div>
@@ -121,7 +121,4 @@ export default {
   border: 1px solid var(--primary-color);
   border-radius: 100%;
 }
-
-
-
 </style>

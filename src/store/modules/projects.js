@@ -3,6 +3,7 @@ const state = () => ({
   projects: [
     {
       name: "Jnxur Artist website",
+      id: "JhxUr",
       url: "https://www.jhxnur.art/",
       date: "2021",
       image: require("@/static/images/jhnur-min.png"),
@@ -21,6 +22,7 @@ const state = () => ({
     },
     {
       name: "Cepol Academy Webapp",
+      id: "Cepol",
       url: "https://www.cepolacademy.org/",
       date: "2021",
       image: require("@/static/images/cepolAcademy-min.png"),
@@ -41,6 +43,7 @@ const state = () => ({
     },
     {
       name: "Procorex",
+      id: "Procorex",
       url: "https://procorex.ec/",
       date: "2021",
       image: require("@/static/images/procorex.png"),
@@ -64,6 +67,7 @@ const state = () => ({
     },
     {
       name: "Refreezer",
+      id: "Refreezer",
       url: "https://www.refreezerec.com/",
       date: "2020",
       image: require("@/static/images/refreezerCapture-min.png"),
@@ -93,6 +97,7 @@ const state = () => ({
     },
     {
       name: "Plazti Music",
+      id: "MusicPlayer",
       url: "Not in Production",
       date: "2020",
       image: require("@/static/images/platzi-music.png"),

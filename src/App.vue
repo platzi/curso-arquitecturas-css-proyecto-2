@@ -40,12 +40,13 @@ export default {
 
 
 #app h2 {
-  color: #f5e6d7;
+  color: var(--primary-color);
 }
 
 .static {
   overflow: hidden;
 }
+
 
 .wrap {
   background: var(--bglight-color);

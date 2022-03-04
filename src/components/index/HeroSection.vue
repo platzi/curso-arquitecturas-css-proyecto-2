@@ -238,6 +238,9 @@ export default {
   align-items: center;
 }
 
+
+
+
 @media only screen and (max-width: 640px) {
   .content-container {
     padding: 3rem 0.75rem;

@@ -35,6 +35,7 @@ export default {
 </script>
 
 <style>
+@import './assets/css/variables.css';
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300&display=swap");
 
 
@@ -47,16 +48,7 @@ export default {
 }
 
 .wrap {
-  background: #464d34;
+  background: var(--bglight-color);
   position: relative;
-  /* background: linear-gradient(
-    180deg,
-    rgba(228, 199, 95, 1) 0%,
-    rgba(143, 3, 42, 1) 20%,
-    rgba(88, 0, 26, 1) 40%,
-    rgba(95, 116, 41, 1) 60%,
-    rgba(228, 199, 95, 1) 80%,
-    rgba(183, 157, 54, 1) 100%
-  ); */
 }
 </style>

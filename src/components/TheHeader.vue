@@ -1,19 +1,21 @@
 <template>
   <header class="header">
-    <div class="buttonContainer">
+    <!-- <div class="buttonContainer">
       <burger-button @click="getMenu" />
-    </div>
+    </div> -->
     <nav
       class="header--container"
       :class="{
         isOpen: isMenuOpen,
       }"
     >
+      <div class="header--logo-container">
+        <p class="logo-text">LR.</p>
+      </div>
       <ul>
         <li v-for="(item, index) in menu" :key="index" @click="getMenu">
           <a :href="item.link" class="link">
-            :to= "<span>{{ item.name }}</span
-            >"
+            {{ item.name }}
           </a>
         </li>
       </ul>
@@ -24,9 +26,7 @@
 <script>
 import { useStore } from "vuex";
 import { computed } from "vue";
-import BurgerButton from "./global/BurgerButton.vue";
 export default {
-  components: { BurgerButton },
   setup() {
     const store = useStore();
     const isMenuOpen = computed(() => store.getters["config_drawer/getDrawer"]);
@@ -34,8 +34,6 @@ export default {
     const menu = [
       { name: "home", link: "#indexhero" },
       { name: "portfolio", link: "#indexportfolio" },
-      { name: "aboutMe", link: "#indexstack" },
-      { name: "contactMe", link: "#indexcontact" },
     ];
     function getMenu() {
       if (isMenuOpen.value) {
@@ -61,13 +59,8 @@ export default {
   top: 0;
   right: 0;
   z-index: 100;
-  background: #464d34;
-  box-shadow: 0px 56px 62px 17px rgba(70, 77, 52, 0.79);
-  -webkit-box-shadow: 0px 56px 62px 17px rgba(70, 77, 52, 0.79);
-  -moz-box-shadow: 0px 56px 62px 17px rgba(70, 77, 52, 0.79);
-  border: none;
 }
-.buttonContainer {
+/* .buttonContainer {
   width: 100%;
   height: 5rem;
   display: none;
@@ -75,40 +68,62 @@ export default {
   align-items: center;
   padding: 1.5rem;
   position: relative;
-}
+} */
 
 .header--container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
+  max-width: 1440px;
+  padding: 0.25rem 0.5rem;
 }
+
+.header--logo-container {
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-text {
+  font-family: var(--font-family);
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 2rem;
+  margin: 0;
+}
+
 .header--container ul {
   display: flex;
-  width: 45%;
-  max-width: 650px;
   padding: 0 1rem 0 0;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 }
 
 .header--container ul li {
-  width: 50%;
+  margin: 0 0.125rem;
 }
 
 .header--container .link {
   list-style-type: none;
   text-decoration: none;
-  font-family: "Nunito";
+  font-family: var(--font-family);
   font-size: 1rem;
-  margin: 0.125rem 0.5rem;
+  margin: 0 auto;
   padding: 0;
-  /* width: 25%; */
-  color: rgba(183, 157, 54, 1);
+  color: var(--primary-color);
+  padding: 0.612rem 1.25rem;
+  font-weight: 400;
+}
+
+.header--container ul .link:hover {
+  border: 1px solid var(--primary-color);
+  border-radius: 2.5rem;
 }
 
 .header--container .link span {
-  color: #f5e6d7;
+  color: var(--primary-color);
   text-decoration: underline;
   font-size: 1rem;
 }
@@ -117,103 +132,65 @@ export default {
   color: #a2a59f;
 }
 
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1441px) {
   .header--container .link {
-    font-size: 1.125rem;
+    font-size: 2rem;
     margin: 0.06rem;
   }
   .header--container .link span {
     font-size: 1.25rem;
   }
-}
-@media only screen and (max-width: 1440px) and (min-width: 1024px) {
-  .header--container ul {
-    width: 50%;
-    min-width: 560px;
+  .logo-text {
+    font-size: 3rem;
   }
-  .header--container ul li {
-    font-size: 1rem;
+}
+@media only screen and (max-width: 1440px) and (min-width: 1025px) {
+  .header--container ul li,
+  .header--container .link {
+    font-size: 2rem;
     margin: 0 0;
   }
-  .header--container .link span {
-    font-size: 1rem;
+  .logo-text {
+    font-size: 2.5rem;
   }
 }
-
-/* from this section we are working
-with tablets and phones */
 @media only screen and (max-width: 1024px) {
-  .header {
-    position: relative;
+  .header--container ul li,
+  .header--container .link {
+    font-size: 1.75rem;
   }
-  .header--container {
-    position: fixed;
-    top: 0%;
-    right: 100%;
-    bottom: 0%;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
-    background: rgb(88, 0, 41);
-    background: linear-gradient(
-      45deg,
-      rgba(88, 0, 41, 1) 15%,
-      rgba(77, 87, 49, 0.34217436974789917) 100%
-    );
-    transition: all ease-in 300ms;
+  .header--container .link {
+    padding: 0.3125rem 0.625rem;
   }
-  .isOpen {
-    right: 0%;
+}
+@media only screen and (max-width: 760px) {
+  .header--container ul li,
+  .header--container .link {
+    font-size: 1.5rem;
   }
-  .buttonContainer {
-    display: flex;
-    position: relative;
-    z-index: 150;
+  .header--container .link {
+    padding: 0.3125rem 0.625rem;
   }
-  .header--container {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-  }
-  .header--container ul {
-    flex-direction: column;
-    margin: 0;
-  }
-  .header--container ul li {
-    margin: 2rem 0 2rem 3rem;
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
-    font-size: 1.125rem;
-  }
+}
+@media only screen and (max-width: 640px) {
+  .header--container ul li,
   .header--container .link {
     font-size: 1.25rem;
   }
-  .header--container .link span {
-    font-size: 1.5rem;
+  .header--container .link {
+    padding: 0.3125rem 0.625rem;
   }
 }
-
-@media only screen and (max-width: 540px) {
-  .header--container {
-    padding: 0 0 2rem 0;
-  }
-  .header--container ul {
-    min-width: 180px;
-  }
-  .header--container ul li {
-    margin: 0.5rem 0 2rem 0.75rem;
-    width: 100%;
-  }
+@media only screen and (max-width: 420px) {
+  .header--container ul li,
   .header--container .link {
-    font-size: 1.125rem;
-  }
-  .header--container .link span {
     font-size: 1rem;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .header--container ul li,
+  .header--container .link {
+    font-size: 0.75rem;
   }
 }
 </style>

@@ -73,7 +73,7 @@ export default {
     height: 2px;
     border-radius: 0.125rem;
     align-self: center;
-    background: #f5e6d7;
+    background: var(--primary-color);
   }
   .first {
     grid-column-start: 1;

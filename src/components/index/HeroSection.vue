@@ -155,6 +155,7 @@ export default {
   align-items: start;
   font-size: 9rem;
   font-weight: 500;
+  letter-spacing: var(--letter-spacing);
 }
 
 .title {
@@ -164,6 +165,7 @@ export default {
 .title-container h1 span {
   font-size: 3rem;
   font-weight: 400;
+  letter-spacing: var(--letter-spacing);
 }
 
 .title p {
@@ -185,6 +187,7 @@ export default {
   padding: 0 0.5rem;
   color: var(--primary-color);
   text-align: right;
+  letter-spacing: var(--letter-spacing);
 }
 
 .copywrite-container p .first-line {

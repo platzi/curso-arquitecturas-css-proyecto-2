@@ -60,4 +60,25 @@ export default {
   font-weight: 500;
   margin-bottom: -5%;
 }
+
+@media only screen and (max-width: 1024px) {
+  .title {
+    width: 100%;
+    margin-bottom: 2%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .title {
+    width: 100%;
+    margin: 2%;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .title {
+    font-size: 3rem;
+  }
+}
+
 </style>

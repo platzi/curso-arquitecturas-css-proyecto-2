@@ -122,15 +122,25 @@ export default {
   border-radius: 100%;
 }
 
+@media only screen and (max-width: 1024px) {
+  .portfolioContent {
+    padding: 1rem 0;
+  }
+
+  .portfolioContent div {
+    justify-content: center;
+  }
+}
+
 @media only screen and (max-width: 768px) {
-  .projectTitle {
+  .portfolioTitle {
     font-size: 4.5rem;
   }
 }
 
 
 @media only screen and (max-width: 680px) {
-  .projectTitle {
+  .portfolioTitle {
     font-size: 3rem;
   }
 }

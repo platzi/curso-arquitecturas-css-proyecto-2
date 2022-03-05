@@ -22,7 +22,7 @@
       />
     </div>
     <div class="projects-link-container">
-      <router-link to="work" class="projects-link">
+      <router-link to="/works" class="projects-link">
         Take a look at my work
       </router-link>
     </div>

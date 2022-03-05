@@ -10,7 +10,7 @@
       <figure class="project-image-container">
         <img loading="lazy" :src="image" :alt="title" class="project-image" />
       </figure>
-      <div class="project-link-container">
+      <div class="project-link-container" @click="getProject">
         <router-link :to="`/works/${projectId}`" class="project-link">
           see project
         </router-link>
@@ -49,21 +49,12 @@ export default {
   setup(props) {
     const store = useStore();
 
-    const modalIsOpen = computed(() => {
-      return store.getters["modal/getModal"];
-    });
-
     const cardPosition = computed(() => {
       return props.position % 2 === 0 ? "isLeft" : "isRight";
     });
 
     function getProject() {
-      if (modalIsOpen.value) {
-        store.dispatch("modal/activeModal", false);
-      } else {
-        store.dispatch("modal/activeModal", true);
-        store.dispatch("projects/getSelectedProject", props.projectName);
-      }
+      store.dispatch("projects/getSelectedProject", props.projectId);
     }
 
     return {
@@ -147,10 +138,10 @@ export default {
 }
 
 @media only screen and (max-width: 1024px) {
-  .isLeft, .isRight {
+  .isLeft,
+  .isRight {
     justify-content: center;
     margin: 3rem 0;
   }
 }
-
 </style>

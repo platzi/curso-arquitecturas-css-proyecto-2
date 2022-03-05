@@ -125,7 +125,7 @@ const getters = {
 const mutations = {
   SELECTED_PROJECT(state, String) {
     const projectId = state.projects.findIndex(
-      (project) => project.name === String
+      (project) => project.id === String
     );
     state.selectedProjectDetail = state.projects[projectId];
   },

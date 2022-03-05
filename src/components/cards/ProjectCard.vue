@@ -11,7 +11,7 @@
         <img loading="lazy" :src="image" :alt="title" class="project-image" />
       </figure>
       <div class="project-link-container">
-        <router-link :to="`works/${projectId}`" class="project-link">
+        <router-link :to="`/works/${projectId}`" class="project-link">
           see project
         </router-link>
         <div>

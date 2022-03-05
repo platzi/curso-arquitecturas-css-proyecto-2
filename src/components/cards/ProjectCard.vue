@@ -10,7 +10,7 @@
       <figure class="project-image-container">
         <img loading="lazy" :src="image" :alt="title" class="project-image" />
       </figure>
-      <div class="project-link-container" @click="getProject">
+      <div class="project-link-container">
         <router-link :to="`/works/${projectId}`" class="project-link">
           see project
         </router-link>
@@ -36,7 +36,6 @@
 </template>
 
 <script>
-import { useStore } from "vuex";
 import { computed } from "vue";
 export default {
   props: {
@@ -47,18 +46,12 @@ export default {
     projectId: String,
   },
   setup(props) {
-    const store = useStore();
-
     const cardPosition = computed(() => {
       return props.position % 2 === 0 ? "isLeft" : "isRight";
     });
 
-    function getProject() {
-      store.dispatch("projects/getSelectedProject", props.projectId);
-    }
 
     return {
-      getProject,
       cardPosition,
     };
   },

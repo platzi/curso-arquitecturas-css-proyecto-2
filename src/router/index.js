@@ -24,23 +24,37 @@ const routes = [
         path: 'building',
         component: MyNewSkills
       },
-    ]
+    ],
+    meta: {
+      title: "Luis Reyes Developer"
+    }
   },
   {
     path: '/works',
     name: 'Works',
-    component: Works
+    component: Works,
+    meta: {
+      title: "My portfolio"
+    }
   },
   {
-    path: '/work/:id',
+    path: '/works/:id',
     name: 'project-detail',
-    component: Project
+    component: Project,
+    meta: {
+      title: "Project Detail"
+    }
   }
 ]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  document.title = `${to.meta.title}`
+  next()
 })
 
 export default router

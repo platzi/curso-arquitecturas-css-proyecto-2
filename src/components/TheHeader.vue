@@ -33,7 +33,7 @@ export default {
 
     const menu = [
       { name: "HOME", link: "/" },
-      { name: "PORTFOLIO", link: "/Work" },
+      { name: "PORTFOLIO", link: "/works" },
     ];
     function getMenu() {
       if (isMenuOpen.value) {

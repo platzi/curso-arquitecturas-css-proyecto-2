@@ -46,7 +46,7 @@ export default {
 }
 
 .footer-container__social-container {
-  width: 320px;
+  width: 280px;
   padding: 0 2.125rem;
   display: flex;
   justify-content: flex-start;

@@ -7,22 +7,51 @@
           I have participated around the world for social-profit projects in
           university contests and I had been part of multidisciplinary groups.
         </p>
-        <br />
+      </div>
+      <div class="aboutMeSection--container__card1">
+        <div class="card1">
+          <div>
+            <about-me-card
+              :title="personalProjects[0].title"
+              :description="personalProjects[0].description"
+              :image="personalProjects[0].image"
+              :position="personalProjects[0].position"
+              :date="personalProjects[0].date"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="aboutMeSection--container__card2">
+        <div class="card2">
+          <div>
+            <about-me-card
+              :title="personalProjects[1].title"
+              :description="personalProjects[1].description"
+              :image="personalProjects[1].image"
+              :position="personalProjects[1].position"
+              :date="personalProjects[1].date"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="aboutMeSection--container__description">
         <p>
           Thanks those experiences I love looking for better ways to improve
           myself and help people to find their hiden potential.
         </p>
       </div>
-      <div class="aboutMeSection--container__cards">
-        <about-me-card
-          v-for="(project, index) in personalProjects"
-          :key="index"
-          :title="project.title"
-          :description="project.description"
-          :image="project.image"
-          :position="project.position"
-          :date="project.date"
-        />
+      <div class="aboutMeSection--container__card3">
+        <div class="card3">
+          <div>
+            <about-me-card
+              :title="personalProjects[2].title"
+              :description="personalProjects[2].description"
+              :image="personalProjects[2].image"
+              :position="personalProjects[2].position"
+              :date="personalProjects[2].date"
+            />
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -72,64 +101,112 @@ export default {
 <style scoped>
 .aboutMeSection--container {
   width: 100%;
-}
-.aboutMeSection--container h2,
-.aboutMeSection--container p {
-  font-family: "Nunito";
-  width: 75%;
-}
-.aboutMeSection--container h2 {
-  font-size: 6rem;
-}
-.aboutMeSection--container p {
-  font-size: 1.75rem;
-  color: #a2a59f;
+  padding: 0 2.125rem;
+  margin: 0 auto;
+  max-width: 1440px;
 }
 
-.aboutMeSection--container__cards {
+.aboutMeSection--container__content {
   width: 100%;
-  margin: 1rem 0;
-  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.aboutMeSection--container h2,
+.aboutMeSection--container p {
+  text-align: left;
+  font-family: var(--font-family);
+  color: var(--primary-color);
+  width: 35%;
+}
+
+.aboutMeSection--container h2 {
+  font-size: 4.5rem;
+}
+
+.aboutMeSection--container p {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+.aboutMeSection--container__card1 {
+  width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  flex-wrap: wrap;
+}
+
+.aboutMeSection--container__card2 {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.aboutMeSection--container__card3 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 
-
-@media only screen and (max-width: 1024px) {
-  .aboutMeSection--container h2 {
-    font-size: 4rem;
-  }
-  .aboutMeSection--container p {
-    font-size: 1.5rem;
-  }
+.card1 {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-
-@media only screen and (max-width: 768px) {
-  .aboutMeSection--container__cards {
-    overflow-x: scroll;
-    flex-wrap: nowrap;
-  }
+.card2 {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-@media only screen and (max-width: 540px) {
-  .aboutMeSection--container h2 {
-    font-size: 3rem;
-  }
-  .aboutMeSection--container p {
-    font-size: 1rem;
-  }
+.card3 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-@media only screen and (max-width: 375px) {
-  .aboutMeSection--container h2 {
-    font-size: 2rem;
-    justify-content: flex-start;
-  }
-  .aboutMeSection--container p {
-    font-size: 0.75rem;
-  }
+
+.card1 div {
+  width: 60%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: -2%;
 }
+
+.card2 div {
+  width: 60%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: -2%;
+}
+
+.card3 div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.aboutMeSection--container__description {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.aboutMeSection--container__description p {
+  margin-top: -2%;
+}
+
 </style>

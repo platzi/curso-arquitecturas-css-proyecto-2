@@ -1,17 +1,17 @@
 <template>
   <div class="aboutMeCard">
+    <div class="aboutMeCard--descriptionContainer">
+      <p class="aboutMeCard--title">{{ title }}</p>
+      <p class="aboutMeCard--date">{{ date }}</p>
+    </div>
     <figure class="aboutMeCard--figureContainer">
       <img :src="image" :alt="title" />
     </figure>
     <div class="aboutMeCard--contentContainer">
-      <p class="aboutMeCard--contentContainer__title">{{ title }}</p>
+      <p class="aboutMeCard--position">{{ position }}</p>
       <p class="aboutMeCard--contentContainer__description">
         {{ description }}
       </p>
-      <div class="aboutMeCard--contentContainer__details">
-        <p class="aboutMeCard--date">{{ date }}</p>
-        <p class="aboutMeCard--position">{{ position }}</p>
-      </div>
     </div>
   </div>
 </template>
@@ -45,107 +45,73 @@ export default {
 
 <style scoped>
 .aboutMeCard {
-  min-height: 400px;
-  min-width: 500px;
-  border-radius: 1rem;
-  margin: 2rem 2rem 2rem 0;
+  width: 100%;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative;
-  overflow-y: hidden;
-  /* background: #5f7429 60%,
-    #e4c75f 80%,
-    #b79d36; */
 }
-.aboutMeCard--figureContainer {
+
+.aboutMeCard--descriptionContainer {
   width: 100%;
-  height: 100%;
-  border-radius: 1rem 1rem 0 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.aboutMeCard--title {
+  text-align: left;
+  width: 180px;
+  font-family: var(--font-family);
+  color: var(--primary-color);
+  font-weight: 500;
+  font-size: 0.75rem;
   margin: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-.aboutMeCard--figureContainer img {
-  width: 100%;
-  border-radius: 1rem 1rem 0 0;
-  object-fit: cover;
-}
-.aboutMeCard--contentContainer {
-  background: #b79d36;
-  width: 100%;
-  height: 20%;
-  margin: 0;
-  padding: 0 1rem;
-  border-radius: 0 0 1rem 1rem;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  transition: ease-in 0.3s;
-  overflow-y: hidden;
-}
-
-.aboutMeCard--contentContainer__title {
-  font-family: "Nunito";
-  font-size: 1.5rem;
-  margin: 1.75rem 0;
-  color: #f5e6d7;
-  font-weight: bold;
-}
-
-.aboutMeCard--contentContainer__description {
-  font-family: "Nunito";
-  font-size: 1.125rem;
-  color: #f5e6d7;
-  font-weight: 600;
-}
-
-.aboutMeCard--contentContainer__details {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  color: #f5e6d7;
-  font-weight: 300;
-  font-family: "Nunito";
 }
 
 .aboutMeCard--date {
-  margin-right: 1.5rem;
+  text-align: right;
+  color: var(--primary-color);
+  font-family: var(--font-family);
+  font-weight: 300;
+  font-size: 0.625rem;
+  margin: 0;
 }
 
-.aboutMeCard:hover .aboutMeCard--contentContainer {
-  height: 80%;
+.aboutMeCard--figureContainer {
+  width: 100%;
+  height: 15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.75rem;
 }
 
-
-@media only screen and (max-width: 1440px) and (min-width: 769px) {
-  .aboutMeCard {
-    min-width: 306px;
-    min-height: 360px;
-  }
+.aboutMeCard--figureContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
-@media only screen and (max-width: 768px) and (min-width: 321px) {
-  .aboutMeCard {
-    min-width: 256px;
-    min-height: 280px;
-  }
-  .aboutMeCard--contentContainer__title {
-    font-size: 1rem;
-    margin: 1.25rem 0;
-  }
-  .aboutMeCard--contentContainer__description {
-    font-size: 0.875rem;
-  }
-  .aboutMeCard--date, .aboutMeCard--position {
-    font-size: 0.75rem;
-  }
+.aboutMeCard--contentContainer {
+  width: 100%;
 }
+
+.aboutMeCard--contentContainer__description {
+  font-family: var(--font-family);
+  color: var(--primary-color);
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin-bottom: 0.25rem;
+}
+
+.aboutMeCard--position {
+  color: var(--primary-color);
+  font-family: var(--font-family);
+  font-weight: 300;
+  font-size: 0.625rem;
+}
+
 </style>

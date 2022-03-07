@@ -1,7 +1,13 @@
 <template>
   <div class="contactSection">
     <h2>Get in touch!</h2>
-    <div class="contactSection--container">
+    <div class="contactSection__arrow-container">
+      <button class="arrow" @click="activeContact">
+        <the-icons v-if="isContactVisible" name="arrowDown" class="icon" />
+        <the-icons v-else name="arrowUp" class="icon" />
+      </button>
+    </div>
+    <div v-if="!isContactVisible" class="contactSection--container">
       <form action="" class="form">
         <div class="form--namesContainer">
           <div class="inputContainer">
@@ -53,12 +59,22 @@
 </template>
 
 <script>
-import { reactive, toRefs } from "vue";
-import emailjs from '@emailjs/browser'
-import { init } from '@emailjs/browser'
+import TheIcons from "../global/TheIcons.vue";
+import { reactive, toRefs, computed } from "vue";
+import emailjs from "@emailjs/browser";
+import { init } from "@emailjs/browser";
 export default {
+  components: {
+    TheIcons,
+  },
   setup() {
-    init(process.env.VUE_APP_USER)
+    init(process.env.VUE_APP_USER);
+
+    const state = reactive({ isContactOpen: false });
+
+    const stateAsRefs = toRefs(state)
+
+    let isContactVisible = computed(() => state.isContactOpen);
 
     const mail = reactive({
       userName: "",
@@ -66,22 +82,23 @@ export default {
       userEmail: "",
       userMessage: "",
     });
+
     function sendEmail() {
       const params = {
-        to_name: 'Luis',
+        to_name: "Luis",
         from_name: mail.userName,
         from_lastname: mail.userLastname,
         rely_to: mail.userEmail,
         message: mail.userMessage,
-      }
+      };
       try {
         emailjs.send(
           process.env.VUE_APP_SERVICE,
           process.env.VUE_APP_TEMPLATE,
           params,
-          process.env.VUE_APP_USER,
+          process.env.VUE_APP_USER
         );
-        alert('Mensaje Enviado')
+        alert("Mensaje Enviado");
       } catch (error) {
         console.error(error);
       }
@@ -91,9 +108,21 @@ export default {
       mail.userEmail = "";
       mail.userMessage = "";
     }
+
+    function activeContact() {
+      if (state.isContactOpen) {
+        state.isContactOpen = false;
+      } else {
+        state.isContactOpen = true;
+      }
+    }
+
     return {
       sendEmail,
       ...toRefs(mail),
+      isContactVisible,
+      activeContact,
+      stateAsRefs
     };
   },
 };
@@ -106,13 +135,31 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 3rem 0 6rem 0;
+  padding: 3rem 2.125rem;
 }
 .contactSection h2 {
   font-family: "Nunito";
   font-size: 6rem;
   margin-bottom: 3rem;
 }
+
+.contactSection__arrow-container {
+  width: 100%;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow {
+  width: 3rem;
+  height: 3rem;
+}
+
+.arrow .icon {
+  color: var(--color-primary);
+}
+
 .contactSection--container {
   background: rgba(95, 116, 41, 1);
   width: 80%;

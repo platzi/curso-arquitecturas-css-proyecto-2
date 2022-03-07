@@ -39,6 +39,7 @@ export default {
   max-width: 1440px;
   margin: 0 auto;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 0;
@@ -55,7 +56,6 @@ export default {
 
 .social-network {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   border: 1px solid var(--primary-color);
@@ -106,12 +106,23 @@ export default {
     align-items: center;
   }
 
-  .location {
-    text-align: center;
+}
+
+@media only screen and (max-width: 640px) {
+  .footer-container {
+    flex-direction: column;
   }
 
-  .signature {
-    text-align: center;
+  .footer-container__social-container {
+    margin-bottom: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+  .social-network {
+    margin-bottom: 0.75rem;
   }
 }
+
 </style>

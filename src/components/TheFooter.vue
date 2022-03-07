@@ -42,8 +42,7 @@ export default {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
-  padding-right: 1rem;
+  padding: 1rem 2.125rem;
 }
 
 .footer-container__social-container {
@@ -106,6 +105,9 @@ export default {
     align-items: center;
   }
 
+  .social-network {
+    margin-right: 0;
+  }
 }
 
 @media only screen and (max-width: 640px) {

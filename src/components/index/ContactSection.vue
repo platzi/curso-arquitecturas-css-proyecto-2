@@ -34,7 +34,7 @@
         </div>
         <div class="messageContainer">
           <div class="messageContainer__inputContainer">
-            <label for="">MESSAGE</label>
+            <label for="">TEXT</label>
             <textarea
               v-model="userMessage"
               name=""
@@ -157,7 +157,6 @@ export default {
 .contactSection--container {
   width: 80%;
   max-width: 1024px;
-  padding: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -259,18 +258,22 @@ export default {
   color: var(--primary-color);
 }
 .form button {
-  width: 100%;
-  color: #f5e6d7;
-  background: rgba(183, 157, 54, 1);
-  border-radius: 1rem;
+  width: 120px;
+  height: 120px;
+  color: var(--primary-color);
+  border-radius: 100%;
   padding: 1rem 0;
+  font-weight: 500;
   border: none;
-  font-family: "Nunito";
-  font-size: 1.5rem;
-  box-shadow: -6px 14px 18px -9px rgba(0, 0, 0, 0.64);
-  -webkit-box-shadow: -6px 14px 18px -9px rgba(0, 0, 0, 0.64);
-  -moz-box-shadow: -6px 14px 18px -9px rgba(0, 0, 0, 0.64);
+  font-family: var(--font-family);
+  font-size: 0.75rem;
+  text-decoration: underline;
 }
+
+.form button:hover {
+  border: 1px solid var(--primary-color)
+}
+
 .form button:active {
   outline: none;
   background: rgb(131, 114, 54);
@@ -279,14 +282,57 @@ export default {
   .contactSection__title {
     font-size: 4rem;
   }
+  .form--namesContainer,
+  .form--emailContainer {
+    width: 100%;
+    display: flex;
+  }
 }
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 768px) {
   .contactSection__title {
     font-size: 3rem;
     text-align: center;
   }
   .form--namesContainer {
     flex-wrap: wrap;
+  }
+}
+@media only screen and (max-width: 640px) {
+  .contactSection__title {
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  .contactSection--container {
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form--namesContainer {
+    flex-wrap: wrap;
+  }
+
+  .form textarea {
+    background: transparent;
+    width: 100%;
+    border: 2px solid var(--primary-color);
+    font-family: var(--font-family);
+    border-radius: 1.5rem;
+    padding: 0.75rem 0.5rem;
+    font-size: 1.25rem;
+    color: var(--primary-color);
+  }
+
+  .form label {
+    font-family: var(--font-family);
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-right: 0.75rem;
+    margin-bottom: 0.75rem;
   }
 }
 </style>

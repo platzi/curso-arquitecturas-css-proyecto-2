@@ -1,165 +1,206 @@
 <template>
-  <div class="myStackSection">
-    <div class="myStackSection--container">
-      <h2>My stack and Skills</h2>
-      <div class="myStackSection--container__content">
-        <nav>
-          <ul>
-            <router-link
-              v-for="(tech, index) in techies"
-              :key="index"
-              :to="tech.link"
-              class="myStack--link"
-            >
-              {{ tech.name }}
-            </router-link>
-          </ul>
-        </nav>
-        <router-view  class="myStackSection--container__views" />
+  <div class="stack-container">
+    <div ref="wordsContainer" class="stack-container__name-container">
+      <div class="words1">
+        <p
+          v-for="(technology, index) in technologies[0]"
+          :key="index"
+          ref="word"
+          class="stack-container__name-container--name"
+        >
+          {{ technology.name }}
+        </p>
+      </div>
+      <div class="words2">
+        <p
+          v-for="(technology, index) in technologies[1]"
+          :key="index"
+          ref="word"
+          class="stack-container__name-container--name"
+        >
+          {{ technology.name }}
+        </p>
+      </div>
+      <div class="words3">
+        <p
+          v-for="(technology, index) in technologies[2]"
+          :key="index"
+          ref="word"
+          class="stack-container__name-container--name"
+        >
+          {{ technology.name }}
+        </p>
+      </div>
+    </div>
+    <div class="stack-container__image-container">
+      <div class="images1">
+        <figure
+          v-for="(image, index) in images[0]"
+          :key="index"
+          class="stack-container__image-container--image"
+        >
+          <img :src="image.name" alt="" />
+        </figure>
+      </div>
+      <div class="images2">
+        <figure
+          v-for="(image, index) in images[1]"
+          :key="index"
+          class="stack-container__image-container--image"
+        >
+          <img :src="image.name" alt="" />
+        </figure>
+      </div>
+      <div class="images3">
+        <figure
+          v-for="(image, index) in images[2]"
+          :key="index"
+          class="stack-container__image-container--image"
+        >
+          <img :src="image.name" alt="" />
+        </figure>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { onMounted } from "vue";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 export default {
   setup() {
-    const techies = [
-      { name: "Frontend Stack", link: "/" },
-      { name: "Fundamental Stack", link: "my-stack" },
-      { name: "Building Stack", link: "building" },
+    const images = [
+      [
+        { name: require("@/static/images/logos/tailwind.png") },
+        { name: require("@/static/images/logos/vuejs.png") },
+        { name: require("@/static/images/logos/firebase.png") },
+        { name: require("@/static/images/logos/nuxt.png") },
+      ],
+      [
+        { name: require("@/static/images/logos/tailwind.png") },
+        { name: require("@/static/images/logos/vuejs.png") },
+        { name: require("@/static/images/logos/firebase.png") },
+        { name: require("@/static/images/logos/nuxt.png") },
+      ],
+      [
+        { name: require("@/static/images/logos/tailwind.png") },
+        { name: require("@/static/images/logos/vuejs.png") },
+        { name: require("@/static/images/logos/firebase.png") },
+        { name: require("@/static/images/logos/nuxt.png") },
+      ],
     ];
+
+    const technologies = [
+      [
+        { name: "TAILWIND" },
+        { name: "VUEJS" },
+        { name: "FIREBASE" },
+        { name: "NUXT" },
+      ],
+      [
+        { name: "TAILWIND" },
+        { name: "VUEJS" },
+        { name: "FIREBASE" },
+        { name: "NUXT" },
+      ],
+      [
+        { name: "TAILWIND" },
+        { name: "VUEJS" },
+        { name: "FIREBASE" },
+        { name: "NUXT" },
+      ],
+    ];
+
+    const mountingScrollAnimation = onMounted(() => {
+      scrollAnimation();
+    });
+
+    function scrollAnimation() {
+      gsap.registerPlugin(ScrollTrigger)
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".stack-container__name-container",
+            start: "center center",
+            end: "bottom bottom",
+            markers: true,
+            scrub: true,
+            pin: true,
+          },
+        })
+        .from(".words1", {
+          x: innerWidth * 1,
+          opacity: 0,
+        })
+        .from(".words2", {
+          x: innerWidth * 1,
+          opacity: 0,
+        });
+    }
+
     return {
-      techies,
+      images,
+      technologies,
+      mountingScrollAnimation,
     };
   },
 };
 </script>
 
 <style scoped>
-.myStackSection {
-  margin: 3rem 0;
-}
-.myStackSection--container {
-  padding: 2rem 2.25rem;
-}
-
-.myStackSection--container__content {
-  width: 80%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.myStackSection--container h2,
-.myStackSection--container p {
-  font-family: "Nunito";
-  width: 60%;
-}
-
-.myStackSection--container h2 {
-  color: #f5e6d7;
-  font-size: 6rem;
-  width: 75%;
-}
-
-.myStackSection--container__content nav {
-  width: 40%;
-}
-
-.myStackSection--container ul {
-  margin: 2rem 0;
+.stack-container {
   width: 100%;
+  padding: 0 2.125rem;
+  max-width: 1440px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.stack-container__name-container {
+  width: 25%;
+  height: 100%;
+}
+
+.stack-container__name-container--name {
+  color: var(--primary-color);
+  font-family: var(--font-family);
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.words1,
+.words2,
+.words3,
+.images1,
+.images2,
+.images3 {
+  height: 480px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-.myStack--link {
-  margin-bottom: 3rem;
-  color: white;
-  font-size: 1.5rem;
-  font-family: "Nunito";
-  text-decoration: none;
-}
-
-.myStackSection--container ul .router-link-exact-active {
-  background: #b79d36;
-  padding: 0.5rem 0.75rem;
-  border-radius: 1rem;
-  box-shadow: 10px 10px 58px 0px rgba(70, 77, 52, 0.75);
-  -webkit-box-shadow: 10px 10px 58px 0px rgba(70, 77, 52, 0.75);
-  -moz-box-shadow: 10px 10px 58px 0px rgba(70, 77, 52, 0.75);
-}
-.myStackSection--container ul .router-link-exact-active:focus {
-  outline: none;
-}
-
-.myStackSection--container__views {
-  width: 50%;
-  height: 500px;
-  display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 }
 
-@media only screen and (max-width: 1024px) {
-  .myStackSection--container h2 {
-    font-size: 4rem;
-  }
-  .myStackSection--container p {
-    font-size: 1.5rem;
-  }
+.stack-container__image-container {
+  width: 75%;
+  height: 100%;
 }
-@media only screen and (max-width: 540px) {
-  .myStackSection--container {
-    padding: 1rem 0.75rem;
-  }
-  .myStackSection--container h2 {
-    font-size: 3rem;
-  }
-  .myStackSection--container p {
-    font-size: 1rem;
-  }
+
+.stack-container__image-container--image {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
 }
-@media only screen and (max-width: 375px) {
-  .myStackSection--container {
-    padding: 1rem 0.5rem;
-  }
-  .myStackSection--container h2 {
-    font-size: 2rem;
-  }
-  .myStackSection--container p {
-    font-size: 0.75rem;
-  }
-}
-@media only screen and (min-width: 321px) and (max-width: 768px) {
-  .myStackSection--container__content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-  }
-  .myStackSection--container__content nav {
-    width: 100%;
-  }
-  .myStackSection--container__content nav ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-  }
-  .myStack--link {
-    width: 80%;
-    font-size: 1rem;
-    margin: 0.75rem
-  }
-  .myStackSection--container__views {
-    width: 50%;
-    height: 300px;
-  }
+
+.stack-container__image-container--image img {
+  width: 100%;
+  height: 100%;
 }
 </style>

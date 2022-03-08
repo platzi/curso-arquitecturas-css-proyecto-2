@@ -142,7 +142,7 @@ export default {
   width: 100%;
   /* height: 50%; */
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   margin-bottom: 1.5rem;
 }
@@ -152,7 +152,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
   font-size: 9rem;
   font-weight: 500;
   letter-spacing: var(--letter-spacing);

@@ -3,7 +3,7 @@
     <the-cursor :xCursorPosition="xPosition" :yCursorPosition="yPosition" />
     <hero-section class="section" id="indexhero" />
     <my-portfolio :projects="projects" id="indexportfolio" />
-    <stack class="" id="indexstack" />
+    <stack />
     <about-me id="indexabout" />
     <contact-section class="" id="indexcontact" />
   </div>

@@ -4,7 +4,7 @@
     <hero-section class="section" id="indexhero" />
     <my-portfolio :projects="projects" id="indexportfolio" />
     <stack class="" id="indexstack" />
-    <about-me class="section" id="indexabout" />
+    <about-me id="indexabout" />
     <contact-section class="" id="indexcontact" />
   </div>
 </template>

@@ -150,9 +150,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
-
 
 .card1 {
   width: 100%;
@@ -209,4 +207,32 @@ export default {
   margin-top: -2%;
 }
 
+@media only screen and (max-width: 768px) {
+  .aboutMeSection--container h2,
+  .aboutMeSection--container p {
+    width: 100%;
+  }
+  .aboutMeSection--container__card2 {
+    margin: 3rem 0;
+  }
+  .aboutMeSection--container__card1,
+  .aboutMeSection--container__card3 {
+    margin-top: 3rem;
+  }
+  .card1 div,
+  .card2 div,
+  .aboutMeSection--container__description p {
+    margin-top: 0;
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .card1 div,
+  .card2 div,
+  .aboutMeSection--container__description p {
+    margin-top: 0;
+    width: 100%;
+  }
+}
 </style>

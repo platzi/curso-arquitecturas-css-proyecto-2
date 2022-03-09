@@ -1,15 +1,48 @@
 <template>
   <section id="stackContainer" class="stack-container">
     <div class="first-container">
-      <div class="names-container"></div>
-      <div class="images-container"></div>
+      <div class="names-container">
+        <p
+          v-for="(technology, index) in technologies[0]"
+          :key="index"
+          class="tech-names"
+        >
+          {{ technology.name }}
+        </p>
+      </div>
+      <div class="images-container">
+        <figure
+          v-for="(image, index) in images[0]"
+          :key="index"
+          class="tech-image"
+          :class="`image-${index}`"
+        >
+          <img :src="image.name" alt="" />
+        </figure>
+      </div>
     </div>
     <div class="second-container">
-      <div class="names-container"></div>
+      <div class="names-container">
+        <p
+          v-for="(technology, index) in technologies[1]"
+          :key="index"
+          class="tech-names"
+        >
+          {{ technology.name }}
+        </p>
+      </div>
       <div class="images-container"></div>
     </div>
     <div class="third-container">
-      <div class="names-container"></div>
+      <div class="names-container">
+        <p
+          v-for="(technology, index) in technologies[2]"
+          :key="index"
+          class="tech-names"
+        >
+          {{ technology.name }}
+        </p>
+      </div>
       <div class="images-container"></div>
     </div>
   </section>
@@ -22,22 +55,24 @@ export default {
   setup() {
     const images = [
       [
-        { name: require("@/static/images/logos/tailwind.png") },
-        { name: require("@/static/images/logos/vuejs.png") },
-        { name: require("@/static/images/logos/firebase.png") },
-        { name: require("@/static/images/logos/nuxt.png") },
+        { name: require("@/static/images/stacks/tailwind.png") },
+        { name: require("@/static/images/stacks/vuejs.png") },
+        { name: require("@/static/images/stacks/firebase.png") },
+        { name: require("@/static/images/stacks/nuxtjs.png") },
       ],
       [
-        { name: require("@/static/images/logos/tailwind.png") },
-        { name: require("@/static/images/logos/vuejs.png") },
-        { name: require("@/static/images/logos/firebase.png") },
-        { name: require("@/static/images/logos/nuxt.png") },
+        { name: require("@/static/images/stacks/javascript.png") },
+        { name: require("@/static/images/stacks/css.png") },
+        { name: require("@/static/images/stacks/git.png") },
+        { name: require("@/static/images/stacks/github.png") },
+        { name: require("@/static/images/stacks/figma.png") },
+        { name: require("@/static/images/stacks/nodejs.png") },
       ],
       [
-        { name: require("@/static/images/logos/tailwind.png") },
-        { name: require("@/static/images/logos/vuejs.png") },
-        { name: require("@/static/images/logos/firebase.png") },
-        { name: require("@/static/images/logos/nuxt.png") },
+        { name: require("@/static/images/stacks/postgres.png") },
+        { name: require("@/static/images/stacks/mongo.png") },
+        { name: require("@/static/images/stacks/expressjs.png") },
+        { name: require("@/static/images/stacks/webpack.png") },
       ],
     ];
 
@@ -49,16 +84,16 @@ export default {
         { name: "NUXT" },
       ],
       [
-        { name: "TAILWIND" },
-        { name: "VUEJS" },
-        { name: "FIREBASE" },
-        { name: "NUXT" },
+        { name: "JAVASCRIPT" },
+        { name: "CSS" },
+        { name: "GIT Y GITHUB" },
+        { name: "FIGMA" },
       ],
       [
-        { name: "TAILWIND" },
-        { name: "VUEJS" },
-        { name: "FIREBASE" },
-        { name: "NUXT" },
+        { name: "NODEJS" },
+        { name: "EXPRESSJS" },
+        { name: "MONGODB" },
+        { name: "POSTGRESS" },
       ],
     ];
 
@@ -70,12 +105,12 @@ export default {
       gsap.registerPlugin(ScrollTrigger);
       gsap.defaults({
         ease: "none",
-        duration: 2
-      })
+        duration: 2,
+      });
       const slide = gsap.timeline();
       slide
-        .from(".first-container", { xPercent: -100, opacity: 0 })
-        .from(".second-container", { xPercent: 100, opacity: 0 })
+        .from(".first-container", { xPercent: -100 })
+        .from(".second-container", { xPercent: 100 })
         .from(".third-container", { yPercent: -100, opacity: 0 });
       ScrollTrigger.create({
         animation: slide,
@@ -138,25 +173,58 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20%;
 }
 
 .names-container {
   width: 25%;
-  position: absolute;
+  /* position: absolute; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 1rem;
+}
+
+.tech-names {
+  font-family: var(--font-family);
+  color: var(--primary-color);
+  font-size: 2rem;
+  text-align: left;
+  width: 100%;
 }
 
 .images-container {
   width: 75%;
-  position: absolute;
+  /* position: absolute; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
+.tech-image {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
 
+.image-0 {
+  justify-content: flex-end;
+}
+.image-1 {
+  justify-content: center;
+}
+.image-2 {
+  justify-content: flex-start;
+}
+.image-3 {
+  justify-content: center;
+}
+
+.tech-image img {
+  width: 100px;
+  height: 100px;
+}
 </style>

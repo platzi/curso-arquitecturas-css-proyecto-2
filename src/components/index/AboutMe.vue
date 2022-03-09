@@ -234,5 +234,8 @@ export default {
     margin-top: 0;
     width: 100%;
   }
+  .aboutMeSection--container h2 {
+    font-size: 3rem;
+  }
 }
 </style>

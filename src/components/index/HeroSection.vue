@@ -260,6 +260,20 @@ export default {
   }
 }
 
+@media only screen and (max-width: 375px) {
+  .content-container {
+    padding: 0;
+  }
+
+  .title-container {
+    margin-bottom: 0;
+  }
+
+  .copywrite-container {
+    margin-bottom: 0;
+  }
+}
+
 @keyframes typing {
   from {
     width: 0;

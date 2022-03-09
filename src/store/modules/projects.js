@@ -8,12 +8,12 @@ const state = () => ({
       date: "2021",
       image: require("@/static/images/jhnur-min.png"),
       tools: [
-        { name: "Vuejs", img: require("@/static/images/logos/vuejs.png") },
+        { name: "Vuejs", img: require("@/static/images/stacks/vuejs.png") },
         {
           name: "Storyblok",
           img: require("@/static/images/logos/storyblok.png"),
         },
-        { name: "Bulma", img: require("@/static/images/logos/bulma.png") },
+        { name: "Bulma", img: require("@/static/images/stacks/bulma.png") },
       ],
       description:
         "Website for an ecuadorian urban artist for express his creations",
@@ -27,14 +27,14 @@ const state = () => ({
       date: "2021",
       image: require("@/static/images/cepolAcademy-min.png"),
       tools: [
-        { name: "Nuxt", img: require("@/static/images/logos/nuxt.png") },
+        { name: "Nuxt", img: require("@/static/images/stacks/nuxtjs.png") },
         {
           name: "Tailwind",
-          img: require("@/static/images/logos/tailwind.png"),
+          img: require("@/static/images/stacks/tailwind.png"),
         },
         {
           name: "Firebase",
-          img: require("@/static/images/logos/firebase.png"),
+          img: require("@/static/images/stacks/firebase.png"),
         },
       ],
       description: "WebApp for an academy to test their students",
@@ -55,10 +55,10 @@ const state = () => ({
 
         {
           name: "Tailwind",
-          img: require("@/static/images/logos/tailwind.png"),
+          img: require("@/static/images/stacks/tailwind.png"),
         },
 
-        { name: "Nuxt", img: require("@/static/images/logos/nuxt.png") },
+        { name: "Nuxt", img: require("@/static/images/stacks/nuxtjs.png") },
       ],
       description:
         "Website created to show their tools for industry and send messages of products via Whatsapp",
@@ -76,19 +76,16 @@ const state = () => ({
           name: "Storyblok",
           img: require("@/static/images/logos/storyblok.png"),
         },
-        { name: "Bulma", img: require("@/static/images/logos/bulma.png") },
+        { name: "Bulma", img: require("@/static/images/stacks/bulma.png") },
         {
           name: "Tailwind",
-          img: require("@/static/images/logos/tailwind.png"),
+          img: require("@/static/images/stacks/tailwind.png"),
         },
-        { name: "Vuejs", img: require("@/static/images/logos/vuejs.png") },
-        { name: "Nuxt", img: require("@/static/images/logos/nuxt.png") },
+        { name: "Nuxt", img: require("@/static/images/stacks/nuxtjs.png") },
         {
           name: "Firebase",
           img: require("@/static/images/logos/firebase.png"),
         },
-        { name: "Nodejs", img: require("@/static/images/logos/nodejs.png") },
-        { name: "MongoDB", img: require("@/static/images/logos/mongodb.png") },
       ],
       description:
         "Website for an aircoditioning services and maintainace for industry market",

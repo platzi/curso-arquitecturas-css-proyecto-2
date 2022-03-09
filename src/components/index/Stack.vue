@@ -1,73 +1,23 @@
 <template>
-  <div class="stack-container">
-    <div ref="wordsContainer" class="stack-container__name-container">
-      <div class="words1">
-        <p
-          v-for="(technology, index) in technologies[0]"
-          :key="index"
-          ref="word"
-          class="stack-container__name-container--name"
-        >
-          {{ technology.name }}
-        </p>
-      </div>
-      <div class="words2">
-        <p
-          v-for="(technology, index) in technologies[1]"
-          :key="index"
-          ref="word"
-          class="stack-container__name-container--name"
-        >
-          {{ technology.name }}
-        </p>
-      </div>
-      <div class="words3">
-        <p
-          v-for="(technology, index) in technologies[2]"
-          :key="index"
-          ref="word"
-          class="stack-container__name-container--name"
-        >
-          {{ technology.name }}
-        </p>
-      </div>
+  <section id="stackContainer" class="stack-container">
+    <div class="first-container">
+      <div class="names-container"></div>
+      <div class="images-container"></div>
     </div>
-    <div class="stack-container__image-container">
-      <div class="images1">
-        <figure
-          v-for="(image, index) in images[0]"
-          :key="index"
-          class="stack-container__image-container--image"
-        >
-          <img :src="image.name" alt="" />
-        </figure>
-      </div>
-      <div class="images2">
-        <figure
-          v-for="(image, index) in images[1]"
-          :key="index"
-          class="stack-container__image-container--image"
-        >
-          <img :src="image.name" alt="" />
-        </figure>
-      </div>
-      <div class="images3">
-        <figure
-          v-for="(image, index) in images[2]"
-          :key="index"
-          class="stack-container__image-container--image"
-        >
-          <img :src="image.name" alt="" />
-        </figure>
-      </div>
+    <div class="second-container">
+      <div class="names-container"></div>
+      <div class="images-container"></div>
     </div>
-  </div>
+    <div class="third-container">
+      <div class="names-container"></div>
+      <div class="images-container"></div>
+    </div>
+  </section>
 </template>
-
 <script>
 import { onMounted } from "vue";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 export default {
   setup() {
     const images = [
@@ -117,26 +67,26 @@ export default {
     });
 
     function scrollAnimation() {
-      gsap.registerPlugin(ScrollTrigger)
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: ".stack-container__name-container",
-            start: "center center",
-            end: "bottom bottom",
-            markers: true,
-            scrub: true,
-            pin: true,
-          },
-        })
-        .from(".words1", {
-          x: innerWidth * 1,
-          opacity: 0,
-        })
-        .from(".words2", {
-          x: innerWidth * 1,
-          opacity: 0,
-        });
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.defaults({
+        ease: "none",
+        duration: 2
+      })
+      const slide = gsap.timeline();
+      slide
+        .from(".first-container", { xPercent: -100, opacity: 0 })
+        .from(".second-container", { xPercent: 100, opacity: 0 })
+        .from(".third-container", { yPercent: -100, opacity: 0 });
+      ScrollTrigger.create({
+        animation: slide,
+        trigger: "#stackContainer",
+        start: "top top",
+        end: "+=6000",
+        scrub: true,
+        pin: true,
+        markers: true,
+        pinSpacing: false
+      });
     }
 
     return {
@@ -151,56 +101,63 @@ export default {
 <style scoped>
 .stack-container {
   width: 100%;
-  padding: 0 2.125rem;
-  max-width: 1440px;
+  margin-bottom: 300vh;
+  position: relative;
+}
+
+.first-container {
+  width: 100%;
+  height: 80vh;
+  position: fixed;
+  top: 10vh;
+  z-index: 5;
+  /* left: 0; */
+  background: yellow;
+}
+.second-container {
+  width: 100%;
+  height: 80vh;
+  position: fixed;
+  top: 10vh;
+  /* left: 0; */
+  z-index: 10;
+  background: blue;
+}
+.third-container {
+  width: 100%;
+  height: 80vh;
+  position: fixed;
+  z-index: 15;
+  top: 10vh;
+  /* left: 0; */
+  background: orange;
+}
+
+.first-container,
+.second-container,
+.third-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
 }
 
-.stack-container__name-container {
+.names-container {
   width: 25%;
-  height: 100%;
-}
-
-.stack-container__name-container--name {
-  color: var(--primary-color);
-  font-family: var(--font-family);
-  font-size: 1.5rem;
-  font-weight: 500;
-  margin: 0;
-}
-
-.words1,
-.words2,
-.words3,
-.images1,
-.images2,
-.images3 {
-  height: 480px;
+  position: absolute;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
-}
-
-.stack-container__image-container {
-  width: 75%;
-  height: 100%;
-}
-
-.stack-container__image-container--image {
-  width: 100px;
-  height: 100px;
-  display: flex;
   justify-content: center;
-  align-items: flex-start;
-  margin: 0;
 }
 
-.stack-container__image-container--image img {
-  width: 100%;
-  height: 100%;
+.images-container {
+  width: 75%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
+
 </style>

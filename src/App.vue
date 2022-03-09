@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div class="wrap static">
     <project-modal />
     <background />
     <the-header class="header-section" />

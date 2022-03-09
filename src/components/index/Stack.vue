@@ -1,11 +1,13 @@
 <template>
   <section id="stackContainer" class="stack-container">
+    <p class="stackTitle">My technologies</p>
+    <!-- FIRST STACK -->
     <div class="first-container">
       <div class="names-container">
         <p
           v-for="(technology, index) in technologies[0]"
           :key="index"
-          class="tech-names"
+          class="tech-names techies"
         >
           {{ technology.name }}
         </p>
@@ -14,36 +16,56 @@
         <figure
           v-for="(image, index) in images[0]"
           :key="index"
-          class="tech-image"
+          class="tech-image techieImage"
           :class="`image-${index}`"
         >
           <img :src="image.name" alt="" />
         </figure>
       </div>
     </div>
+    <!-- SECOND STACK -->
     <div class="second-container">
       <div class="names-container">
         <p
           v-for="(technology, index) in technologies[1]"
           :key="index"
-          class="tech-names"
+          class="tech-names techies"
         >
           {{ technology.name }}
         </p>
       </div>
-      <div class="images-container"></div>
+      <div class="images-container">
+        <figure
+          v-for="(image, index) in images[1]"
+          :key="index"
+          class="tech-image techieImage"
+          :class="`image-${index + 5}`"
+        >
+          <img :src="image.name" alt="" />
+        </figure>
+      </div>
     </div>
+    <!-- THIRD STACK -->
     <div class="third-container">
       <div class="names-container">
         <p
           v-for="(technology, index) in technologies[2]"
           :key="index"
-          class="tech-names"
+          class="tech-names techies"
         >
           {{ technology.name }}
         </p>
       </div>
-      <div class="images-container"></div>
+      <div class="images-container">
+        <figure
+          v-for="(image, index) in images[2]"
+          :key="index"
+          class="tech-image techieImage"
+          :class="`image-${index + 11}`"
+        >
+          <img :src="image.name" alt="" />
+        </figure>
+      </div>
     </div>
   </section>
 </template>
@@ -121,6 +143,28 @@ export default {
         pin: true,
         markers: true,
       });
+
+      const title = gsap.timeline();
+      title.from(".stackTitle", { xPercent: 100 });
+      ScrollTrigger.create({
+        animation: title,
+        trigger: "#stackContainer",
+        start: "top top",
+        end: "+=6000",
+        scrub: true,
+        pin: true,
+      });
+
+      const techiesName = gsap.timeline();
+      techiesName.from(".techies", { scale: 0 }).to(".techies", { scale: 0 });
+      ScrollTrigger.create({
+        animation: techiesName,
+        trigger: "#stackContainer",
+        start: "top top",
+        end: "+=6000",
+        scrub: true,
+        pin: true,
+      });
     }
 
     return {
@@ -139,32 +183,36 @@ export default {
   position: relative;
 }
 
+.stackTitle {
+  font-family: var(--font-family);
+  color: var(--primary-color);
+  font-size: 8rem;
+  opacity: 0.8;
+  position: absolute;
+  top: 0;
+  z-index: -10;
+}
+
 .first-container {
   width: 100%;
   height: 80vh;
   position: fixed;
   top: 10vh;
   z-index: 5;
-  /* left: 0; */
-  background: yellow;
 }
 .second-container {
   width: 100%;
   height: 80vh;
   position: fixed;
   top: 10vh;
-  /* left: 0; */
   z-index: 10;
-  background: blue;
 }
 .third-container {
   width: 100%;
   height: 80vh;
   position: fixed;
-  z-index: 15;
   top: 10vh;
-  /* left: 0; */
-  background: orange;
+  z-index: 15;
 }
 
 .first-container,
@@ -174,6 +222,7 @@ export default {
   justify-content: center;
   align-items: center;
   padding: 20%;
+  padding-top: 30%;
 }
 
 .names-container {
@@ -196,7 +245,8 @@ export default {
 
 .images-container {
   width: 75%;
-  /* position: absolute; */
+  height: 80vh;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -206,25 +256,76 @@ export default {
 .tech-image {
   width: 100%;
   height: 100px;
-  display: flex;
-  align-items: center;
+  position: absolute;
 }
 
 .image-0 {
-  justify-content: flex-end;
+  top: 40%;
+  left: 10%;
 }
 .image-1 {
-  justify-content: center;
+  top: 20%;
+  left: 30%;
 }
 .image-2 {
-  justify-content: flex-start;
+  top: 65%;
+  left: 50%;
 }
 .image-3 {
-  justify-content: center;
+  top: 40%;
+  left: 70%;
+}
+
+.image-4 {
+  top: 40%;
+  left: 10%;
+}
+.image-5 {
+  top: 20%;
+  left: 30%;
+}
+.image-6 {
+  top: 65%;
+  left: 50%;
+}
+.image-7 {
+  top: 40%;
+  left: 70%;
+}
+.image-8 {
+  top: 35%;
+  left: 50%;
+}
+.image-9 {
+  top: 30%;
+  left: 70%;
+}
+
+.image-10 {
+  top: 20%;
+  left: 40%;
+}
+
+.image-11 {
+  top: 40%;
+  left: 70%;
+}
+.image-12 {
+  top: 35%;
+  left: 50%;
+}
+.image-13 {
+  top: 30%;
+  left: 70%;
+}
+
+.image-14 {
+  top: 20%;
+  left: 30%;
 }
 
 .tech-image img {
-  width: 100px;
-  height: 100px;
+  width: 72px;
+  height: 72px;
 }
 </style>

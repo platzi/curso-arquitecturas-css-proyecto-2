@@ -84,7 +84,7 @@ const state = () => ({
         { name: "Nuxt", img: require("@/static/images/stacks/nuxtjs.png") },
         {
           name: "Firebase",
-          img: require("@/static/images/logos/firebase.png"),
+          img: require("@/static/images/stacks/firebase.png"),
         },
       ],
       description:
@@ -99,7 +99,7 @@ const state = () => ({
       date: "2020",
       image: require("@/static/images/platzi-music.png"),
       tools: [
-        { name: "Vuejs", img: require("@/static/images/logos/vuejs.png") },
+        { name: "Vuejs", img: require("@/static/images/stacks/vuejs.png") },
       ],
       description:
         "Side project for creating a stream platform using spotify catalogue",

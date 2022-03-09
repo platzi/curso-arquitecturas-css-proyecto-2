@@ -2,12 +2,12 @@
   <section id="stackContainer" class="stack-container">
     <p class="stackTitle">My technologies</p>
     <!-- FIRST STACK -->
-    <div class="first-container">
+    <div id="firstSlide" class="first-container">
       <div class="names-container">
         <p
           v-for="(technology, index) in technologies[0]"
           :key="index"
-          class="tech-names techies"
+          class="tech-names first-techies"
         >
           {{ technology.name }}
         </p>
@@ -24,12 +24,12 @@
       </div>
     </div>
     <!-- SECOND STACK -->
-    <div class="second-container">
+    <div id="secondSlide" class="second-container">
       <div class="names-container">
         <p
           v-for="(technology, index) in technologies[1]"
           :key="index"
-          class="tech-names techies"
+          class="tech-names second-techies"
         >
           {{ technology.name }}
         </p>
@@ -46,12 +46,12 @@
       </div>
     </div>
     <!-- THIRD STACK -->
-    <div class="third-container">
+    <div id="thirdSlide" class="third-container">
       <div class="names-container">
         <p
           v-for="(technology, index) in technologies[2]"
           :key="index"
-          class="tech-names techies"
+          class="tech-names third-techies"
         >
           {{ technology.name }}
         </p>
@@ -131,14 +131,17 @@ export default {
       });
       const slide = gsap.timeline();
       slide
-        .from(".first-container", { xPercent: -100 })
+        .from(".first-container", { xPercent: -80 })
+        .to(".first-container", { xPercent: 50 })
         .from(".second-container", { xPercent: 100 })
-        .from(".third-container", { yPercent: -100, opacity: 0 });
+        .to(".second-container", { xPercent: -50 })
+        .from(".third-container", { yPercent: -100, opacity: 0 })
+        .to(".third-container", { opacity: 1 });
       ScrollTrigger.create({
         animation: slide,
         trigger: "#stackContainer",
         start: "top top",
-        end: "+=6000",
+        end: "+=7000",
         scrub: true,
         pin: true,
         markers: true,
@@ -150,18 +153,46 @@ export default {
         animation: title,
         trigger: "#stackContainer",
         start: "top top",
-        end: "+=6000",
+        end: "+=7000",
         scrub: true,
         pin: true,
       });
 
-      const techiesName = gsap.timeline();
-      techiesName.from(".techies", { scale: 0 }).to(".techies", { scale: 0 });
+      const firstTechies = gsap.timeline();
+      firstTechies
+        .from(".first-techies", { scale: 2 })
+        .to(".first-techies", { scale: 0 });
       ScrollTrigger.create({
-        animation: techiesName,
-        trigger: "#stackContainer",
+        animation: firstTechies,
+        trigger: "#firstSlide",
         start: "top top",
-        end: "+=6000",
+        end: "+=2500",
+        scrub: true,
+        pin: true,
+      });
+
+      const secondTechies = gsap.timeline();
+      secondTechies
+        .from(".second-techies", { scale: 2 })
+        .to(".second-techies", { scale: 0 });
+      ScrollTrigger.create({
+        animation: secondTechies,
+        trigger: "#secondSlide",
+        start: "top top",
+        end: "+=4500",
+        scrub: true,
+        pin: true,
+      });
+
+      const thirdTechies = gsap.timeline();
+      thirdTechies
+        .from(".third-techies", { scale: 2 })
+        .to(".third-techies", { scale: 1 });
+      ScrollTrigger.create({
+        animation: thirdTechies,
+        trigger: "#thirdSlide",
+        start: "top top",
+        end: "+=6500",
         scrub: true,
         pin: true,
       });
@@ -187,10 +218,11 @@ export default {
   font-family: var(--font-family);
   color: var(--primary-color);
   font-size: 8rem;
-  opacity: 0.8;
+  font-weight: 500;
+  opacity: 0.6;
   position: absolute;
-  top: 0;
-  z-index: -10;
+  top: 100%;
+  z-index: 100;
 }
 
 .first-container {
@@ -222,7 +254,6 @@ export default {
   justify-content: center;
   align-items: center;
   padding: 20%;
-  padding-top: 30%;
 }
 
 .names-container {

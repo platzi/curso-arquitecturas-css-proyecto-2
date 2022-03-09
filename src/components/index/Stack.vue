@@ -85,7 +85,6 @@ export default {
         scrub: true,
         pin: true,
         markers: true,
-        pinSpacing: false
       });
     }
 
@@ -101,7 +100,7 @@ export default {
 <style scoped>
 .stack-container {
   width: 100%;
-  margin-bottom: 300vh;
+  margin-bottom: 100vh;
   position: relative;
 }
 

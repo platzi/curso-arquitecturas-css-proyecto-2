@@ -2,29 +2,12 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Works from '../views/Works.vue'
 import Project from '../views/Project.vue'
-import MyFavourites from '../components/My/Favourites.vue'
-import MyStack from '../components/My/Stack.vue'
-import MyNewSkills from '../components/My/NewSkills.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home,
-    children: [
-      {
-        path: '/',
-        component: MyFavourites
-      },
-      {
-        path: 'my-stack',
-        component: MyStack
-      },
-      {
-        path: 'building',
-        component: MyNewSkills
-      },
-    ],
     meta: {
       title: "Luis Reyes Developer"
     }

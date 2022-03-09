@@ -16,10 +16,10 @@
         <figure
           v-for="(image, index) in images[0]"
           :key="index"
-          class="tech-image techieImage"
+          class="tech-image"
           :class="`image-${index}`"
         >
-          <img :src="image.name" alt="" />
+          <img :src="image.name" class="techieImage1" alt="" />
         </figure>
       </div>
     </div>
@@ -38,10 +38,10 @@
         <figure
           v-for="(image, index) in images[1]"
           :key="index"
-          class="tech-image techieImage"
+          class="tech-image"
           :class="`image-${index + 5}`"
         >
-          <img :src="image.name" alt="" />
+          <img :src="image.name" class="techieImage2" alt="" />
         </figure>
       </div>
     </div>
@@ -60,10 +60,10 @@
         <figure
           v-for="(image, index) in images[2]"
           :key="index"
-          class="tech-image techieImage"
+          class="tech-image"
           :class="`image-${index + 11}`"
         >
-          <img :src="image.name" alt="" />
+          <img :src="image.name" alt="" class="techieImage3" />
         </figure>
       </div>
     </div>
@@ -131,12 +131,12 @@ export default {
       });
       const slide = gsap.timeline();
       slide
-        .from(".first-container", { xPercent: -80 })
-        .to(".first-container", { xPercent: 50 })
-        .from(".second-container", { xPercent: 100 })
+        .from(".first-container", { xPercent: -100 })
+        .to(".first-container", { xPercent: 120 })
+        .from(".second-container", { xPercent: 120 })
         .to(".second-container", { xPercent: -50 })
-        .from(".third-container", { yPercent: -100, opacity: 0 })
-        .to(".third-container", { opacity: 1 });
+        .from(".third-container", { xPercent: -100 })
+        .to(".third-container", { xPercent: 120 });
       ScrollTrigger.create({
         animation: slide,
         trigger: "#stackContainer",
@@ -147,6 +147,7 @@ export default {
         markers: true,
       });
 
+      // SLIDES ANIMATION
       const title = gsap.timeline();
       title.from(".stackTitle", { xPercent: 100 });
       ScrollTrigger.create({
@@ -158,12 +159,12 @@ export default {
         pin: true,
       });
 
-      const firstTechies = gsap.timeline();
-      firstTechies
-        .from(".first-techies", { scale: 2 })
-        .to(".first-techies", { scale: 0 });
+      // LOGOS ROTATING
+
+      const firstImage = gsap.timeline();
+      firstImage.to(".techieImage1", { rotation: 1440 });
       ScrollTrigger.create({
-        animation: firstTechies,
+        animation: firstImage,
         trigger: "#firstSlide",
         start: "top top",
         end: "+=2500",
@@ -171,12 +172,10 @@ export default {
         pin: true,
       });
 
-      const secondTechies = gsap.timeline();
-      secondTechies
-        .from(".second-techies", { scale: 2 })
-        .to(".second-techies", { scale: 0 });
+      const secondImages = gsap.timeline();
+      secondImages.to(".techieImage2", { rotation: 1440 });
       ScrollTrigger.create({
-        animation: secondTechies,
+        animation: secondImages,
         trigger: "#secondSlide",
         start: "top top",
         end: "+=4500",
@@ -184,12 +183,10 @@ export default {
         pin: true,
       });
 
-      const thirdTechies = gsap.timeline();
-      thirdTechies
-        .from(".third-techies", { scale: 2 })
-        .to(".third-techies", { scale: 1 });
+      const thirdImages = gsap.timeline();
+      thirdImages.to(".techieImage3", { rotation: 1440 });
       ScrollTrigger.create({
-        animation: thirdTechies,
+        animation: thirdImages,
         trigger: "#thirdSlide",
         start: "top top",
         end: "+=6500",
@@ -217,9 +214,9 @@ export default {
 .stackTitle {
   font-family: var(--font-family);
   color: var(--primary-color);
-  font-size: 8rem;
+  font-size: 4.5rem;
   font-weight: 500;
-  opacity: 0.6;
+  margin-top: 3rem;
   position: absolute;
   top: 100%;
   z-index: 100;
@@ -229,21 +226,21 @@ export default {
   width: 100%;
   height: 80vh;
   position: fixed;
-  top: 10vh;
+  top: -15vh;
   z-index: 5;
 }
 .second-container {
   width: 100%;
   height: 80vh;
   position: fixed;
-  top: 10vh;
+  top: -15vh;
   z-index: 10;
 }
 .third-container {
   width: 100%;
   height: 80vh;
   position: fixed;
-  top: 10vh;
+  top: -15vh;
   z-index: 15;
 }
 
@@ -253,7 +250,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20%;
+  padding: 5%;
 }
 
 .names-container {
@@ -300,36 +297,36 @@ export default {
 }
 .image-2 {
   top: 65%;
-  left: 50%;
+  left: 30%;
 }
 .image-3 {
   top: 40%;
-  left: 70%;
+  left: 50%;
 }
 
 .image-4 {
-  top: 40%;
+  top: 30%;
   left: 10%;
 }
 .image-5 {
   top: 20%;
-  left: 30%;
+  left: 10%;
 }
 .image-6 {
   top: 65%;
-  left: 50%;
+  left: 5%;
 }
 .image-7 {
   top: 40%;
-  left: 70%;
+  left: 20%;
 }
 .image-8 {
-  top: 35%;
+  top: 60%;
   left: 50%;
 }
 .image-9 {
-  top: 30%;
-  left: 70%;
+  top: 50%;
+  left: 35%;
 }
 
 .image-10 {
@@ -339,15 +336,15 @@ export default {
 
 .image-11 {
   top: 40%;
-  left: 70%;
-}
-.image-12 {
-  top: 35%;
   left: 50%;
 }
+.image-12 {
+  top: 50%;
+  left: 10%;
+}
 .image-13 {
-  top: 30%;
-  left: 70%;
+  top: 60%;
+  left: 40%;
 }
 
 .image-14 {
@@ -358,5 +355,18 @@ export default {
 .tech-image img {
   width: 72px;
   height: 72px;
+}
+
+@media only screen and (max-width: 640px) {
+  .stackTitle {
+    font-size: 3rem;
+  }
+  .tech-names {
+    font-size: 1rem;
+  }
+  .tech-image img {
+    width: 36px;
+    height: 36px;
+  }
 }
 </style>

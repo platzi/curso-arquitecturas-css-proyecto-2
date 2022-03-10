@@ -1,17 +1,17 @@
 <template>
   <div class="wrap static">
-    <project-modal />
-    <background />
     <the-header class="header-section" />
-    <router-view />
+    <router-view v-slot="{ Component }">
+      <transition name="route" mode="out-in" >
+        <component :is="Component"></component>
+      </transition>
+    </router-view>
     <the-footer />
   </div>
 </template>
 
 <script>
 import TheHeader from "../src/components/TheHeader.vue";
-import ProjectModal from "../src/components/global/ProjectModal.vue";
-import Background from "./components/global/Background.vue";
 import TheFooter from "./components/TheFooter.vue";
 import { useStore } from "vuex";
 import { computed } from "vue";
@@ -19,8 +19,6 @@ export default {
   name: "App",
   components: {
     TheHeader,
-    ProjectModal,
-    Background,
     TheFooter,
   },
   setup() {
@@ -55,4 +53,25 @@ export default {
 .header-section {
   padding: 0 2.125rem;
 }
+
+
+/* ROUTE TRANSITIONS */
+.route-enter-from {
+  opacity: 0;
+  transform: translateX(100px);
+}
+
+.route-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.route-leave-to {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+.route-leave-active {
+  transition: all 0.3s ease-out;
+}
+
 </style>

@@ -1,6 +1,6 @@
 <template>
-  <section id="projectContainer" class="portfolioSection">
-    <div class="portfolioContent">
+  <section class="portfolioSection">
+    <div id="projectContainer" class="portfolioContent">
       <h2 class="portfolioTitle">MY FREELANCE PORTFOLIO</h2>
       <div>
         <p>
@@ -45,6 +45,7 @@ export default {
   setup() {
     const projectsMounted = onMounted(() => {
       projectAnimation();
+      ScrollTrigger.refresh()
     });
 
     function projectAnimation() {
@@ -59,9 +60,8 @@ export default {
         animation: projects,
         trigger: "#projectContainer",
         start: "top top",
-        end: "+=1000",
+        end: "+=250",
         scrub: true,
-        marekers: true
       });
     }
 

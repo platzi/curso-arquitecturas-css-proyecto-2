@@ -144,7 +144,6 @@ export default {
         end: "+=7000",
         scrub: true,
         pin: true,
-        markers: true,
       });
 
       // SLIDES ANIMATION

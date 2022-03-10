@@ -364,6 +364,12 @@ export default {
     font-size: 1rem;
   }
   .tech-image img {
+    width: 48px;
+    height: 48px;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .tech-image img {
     width: 36px;
     height: 36px;
   }

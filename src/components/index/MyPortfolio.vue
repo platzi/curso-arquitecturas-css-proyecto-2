@@ -73,6 +73,7 @@ export default {
 </script>
 
 <style scoped>
+
 .portfolioSection {
   margin: 3rem 0;
   padding: 0 0.5rem;

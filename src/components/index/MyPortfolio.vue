@@ -60,7 +60,7 @@ export default {
         animation: projects,
         trigger: "#projectContainer",
         start: "top top",
-        end: "+=250",
+        end: "+=100",
         scrub: true,
       });
     }

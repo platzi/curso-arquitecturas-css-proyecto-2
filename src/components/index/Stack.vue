@@ -120,7 +120,12 @@ export default {
     ];
 
     const mountingScrollAnimation = onMounted(() => {
-      scrollAnimation();
+      document.onreadystatechange = () => {
+        if(document.readyState == "complete") {
+          scrollAnimation();
+          ScrollTrigger.refresh()
+        }
+      }
     });
 
     function scrollAnimation() {

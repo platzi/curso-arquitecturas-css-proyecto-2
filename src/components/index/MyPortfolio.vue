@@ -10,7 +10,7 @@
         </p>
       </div>
     </div>
-    <div class="projects-container">
+    <div v-if="projects.length" class="projects-container">
       <project-card
         v-for="(project, index) in projects"
         :key="index"
@@ -44,15 +44,20 @@ export default {
   },
   setup() {
     const projectsMounted = onMounted(() => {
-      projectAnimation();
-      ScrollTrigger.refresh()
+      document.onreadystatechange = () => {
+        if (document.readyState == "complete") {
+          projectAnimation();
+          ScrollTrigger.refresh();
+          console.log("Estamos listos")
+        }
+      };
     });
 
     function projectAnimation() {
       gsap.registerPlugin(ScrollTrigger);
       gsap.defaults({
         ease: "none",
-        duration: 2,
+        duration: 5,
       });
       const projects = gsap.timeline();
       projects.from(".project", { yPercent: 200, opacity: 0 });
@@ -62,6 +67,7 @@ export default {
         start: "top top",
         end: "+=100",
         scrub: true,
+        markers: true
       });
     }
 
@@ -73,7 +79,6 @@ export default {
 </script>
 
 <style scoped>
-
 .portfolioSection {
   margin: 3rem 0;
   padding: 0 0.5rem;

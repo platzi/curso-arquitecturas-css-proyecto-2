@@ -4,7 +4,7 @@
       <h2 class="portfolioTitle">MY FREELANCE PORTFOLIO</h2>
       <div>
         <p>
-          Let me show some of my freelance projects and how i have worked with
+          Let me show some of my freelance projects and how I have worked with
           vuejs and nuxtjs. Some of these projects are created with
           collaboration of amazing people and using incredible tools.
         </p>
@@ -49,20 +49,24 @@ export default {
 
     function projectAnimation() {
       gsap.registerPlugin(ScrollTrigger);
+      gsap.defaults({
+        ease: "none",
+        duration: 2,
+      });
       const projects = gsap.timeline();
-      projects
-        .from(".project", { yPercent: 200, opacity: 0 })
+      projects.from(".project", { yPercent: 200, opacity: 0 });
       ScrollTrigger.create({
         animation: projects,
         trigger: "#projectContainer",
         start: "top top",
-        end: "+=1500",
+        end: "+=1000",
         scrub: true,
-      })
+        marekers: true
+      });
     }
 
     return {
-      projectsMounted
+      projectsMounted,
     };
   },
 };
@@ -107,12 +111,12 @@ export default {
 }
 
 .portfolioContent div p {
-  font-size: 0.75rem;
+  font-size: 1rem;
   width: 100%;
   max-width: 21.25rem;
   text-align: left;
   font-weight: 400;
-  letter-spacing: -4%;
+  /* letter-spacing: -4%; */
 }
 
 .projects-container {
@@ -163,11 +167,17 @@ export default {
   .portfolioTitle {
     font-size: 4.5rem;
   }
+  .portfolioContent div p {
+    font-size: 1rem;
+  }
 }
 
 @media only screen and (max-width: 680px) {
   .portfolioTitle {
     font-size: 3rem;
+  }
+  .portfolioContent div p {
+    font-size: 0.75rem;
   }
 }
 </style>

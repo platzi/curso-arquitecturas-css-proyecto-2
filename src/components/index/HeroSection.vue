@@ -16,7 +16,7 @@
           @after-enter="contentIntro"
         >
           <p>
-            <span class="first-line">I'm enthusiastic</span>
+            <span class="first-line">I'm an enthusiastic</span>
             <br />
             <span class="middle-line"> FRONTEND DEVELOPER </span>
             <br />

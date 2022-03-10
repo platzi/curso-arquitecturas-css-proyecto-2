@@ -1,5 +1,5 @@
 <template>
-  <div class="portfolioSection">
+  <section id="projectContainer" class="portfolioSection">
     <div class="portfolioContent">
       <h2 class="portfolioTitle">MY FREELANCE PORTFOLIO</h2>
       <div>
@@ -18,7 +18,8 @@
         :image="project.image"
         :date="project.date"
         :projectId="project.id"
-        :position="index+1"
+        :position="index + 1"
+        class="project"
       />
     </div>
     <div class="projects-link-container">
@@ -26,17 +27,44 @@
         Take a look at my work
       </router-link>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
 import ProjectCard from "../cards/ProjectCard.vue";
+import { onMounted } from "vue";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 export default {
   components: {
     ProjectCard,
   },
   props: {
     projects: Array,
+  },
+  setup() {
+    const projectsMounted = onMounted(() => {
+      projectAnimation();
+    });
+
+    function projectAnimation() {
+      gsap.registerPlugin(ScrollTrigger);
+      const projects = gsap.timeline();
+      projects
+        .from(".project", { yPercent: 200, opacity: 0 })
+      ScrollTrigger.create({
+        animation: projects,
+        trigger: "#projectContainer",
+        start: "top top",
+        end: "+=1500",
+        scrub: true,
+        markers: true,
+      })
+    }
+
+    return {
+      projectsMounted
+    };
   },
 };
 </script>
@@ -138,11 +166,9 @@ export default {
   }
 }
 
-
 @media only screen and (max-width: 680px) {
   .portfolioTitle {
     font-size: 3rem;
   }
 }
-
 </style>

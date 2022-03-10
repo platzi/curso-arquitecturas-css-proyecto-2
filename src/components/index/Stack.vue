@@ -135,7 +135,7 @@ export default {
         .to(".first-container", { xPercent: 120 })
         .from(".second-container", { xPercent: 120 })
         .to(".second-container", { xPercent: -50 })
-        .from(".third-container", { xPercent: -100 })
+        .from(".third-container", { xPercent: -120 })
         .to(".third-container", { xPercent: 120 });
       ScrollTrigger.create({
         animation: slide,
@@ -146,7 +146,7 @@ export default {
         pin: true,
       });
 
-      // SLIDES ANIMATION
+      // TITLE ANIMATION
       const title = gsap.timeline();
       title.from(".stackTitle", { xPercent: 100 });
       ScrollTrigger.create({

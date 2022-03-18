@@ -45,7 +45,7 @@ export default {
     function loading() {
       setTimeout(() => {
         renderState.isLoading = true;
-      }, 700);
+      }, 1250);
     }
 
     return {

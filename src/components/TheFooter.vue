@@ -38,8 +38,11 @@ export default {
 <style scoped>
 .wrapper {
   width: 100%;
+  min-height: 40vh;
   display: flex;
   justify-content: flex-end;
+  align-items: flex-end;
+  padding-bottom: 20px;
 }
 .footer-container {
   width: 70%;

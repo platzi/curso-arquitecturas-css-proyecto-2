@@ -99,11 +99,13 @@ export default {
 </script>
 
 <style scoped>
-.aboutMeSection--container {
+.aboutMeSection {
   width: 100%;
-  padding: 0 2.125rem;
-  margin: 0 auto;
-  max-width: 1440px;
+  display: flex;
+  justify-content: flex-end;
+}
+.aboutMeSection--container {
+  width: 75%;
 }
 
 .aboutMeSection--container__content {
@@ -119,7 +121,7 @@ export default {
   text-align: left;
   font-family: var(--font-family);
   color: var(--primary-color);
-  width: 35%;
+  width: 50%;
 }
 
 .aboutMeSection--container h2 {

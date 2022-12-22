@@ -1,11 +1,12 @@
 <template>
   <div class="general-container">
-    <the-cursor :xCursorPosition="xPosition" :yCursorPosition="yPosition" />
+    <!-- <the-cursor :xCursorPosition="xPosition"/> :yCursorPosition="yPosition" /> -->
     <hero-section id="indexhero" />
     <my-portfolio :projects="projects" id="indexportfolio" />
     <stack />
-    <!-- <about-me id="indexabout" />
-    <contact-section class="" id="indexcontact" /> -->
+    <Blog />
+    <about-me id="indexabout" />
+    <!-- <contact-section class="" id="indexcontact" /> -->
   </div>
 </template>
 
@@ -13,9 +14,10 @@
 import HeroSection from "../components/index/HeroSection.vue";
 import MyPortfolio from "../components/index/MyPortfolio.vue";
 import Stack from "../components/index/Stack.vue";
+import Blog from "../components/index/Blog.vue"
 // import ContactSection from "../components/index/ContactSection.vue";
 // import TheCursor from "../components/global/TheCursor.vue";
-// import AboutMe from "../components/index/AboutMe.vue";
+import AboutMe from "../components/index/AboutMe.vue";
 import { ref, computed, onMounted, onUnmounted } from "vue";
 import { useStore } from "vuex";
 export default {
@@ -24,9 +26,10 @@ export default {
     HeroSection,
     MyPortfolio,
     Stack,
+    Blog,
     // ContactSection,
     // TheCursor,
-    // AboutMe,
+    AboutMe,
   },
   setup() {
     const xPosition = ref(0);

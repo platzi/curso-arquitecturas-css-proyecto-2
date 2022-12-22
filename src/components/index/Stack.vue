@@ -121,6 +121,7 @@ onMounted(() => {
   margin-top: 3rem;
   width: 80%;
   text-align: right;
+  padding-right: 1rem;
 }
 
 .first-container {

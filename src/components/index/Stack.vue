@@ -1,218 +1,77 @@
-<template>
-  <section id="stackContainer" class="stack-container">
-    <p class="stackTitle">My technologies</p>
-    <!-- FIRST STACK -->
-    <div id="firstSlide" class="first-container">
-      <div class="names-container">
-        <p
-          v-for="(technology, index) in technologies[0]"
-          :key="index"
-          class="tech-names first-techies"
-        >
-          {{ technology.name }}
-        </p>
-      </div>
-      <div class="images-container">
-        <figure
-          v-for="(image, index) in images[0]"
-          :key="index"
-          class="tech-image"
-          :class="`image-${index}`"
-        >
-          <img :src="image.name" class="techieImage1" alt="" />
-        </figure>
-      </div>
-    </div>
-    <!-- SECOND STACK -->
-    <div id="secondSlide" class="second-container">
-      <div class="names-container">
-        <p
-          v-for="(technology, index) in technologies[1]"
-          :key="index"
-          class="tech-names second-techies"
-        >
-          {{ technology.name }}
-        </p>
-      </div>
-      <div class="images-container">
-        <figure
-          v-for="(image, index) in images[1]"
-          :key="index"
-          class="tech-image"
-          :class="`image-${index + 5}`"
-        >
-          <img :src="image.name" class="techieImage2" alt="" />
-        </figure>
-      </div>
-    </div>
-    <!-- THIRD STACK -->
-    <div id="thirdSlide" class="third-container">
-      <div class="names-container">
-        <p
-          v-for="(technology, index) in technologies[2]"
-          :key="index"
-          class="tech-names third-techies"
-        >
-          {{ technology.name }}
-        </p>
-      </div>
-      <div class="images-container">
-        <figure
-          v-for="(image, index) in images[2]"
-          :key="index"
-          class="tech-image"
-          :class="`image-${index + 11}`"
-        >
-          <img :src="image.name" alt="" class="techieImage3" />
-        </figure>
-      </div>
-    </div>
-  </section>
-</template>
-<script>
-import { onMounted } from "vue";
+<script setup>
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-export default {
-  setup() {
-    const images = [
-      [
-        { name: require("@/static/images/stacks/tailwind.png") },
-        { name: require("@/static/images/stacks/vuejs.png") },
-        { name: require("@/static/images/stacks/firebase.png") },
-        { name: require("@/static/images/stacks/nuxtjs.png") },
-      ],
-      [
-        { name: require("@/static/images/stacks/javascript.png") },
-        { name: require("@/static/images/stacks/css.png") },
-        { name: require("@/static/images/stacks/git.png") },
-        { name: require("@/static/images/stacks/github.png") },
-        { name: require("@/static/images/stacks/figma.png") },
-        { name: require("@/static/images/stacks/nodejs.png") },
-      ],
-      [
-        { name: require("@/static/images/stacks/postgres.png") },
-        { name: require("@/static/images/stacks/mongo.png") },
-        { name: require("@/static/images/stacks/expressjs.png") },
-        { name: require("@/static/images/stacks/webpack.png") },
-      ],
-    ];
+  
+const images = [
+  { name: require("@/static/images/stacks/tailwind.png") },
+  { name: require("@/static/images/stacks/vuejs.png") },
+  { name: require("@/static/images/stacks/firebase.png") },
+  { name: require("@/static/images/stacks/nuxtjs.png") },
+];
 
-    const technologies = [
-      [
-        { name: "TAILWIND" },
-        { name: "VUEJS" },
-        { name: "FIREBASE" },
-        { name: "NUXT" },
-      ],
-      [
-        { name: "JAVASCRIPT" },
-        { name: "CSS" },
-        { name: "GIT Y GITHUB" },
-        { name: "FIGMA" },
-      ],
-      [
-        { name: "NODEJS" },
-        { name: "EXPRESSJS" },
-        { name: "MONGODB" },
-        { name: "POSTGRESS" },
-      ],
-    ];
+const technologies = [
+  { name: "TAILWIND" },
+  { name: "VUEJS" },
+  { name: "FIREBASE" },
+  { name: "NUXT" },
+];
 
-    const mountingScrollAnimation = onMounted(() => {
-      document.onreadystatechange = () => {
-        if(document.readyState == "complete") {
-          scrollAnimation();
-          ScrollTrigger.refresh()
-        }
-      }
-    });
+function scrollAnimation() {
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.defaults({
+    ease: "none",
+    duration: 2,
+  });
 
-    function scrollAnimation() {
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.defaults({
-        ease: "none",
-        duration: 2,
-      });
-      const slide = gsap.timeline();
-      slide
-        .from(".first-container", { xPercent: -100 })
-        .to(".first-container", { xPercent: 120 })
-        .from(".second-container", { xPercent: 120 })
-        .to(".second-container", { xPercent: -50 })
-        .from(".third-container", { xPercent: -120 })
-        .to(".third-container", { xPercent: 120 });
-      ScrollTrigger.create({
-        animation: slide,
-        trigger: "#stackContainer",
-        start: "top top",
-        end: "+=7000",
-        scrub: true,
-        pin: true,
-      });
-
-      // TITLE ANIMATION
-      const title = gsap.timeline();
-      title.from(".stackTitle", { xPercent: 100 });
-      ScrollTrigger.create({
-        animation: title,
-        trigger: "#stackContainer",
-        start: "top top",
-        end: "+=7000",
-        scrub: true,
-        pin: true,
-      });
-
-      // LOGOS ROTATING
-
-      const firstImage = gsap.timeline();
-      firstImage.to(".techieImage1", { rotation: 1440 });
-      ScrollTrigger.create({
-        animation: firstImage,
-        trigger: "#firstSlide",
-        start: "top top",
-        end: "+=2500",
-        scrub: true,
-        pin: true,
-      });
-
-      const secondImages = gsap.timeline();
-      secondImages.to(".techieImage2", { rotation: 1440 });
-      ScrollTrigger.create({
-        animation: secondImages,
-        trigger: "#secondSlide",
-        start: "top top",
-        end: "+=4500",
-        scrub: true,
-        pin: true,
-      });
-
-      const thirdImages = gsap.timeline();
-      thirdImages.to(".techieImage3", { rotation: 1440 });
-      ScrollTrigger.create({
-        animation: thirdImages,
-        trigger: "#thirdSlide",
-        start: "top top",
-        end: "+=6500",
-        scrub: true,
-        pin: true,
-      });
-    }
-
-    return {
-      images,
-      technologies,
-      mountingScrollAnimation,
-    };
-  },
-};
+  const firstImage = gsap.timeline();
+  firstImage.to(".techieImage1", { rotation: 770 });
+  ScrollTrigger.create({
+    animation: firstImage,
+    trigger: "#firstSlide",
+    start: "top top",
+    end: "bottom",
+    scrub: true,
+    pin: true,
+    markers: true,
+  });
+}
 </script>
+
+<template>
+  <transition appear @enter="scrollAnimation">
+    <section id="stackContainer" class="stack-container">
+      <p class="stackTitle">My technologies</p>
+      <!-- FIRST STACK -->
+      <div id="firstSlide" class="first-container">
+        <div class="names-container">
+          <p
+            v-for="(technology, index) in technologies"
+            :key="index"
+            class="tech-names first-techies"
+          >
+            {{ technology.name }}
+          </p>
+        </div>
+        <div class="images-container">
+          <figure
+            v-for="(image, index) in images"
+            :key="index"
+            class="tech-image"
+            :class="`image-${index}`"
+          >
+            <img :src="image.name" class="techieImage1" alt="" />
+          </figure>
+        </div>
+      </div>
+    </section>
+  </transition>
+</template>
 
 <style scoped>
 .stack-container {
   width: 100%;
-  margin-bottom: 100vh;
-  position: relative;
+  min-height: 100vh;
+  /* position: relative; */
 }
 
 .stackTitle {
@@ -221,36 +80,13 @@ export default {
   font-size: 4.5rem;
   font-weight: 500;
   margin-top: 3rem;
-  position: absolute;
-  top: 100%;
   z-index: 100;
 }
 
 .first-container {
   width: 100%;
-  height: 80vh;
-  position: fixed;
-  top: -15vh;
-  z-index: 5;
 }
-.second-container {
-  width: 100%;
-  height: 80vh;
-  position: fixed;
-  top: -15vh;
-  z-index: 10;
-}
-.third-container {
-  width: 100%;
-  height: 80vh;
-  position: fixed;
-  top: -15vh;
-  z-index: 15;
-}
-
-.first-container,
-.second-container,
-.third-container {
+.first-container {
   display: flex;
   justify-content: center;
   align-items: center;

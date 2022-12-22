@@ -3,8 +3,8 @@
     <the-cursor :xCursorPosition="xPosition" :yCursorPosition="yPosition" />
     <hero-section id="indexhero" />
     <my-portfolio :projects="projects" id="indexportfolio" />
-    <!-- <stack />
-    <about-me id="indexabout" />
+    <stack />
+    <!-- <about-me id="indexabout" />
     <contact-section class="" id="indexcontact" /> -->
   </div>
 </template>
@@ -12,7 +12,7 @@
 <script>
 import HeroSection from "../components/index/HeroSection.vue";
 import MyPortfolio from "../components/index/MyPortfolio.vue";
-// import Stack from "../components/index/Stack.vue";
+import Stack from "../components/index/Stack.vue";
 // import ContactSection from "../components/index/ContactSection.vue";
 // import TheCursor from "../components/global/TheCursor.vue";
 // import AboutMe from "../components/index/AboutMe.vue";
@@ -23,7 +23,7 @@ export default {
   components: {
     HeroSection,
     MyPortfolio,
-    // Stack,
+    Stack,
     // ContactSection,
     // TheCursor,
     // AboutMe,

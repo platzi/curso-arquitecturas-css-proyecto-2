@@ -1,17 +1,19 @@
 <template>
-  <footer class="footer-container">
-    <div class="footer-container__social-container">
-      <div
-        v-for="(item, index) in networks"
-        :key="index"
-        class="social-network"
-      >
-        <a :href="item.link" target="_blank">{{ item.name }}</a>
+  <footer class="wrapper">
+    <div class="footer-container">
+      <div class="footer-container__social-container">
+        <div
+          v-for="(item, index) in networks"
+          :key="index"
+          class="social-network"
+        >
+          <a :href="item.link" target="_blank">{{ item.name }}</a>
+        </div>
       </div>
-    </div>
-    <div class="footer-container__copyright-container">
-      <p class="location">Guayaquil, Ecuador</p>
-      <p class="signature">2022, DEVELOPED BY LUIS REYES</p>
+      <div class="footer-container__copyright-container">
+        <p class="location">Guayaquil, Ecuador</p>
+        <p class="signature">2022, DEVELOPED BY LUIS REYES</p>
+      </div>
     </div>
   </footer>
 </template>
@@ -34,10 +36,13 @@ export default {
 </script>
 
 <style scoped>
-.footer-container {
+.wrapper {
   width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+}
+.footer-container {
+  width: 70%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

@@ -45,13 +45,11 @@ onMounted(() => {
   <section class="portfolioSection">
     <div id="projectContainer" class="portfolioContent">
       <h2 class="portfolioTitle">Some project I've work</h2>
-      <div>
-        <p>
-          Let me show some of my first projects and how I have worked with
-          vuejs and nuxtjs. Some of these projects are created with
-          collaboration of amazing people and using incredible tools.
-        </p>
-      </div>
+      <p class="description">
+        Let me show some of my first projects and how I have worked with
+        vuejs and nuxtjs. Some of these projects are created with
+        collaboration of amazing people and using incredible tools.
+      </p>
     </div>
     <div v-if="projects.length" class="projects-container">
       hey
@@ -86,7 +84,7 @@ onMounted(() => {
 .portfolioContent {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: flex-end;
   flex-direction: column;
   padding: 2rem 2.25rem;
   width: 100%;
@@ -94,7 +92,7 @@ onMounted(() => {
 }
 
 .portfolioTitle,
-.portfolioContent p {
+.portfolioContent .description {
   font-family: var(--font-family);
   color: var(--primary-color);
   letter-spacing: var(--letter-spacing);
@@ -108,14 +106,14 @@ onMounted(() => {
   margin-bottom: 3rem;
 }
 
-.portfolioContent div {
+.portfolioContent description {
   width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-.portfolioContent div p {
+.portfolioContent .description {
   font-size: 1rem;
   width: 100%;
   max-width: 21.25rem;

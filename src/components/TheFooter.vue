@@ -65,7 +65,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--lightbg-color);
   border-radius: 100%;
   width: 4.5rem;
   height: 4.5rem;
@@ -76,7 +76,7 @@ export default {
 .social-network a {
   text-align: center;
   font-family: var(--font-family);
-  color: var(--primary-color);
+  color: var(--secundary-color);
   font-size: 0.75rem;
   font-weight: 300;
   text-decoration: none;
@@ -92,7 +92,7 @@ export default {
 .location {
   text-align: right;
   font-family: var(--font-family);
-  color: var(--primary-color);
+  color: var(--lightbg-color);
   font-size: 0.75rem;
   font-weight: 300;
   margin: 0;
@@ -102,7 +102,7 @@ export default {
 .signature {
   text-align: right;
   font-family: var(--font-family);
-  color: var(--primary-color);
+  color: var(--lightbg-color);
   font-size: 0.75rem;
   font-weight: 300;
   margin: 0;

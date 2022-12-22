@@ -29,7 +29,10 @@ const { post } = toRefs(props)
 .post-wrapper {
   border-radius: 8px;
   border: 1px solid var(--primary-color);
-  width: 300px;
+  /* max-width: 300px; */
+  width: 100%;
+  min-width: 256px;
+  max-width: 420px;
 }
 .post-image {
   border-radius: 8px 8px 0 0;

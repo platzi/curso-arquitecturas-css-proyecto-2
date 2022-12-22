@@ -118,6 +118,7 @@ onMounted(() => {
   max-width: 21.25rem;
   text-align: left;
   font-weight: 400;
+  color: var(--lightbg-color);
 }
 
 .projects-container {

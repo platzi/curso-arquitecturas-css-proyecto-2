@@ -163,6 +163,9 @@ onMounted(() => {
 .tech-image {
   width: 100%;
   height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media only screen and (max-width: 640px) {

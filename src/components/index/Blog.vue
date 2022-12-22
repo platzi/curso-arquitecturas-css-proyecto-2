@@ -42,10 +42,12 @@ const posts = [
     margin: 48px;
   }
   .posts-container {
-    margin: 32px;
+    margin: 32px 0;
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
     gap: 48px;
+    width: 80%;
   }
   .blog-title {
     font-family: var(--font-family);

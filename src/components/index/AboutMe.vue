@@ -105,7 +105,8 @@ export default {
   justify-content: flex-end;
 }
 .aboutMeSection--container {
-  width: 75%;
+  width: 80%;
+  padding: 24px;
 }
 
 .aboutMeSection--container__content {
@@ -130,7 +131,7 @@ export default {
 
 .aboutMeSection--container p {
   font-size: 1.5rem;
-  color: var(--primary-color);
+  color: var(--lightbg-color);
 }
 
 .aboutMeSection--container__card1 {

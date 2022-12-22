@@ -1,32 +1,32 @@
 <template>
   <div class="general-container">
     <the-cursor :xCursorPosition="xPosition" :yCursorPosition="yPosition" />
-    <hero-section class="section" id="indexhero" />
-    <my-portfolio :projects="projects" id="indexportfolio" />
+    <hero-section id="indexhero" />
+    <!-- <my-portfolio :projects="projects" id="indexportfolio" />
     <stack />
     <about-me id="indexabout" />
-    <contact-section class="" id="indexcontact" />
+    <contact-section class="" id="indexcontact" /> -->
   </div>
 </template>
 
 <script>
 import HeroSection from "../components/index/HeroSection.vue";
-import MyPortfolio from "../components/index/MyPortfolio.vue";
-import Stack from "../components/index/Stack.vue";
-import ContactSection from "../components/index/ContactSection.vue";
-import TheCursor from "../components/global/TheCursor.vue";
-import AboutMe from "../components/index/AboutMe.vue";
+// import MyPortfolio from "../components/index/MyPortfolio.vue";
+// import Stack from "../components/index/Stack.vue";
+// import ContactSection from "../components/index/ContactSection.vue";
+// import TheCursor from "../components/global/TheCursor.vue";
+// import AboutMe from "../components/index/AboutMe.vue";
 import { ref, computed, onMounted, onUnmounted } from "vue";
 import { useStore } from "vuex";
 export default {
   name: "Home",
   components: {
     HeroSection,
-    MyPortfolio,
-    Stack,
-    ContactSection,
-    TheCursor,
-    AboutMe,
+    // MyPortfolio,
+    // Stack,
+    // ContactSection,
+    // TheCursor,
+    // AboutMe,
   },
   setup() {
     const xPosition = ref(0);

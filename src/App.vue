@@ -1,22 +1,7 @@
-<template>
-  <div v-if="!isLoading" class="loading">
-    <loader />
-    <p class="loading-text">Loading . . .</p>
-  </div>
-  <div class="wrap static">
-    <the-header class="header-section" />
-    <router-view v-slot="{ Component }">
-      <transition name="route" mode="out-in">
-        <component :is="Component"></component>
-      </transition>
-    </router-view>
-    <the-footer />
-  </div>
-</template>
-
 <script>
 import TheHeader from "../src/components/TheHeader.vue";
 import TheFooter from "./components/TheFooter.vue";
+import TheSectionPointer from "./components/global/TheSectionPointer.vue";
 import { useStore } from "vuex";
 import { onMounted, computed, reactive, toRefs } from "vue";
 import Loader from "./components/global/Loader.vue"
@@ -25,7 +10,8 @@ export default {
   components: {
     TheHeader,
     TheFooter,
-    Loader
+    Loader,
+    TheSectionPointer
   },
   setup() {
     const store = useStore();
@@ -56,12 +42,33 @@ export default {
 };
 </script>
 
+<template>
+  <div class="app-wrapper">
+    <div class="wrap static">
+      <the-header class="header-section" />
+      <router-view v-slot="{ Component }">
+        <transition name="route" mode="out-in">
+          <component :is="Component"></component>
+        </transition>
+      </router-view>
+      <the-footer />
+    </div>
+    <TheSectionPointer />
+  </div>
+</template>
+
 <style>
 @import "./assets/css/variables.css";
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300&display=swap");
 
 .static {
   overflow: hidden;
+}
+
+.app-wrapper {
+  background: var(--darkbg-color);
+  width: 100%;
+  position: relative;
 }
 
 .loading {
@@ -77,18 +84,10 @@ export default {
   align-items: center;
 }
 
-.loading .loading-text {
-  font-family: var(--font-family);
-  font-size: 1.5rem;
-  color: var(--primary-color);
-  font-weight: 500;
-}
-
 .wrap {
-  background: var(--bglight-color);
   position: relative;
-  background-image: url("./static/images/noise.png");
-  background-position: center;
+  max-width: 1024px;
+  margin: 0 auto;
 }
 
 .header-section {

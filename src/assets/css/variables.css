@@ -2,8 +2,9 @@
 
 :root {
   --font-family: "Manrope", sans-serif;
-  --lightbg-color: #f1f9fc;
+  --lightbg-color: #e0e5e0;
   --primary-color: #1e6f5c;
+  --secundary-color: #545548;
   --darkbg-color: #051c25;
   --letter-spacing: -4%;
 }

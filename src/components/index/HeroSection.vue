@@ -12,7 +12,7 @@ const nameIntro = (el, done) => {
     duration: 1,
     opacity: 1,
     onComplete: done,
-    delay: 1,
+    delay: 2.6,
     ease: "power1.out",
   });
 };
@@ -28,7 +28,7 @@ const contentIntro = (el, done) => {
     opacity: 1,
     duration: 1,
     onComplete: done,
-    delay: 2.15,
+    delay: 3.6,
   });
 };
 </script>

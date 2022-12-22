@@ -9,7 +9,7 @@ const beforeStickIntro = (el) => {
 };
 const stickIntro = (el, done) => {
   gsap.to(el, {
-    Y: 0,
+    y: 0,
     scaleY: 1,
     duration: 1,
     opacity: 1,

@@ -1,17 +1,61 @@
+<script setup>
+import { toRefs, defineProps, onMounted } from "vue";
+// import { defineProps ,onMounted } from "vue";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ProjectCard from "../cards/ProjectCard.vue";
+
+const props = defineProps({
+  projects: {
+    type: Array,
+    required: true
+  }
+})
+
+const { projects } = toRefs(props)
+
+function projectAnimation() {
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.defaults({
+    ease: "none",
+    duration: 5,
+  });
+  const projects = gsap.timeline();
+  projects.from(".project", { yPercent: 100, opacity: 0 });
+  ScrollTrigger.create({
+    animation: projects,
+    trigger: "#projectContainer",
+    start: "top top",
+    end: "bottom",
+    scrub: true,
+  });
+}
+
+onMounted(() => {
+  document.onreadystatechange = () => {
+    if (document.readyState == "complete") {
+      projectAnimation();
+      ScrollTrigger.refresh();
+    }
+  };
+});
+</script>
+
 <template>
   <section class="portfolioSection">
     <div id="projectContainer" class="portfolioContent">
-      <h2 class="portfolioTitle">MY FREELANCE PORTFOLIO</h2>
+      <h2 class="portfolioTitle">Some project I've work</h2>
       <div>
         <p>
-          Let me show some of my freelance projects and how I have worked with
+          Let me show some of my first projects and how I have worked with
           vuejs and nuxtjs. Some of these projects are created with
           collaboration of amazing people and using incredible tools.
         </p>
       </div>
     </div>
     <div v-if="projects.length" class="projects-container">
-      <project-card
+      hey
+      <ProjectCard
         v-for="(project, index) in projects"
         :key="index"
         :title="project.name"
@@ -30,58 +74,13 @@
   </section>
 </template>
 
-<script>
-import ProjectCard from "../cards/ProjectCard.vue";
-import { onMounted } from "vue";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-export default {
-  components: {
-    ProjectCard,
-  },
-  props: {
-    projects: Array,
-  },
-  setup() {
-    const projectsMounted = onMounted(() => {
-      document.onreadystatechange = () => {
-        if (document.readyState == "complete") {
-          projectAnimation();
-          ScrollTrigger.refresh();
-          console.log("Estamos listos")
-        }
-      };
-    });
-
-    function projectAnimation() {
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.defaults({
-        ease: "none",
-        duration: 5,
-      });
-      const projects = gsap.timeline();
-      projects.from(".project", { yPercent: 200, opacity: 0 });
-      ScrollTrigger.create({
-        animation: projects,
-        trigger: "#projectContainer",
-        start: "top top",
-        end: "+=100",
-        scrub: true,
-        markers: true
-      });
-    }
-
-    return {
-      projectsMounted,
-    };
-  },
-};
-</script>
-
 <style scoped>
 .portfolioSection {
   margin: 3rem 0;
   padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .portfolioContent {
@@ -122,12 +121,14 @@ export default {
   max-width: 21.25rem;
   text-align: left;
   font-weight: 400;
-  /* letter-spacing: -4%; */
 }
 
 .projects-container {
-  width: 100%;
+  width: 80%;
   margin: 32px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
 }
 
 .projects-link-container {

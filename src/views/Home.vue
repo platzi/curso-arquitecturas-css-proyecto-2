@@ -2,8 +2,8 @@
   <div class="general-container">
     <the-cursor :xCursorPosition="xPosition" :yCursorPosition="yPosition" />
     <hero-section id="indexhero" />
-    <!-- <my-portfolio :projects="projects" id="indexportfolio" />
-    <stack />
+    <my-portfolio :projects="projects" id="indexportfolio" />
+    <!-- <stack />
     <about-me id="indexabout" />
     <contact-section class="" id="indexcontact" /> -->
   </div>
@@ -11,7 +11,7 @@
 
 <script>
 import HeroSection from "../components/index/HeroSection.vue";
-// import MyPortfolio from "../components/index/MyPortfolio.vue";
+import MyPortfolio from "../components/index/MyPortfolio.vue";
 // import Stack from "../components/index/Stack.vue";
 // import ContactSection from "../components/index/ContactSection.vue";
 // import TheCursor from "../components/global/TheCursor.vue";
@@ -22,7 +22,7 @@ export default {
   name: "Home",
   components: {
     HeroSection,
-    // MyPortfolio,
+    MyPortfolio,
     // Stack,
     // ContactSection,
     // TheCursor,

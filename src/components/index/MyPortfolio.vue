@@ -52,7 +52,6 @@ onMounted(() => {
       </p>
     </div>
     <div v-if="projects.length" class="projects-container">
-      hey
       <ProjectCard
         v-for="(project, index) in projects"
         :key="index"

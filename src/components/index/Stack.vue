@@ -1,77 +1,116 @@
 <script setup>
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { onMounted } from "vue";
   
 const images = [
-  { name: require("@/static/images/stacks/tailwind.png") },
-  { name: require("@/static/images/stacks/vuejs.png") },
-  { name: require("@/static/images/stacks/firebase.png") },
-  { name: require("@/static/images/stacks/nuxtjs.png") },
+  [
+    { name: require("@/static/images/stacks/tailwind.png") },
+    { name: require("@/static/images/stacks/vuejs.png") },
+    { name: require("@/static/images/stacks/firebase.png") },
+    { name: require("@/static/images/stacks/nuxtjs.png") },
+  ],
+  [
+    { name: require("@/static/images/stacks/javascript.png") },
+    { name: require("@/static/images/stacks/css.png") },
+    { name: require("@/static/images/stacks/git.png") },
+    { name: require("@/static/images/stacks/github.png") },
+    { name: require("@/static/images/stacks/figma.png") },
+    { name: require("@/static/images/stacks/nodejs.png") },
+  ],
+  [
+    { name: require("@/static/images/stacks/postgres.png") },
+    { name: require("@/static/images/stacks/mongo.png") },
+    { name: require("@/static/images/stacks/expressjs.png") },
+    { name: require("@/static/images/stacks/webpack.png") },
+  ],
 ];
 
-const technologies = [
-  { name: "TAILWIND" },
-  { name: "VUEJS" },
-  { name: "FIREBASE" },
-  { name: "NUXT" },
-];
+// const technologies = [
+//   { name: "TAILWIND" },
+//   { name: "VUEJS" },
+//   { name: "FIREBASE" },
+//   { name: "NUXT" },
+// ];
 
-function scrollAnimation() {
+function scrollAnimation2() {
   gsap.registerPlugin(ScrollTrigger);
   gsap.defaults({
     ease: "none",
-    duration: 2,
+    duration: 1,
   });
 
-  const firstImage = gsap.timeline();
-  firstImage.to(".techieImage1", { rotation: 770 });
-  ScrollTrigger.create({
-    animation: firstImage,
-    trigger: "#firstSlide",
-    start: "top top",
-    end: "bottom",
-    scrub: true,
-    pin: true,
-    markers: true,
-  });
+  gsap.timeline({
+    ScrollTrigger: {
+      trigger: "#firstSlide",
+      start: "top bottom",
+      end: "top center",
+      scrub: true,
+      markers: true,
+    }
+  })
+  .from(".firstStack", { yPercent: 200, opacity: 0 });
 }
+onMounted(() => {
+  scrollAnimation2()
+})
 </script>
 
 <template>
-  <transition appear @enter="scrollAnimation">
-    <section id="stackContainer" class="stack-container">
-      <p class="stackTitle">My technologies</p>
-      <!-- FIRST STACK -->
-      <div id="firstSlide" class="first-container">
-        <div class="names-container">
-          <p
-            v-for="(technology, index) in technologies"
-            :key="index"
-            class="tech-names first-techies"
-          >
-            {{ technology.name }}
-          </p>
-        </div>
-        <div class="images-container">
-          <figure
-            v-for="(image, index) in images"
-            :key="index"
-            class="tech-image"
-            :class="`image-${index}`"
-          >
-            <img :src="image.name" class="techieImage1" alt="" />
-          </figure>
-        </div>
+  <section id="stackContainer" class="stack-container">
+    <p class="stackTitle">My Stack</p>
+    <!-- FIRST STACK -->
+    <div id="firstSlide" class="first-container">
+      <!-- <div class="names-container">
+        <p
+          v-for="(technology, index) in technologies"
+          :key="index"
+          class="tech-names firstStack"
+        >
+          {{ technology.name }}
+        </p>
+      </div> -->
+      <div class="images-container">
+        <figure
+          v-for="(image, index) in images[0]"
+          :key="index"
+          class="tech-image"
+          :class="`image-${index}`"
+        >
+          <img :src="image.name" class="techieImage1" alt="" />
+        </figure>
       </div>
-    </section>
-  </transition>
+      <div class="images-container">
+        <figure
+          v-for="(image, index) in images[1]"
+          :key="index"
+          class="tech-image"
+          :class="`image-${index}`"
+        >
+          <img :src="image.name" class="techieImage1" alt="" />
+        </figure>
+      </div>
+      <div class="images-container">
+        <figure
+          v-for="(image, index) in images[2]"
+          :key="index"
+          class="tech-image"
+          :class="`image-${index}`"
+        >
+          <img :src="image.name" class="techieImage1" alt="" />
+        </figure>
+      </div>
+    </div>
+  </section>
 </template>
 
 <style scoped>
 .stack-container {
   width: 100%;
   min-height: 100vh;
-  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .stackTitle {
@@ -80,15 +119,17 @@ function scrollAnimation() {
   font-size: 4.5rem;
   font-weight: 500;
   margin-top: 3rem;
-  z-index: 100;
+  width: 80%;
+  text-align: right;
 }
 
 .first-container {
   width: 100%;
+  display: flex;
 }
 .first-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   padding: 5%;
 }
@@ -112,89 +153,15 @@ function scrollAnimation() {
 }
 
 .images-container {
-  width: 75%;
-  height: 80vh;
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-
+ 
 .tech-image {
   width: 100%;
   height: 100px;
-  position: absolute;
-}
-
-.image-0 {
-  top: 40%;
-  left: 10%;
-}
-.image-1 {
-  top: 20%;
-  left: 30%;
-}
-.image-2 {
-  top: 65%;
-  left: 30%;
-}
-.image-3 {
-  top: 40%;
-  left: 50%;
-}
-
-.image-4 {
-  top: 30%;
-  left: 10%;
-}
-.image-5 {
-  top: 20%;
-  left: 10%;
-}
-.image-6 {
-  top: 65%;
-  left: 5%;
-}
-.image-7 {
-  top: 40%;
-  left: 20%;
-}
-.image-8 {
-  top: 60%;
-  left: 50%;
-}
-.image-9 {
-  top: 50%;
-  left: 35%;
-}
-
-.image-10 {
-  top: 20%;
-  left: 40%;
-}
-
-.image-11 {
-  top: 40%;
-  left: 50%;
-}
-.image-12 {
-  top: 50%;
-  left: 10%;
-}
-.image-13 {
-  top: 60%;
-  left: 40%;
-}
-
-.image-14 {
-  top: 20%;
-  left: 30%;
-}
-
-.tech-image img {
-  width: 72px;
-  height: 72px;
 }
 
 @media only screen and (max-width: 640px) {

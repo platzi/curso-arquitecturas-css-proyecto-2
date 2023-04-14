@@ -1,21 +1,20 @@
 <template>
-  <footer class="wrapper">
-    <div class="footer-container">
-      <div class="footer-container__social-container">
-        <div
+  <div class="wrapper">
+    <footer class="footer">
+      <ul class="social-media">
+        <li
           v-for="(item, index) in networks"
           :key="index"
-          class="social-network"
-        >
+          class="social-media__list-item">
           <a :href="item.link" target="_blank">{{ item.name }}</a>
-        </div>
+        </li>
+      </ul>
+      <div class="copyright">
+        <p class="copyright__location">Guayaquil, Ecuador</p>
+        <p class="copyright__signature">2022, DEVELOPED BY LUIS REYES</p>
       </div>
-      <div class="footer-container__copyright-container">
-        <p class="location">Guayaquil, Ecuador</p>
-        <p class="signature">2022, DEVELOPED BY LUIS REYES</p>
-      </div>
-    </div>
-  </footer>
+    </footer>
+  </div>
 </template>
 
 <script>
@@ -44,7 +43,7 @@ export default {
   align-items: flex-end;
   padding-bottom: 20px;
 }
-.footer-container {
+.footer {
   width: 70%;
   display: flex;
   flex-wrap: wrap;
@@ -53,7 +52,7 @@ export default {
   padding: 1rem 2.125rem;
 }
 
-.footer-container__social-container {
+.social-media {
   width: 280px;
   padding: 0 2.125rem;
   display: flex;
@@ -61,7 +60,7 @@ export default {
   align-items: center;
 }
 
-.social-network {
+.social-media__list-item {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,7 +72,7 @@ export default {
   padding: 1rem;
 }
 
-.social-network a {
+.social-media__list-item a {
   text-align: center;
   font-family: var(--font-family);
   color: var(--secundary-color);
@@ -82,14 +81,14 @@ export default {
   text-decoration: none;
 }
 
-.footer-container__copyright-container {
+.copyright {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
 }
 
-.location {
+.copyright__location {
   text-align: right;
   font-family: var(--font-family);
   color: var(--lightbg-color);
@@ -99,7 +98,7 @@ export default {
   margin-bottom: 1rem;
 }
 
-.signature {
+.copyright__signature {
   text-align: right;
   font-family: var(--font-family);
   color: var(--lightbg-color);
@@ -109,28 +108,28 @@ export default {
 }
 
 @media only screen and (max-width: 780px) {
-  .footer-container__copyright-container {
+  .copyright {
     align-items: center;
   }
 
-  .social-network {
+  .social-media__list-item {
     margin-right: 0;
   }
 }
 
 @media only screen and (max-width: 640px) {
-  .footer-container {
+  .footer {
     flex-direction: column;
   }
 
-  .footer-container__social-container {
+  .social-media {
     margin-bottom: 1rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 0;
   }
-  .social-network {
+  .social-media__list-item {
     margin-bottom: 0.75rem;
   }
 }

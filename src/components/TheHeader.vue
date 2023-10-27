@@ -4,17 +4,17 @@
       <burger-button @click="getMenu" />
     </div> -->
     <nav
-      class="header--container"
+      class="header__navigation"
       :class="{
         isOpen: isMenuOpen,
       }"
     >
-      <div class="header--logo-container">
-        <p class="logo-text">LR.</p>
+      <div class="header__logo-container">
+        <p class="header__logo-text">LR.</p>
       </div>
-      <ul>
+      <ul class="header__route-list">
         <li v-for="(item, index) in menu" :key="index" @click="getMenu">
-          <a :href="item.link" class="link">
+          <a :href="item.link" class="header__link">
             {{ item.name }}
           </a>
         </li>
